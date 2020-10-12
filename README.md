@@ -15,7 +15,11 @@ Ciljna grupa RuDok-a jesu sva preduzeća i fizička lica koja svakodnevno korist
 Kroz postupak prikupljanja informacija (Razgovor i posmatranje) u sektorima prosvete i administracije,zakljucili smo da postoji velika potreba za softverskim resenjem pri skladistenju podeli i verodostojnosti dokumenata.Nasa ideja jeste kreiranje softverskog alata koji ce za cilj imati da olaksa operativni rad unutar profesija.Pokusacemo da koriscenjem grafickih oblika,uputstva za upotrebu kao i interaktivnih dugmica alat priblizimo i informaticki pismenima i onima koji to nisu.
 
 ## Problemi koje zelimo da resimo
-# Verodostojnost dokumenata
+### Verodostojnost dokumenata
+Nakon skladistenja dokumenata zelimo da budemo sigurni da se ne moze kreirati dokument falsifikat dokumenta koji je vec izdat.
+### Brza pretraga dokumenata
+Zelimo da brzo i efikasno pronalazimo dokumente.
+### 
 
 
 ## Tržište
