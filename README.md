@@ -12,15 +12,13 @@ Ciljna grupa RuDok-a jesu sva preduzeća i fizička lica koja svakodnevno korist
 + pravo.
 
 ## Ideja
-Kroz postupak prikupljanja informacija (Razgovor i posmatranje) u sektorima prosvete i administracije,zakljucili smo da postoji velika potreba za softverskim resenjem pri skladistenju podeli i verodostojnosti dokumenata.Nasa ideja jeste kreiranje softverskog alata koji ce za cilj imati da olaksa operativni rad unutar profesija.Pokusacemo da koriscenjem grafickih oblika,uputstva za upotrebu kao i interaktivnih dugmica alat priblizimo i informaticki pismenima i onima koji to nisu.
+Kroz postupak prikupljanja informacija (Razgovor i posmatranje) u sektorima prosvete i administracije,zaključili smo da postoji velika potreba za softverskim rešenjem pri skladištenju,podeli i verodostojnosti dokumenata. Naša ideja jeste kreiranje softverskog alata koji će za cilj imati da olakša operativni rad unutar profesija. Pokusaćemo da korišćenjem grafičkih oblika, uputstva za upotrebu kao i interaktivnih dugmića alat približimo i informatički pismenima i onima koji to nisu.
 
-## Problemi koje zelimo da resimo
+## Problemi koje želimo da rešimo
 ### Verodostojnost dokumenata
-Nakon skladistenja dokumenata zelimo da budemo sigurni da se ne moze kreirati dokument falsifikat dokumenta koji je vec izdat.
+Nakon skladištenja dokumenata želimo da budemo sigurni da se ne može kreirati dokument falsifikat dokumenta koji je vec izdat.
 ### Brza pretraga dokumenata
-Zelimo da brzo i efikasno pronalazimo dokumente.
-### 
-
+Želimo da brzo i efikasno pronalazimo dokumente.
 
 ## Tržište
 Na tržištu postoji nekoliko konkurenata, od kojih su neki besplatni. Od alata koji se plaćaju, tu je Microsoft Word čija je glavna prednost pozicija koju poseduje na tržištu. Što se tiče besplatnih alata, bitno je spomenuti LibreOffice Writter i OpenOffice Writer, koji kao glavnu prednost ističu svoju dostupnost.
