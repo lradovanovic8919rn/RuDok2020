@@ -3,6 +3,7 @@ package app;
 
 import javax.swing.*;
 
+import action.ActionManager;
 import gui.view.MenuLine;
 import gui.view.Toolbar;
 
@@ -16,17 +17,25 @@ public class MainView extends JFrame {
     private Toolbar toolBar;
     private MenuLine menu;
     private JSplitPane splitPane;
-
+    private ActionManager actionManager;
 
 
     private MainView (){
-        initElements();
+        
+    }
+    
+    private void init() {
+    	
+    	initElements();
         addElements();
+        
     }
 
     private void initElements(){
+    	actionManager=new ActionManager();
         menu = new MenuLine();
         toolBar = new Toolbar();
+        
     }
 
     private void addElements(){
@@ -51,7 +60,7 @@ public class MainView extends JFrame {
     public static MainView getInstance() {
         if(instance == null) {
             instance = new MainView();
-    
+            instance.init();
         }
         return instance;
     }
@@ -80,6 +89,10 @@ public class MainView extends JFrame {
 
 	public void setMenu(MenuLine menu) {
 		this.menu = menu;
+	}
+
+	public ActionManager getActionManager() {
+		return actionManager;
 	}
     
 }
