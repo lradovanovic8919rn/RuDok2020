@@ -2,6 +2,10 @@ package app;
 
 
 import javax.swing.*;
+
+import gui.view.MenuLine;
+import gui.view.Toolbar;
+
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 
@@ -9,8 +13,8 @@ public class MainView extends JFrame {
 
     private static MainView instance = null;
 
-    private JToolBar toolBar;
-    private JMenuBar menu;
+    private Toolbar toolBar;
+    private MenuLine menu;
     private JSplitPane splitPane;
 
 
@@ -21,8 +25,8 @@ public class MainView extends JFrame {
     }
 
     private void initElements(){
-        menu = new JMenuBar();
-        toolBar = new JToolBar();
+        menu = new MenuLine();
+        toolBar = new Toolbar();
     }
 
     private void addElements(){
@@ -47,6 +51,7 @@ public class MainView extends JFrame {
     public static MainView getInstance() {
         if(instance == null) {
             instance = new MainView();
+    
         }
         return instance;
     }
@@ -56,7 +61,7 @@ public class MainView extends JFrame {
         return toolBar;
     }
 
-    public void setToolBar(JToolBar toolBar) {
+    public void setToolBar(Toolbar toolBar) {
         this.toolBar = toolBar;
     }
 
@@ -68,4 +73,13 @@ public class MainView extends JFrame {
     public void setSplitPane(JSplitPane splitPane) {
         this.splitPane = splitPane;
     }
+
+	public MenuLine getMenu() {
+		return menu;
+	}
+
+	public void setMenu(MenuLine menu) {
+		this.menu = menu;
+	}
+    
 }
