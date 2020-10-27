@@ -14,15 +14,15 @@ public class MenuLine extends JMenuBar {
 
 	public MenuLine() {
 		JMenu file=new JMenu("File");
-		file.add(MainView.getInstance().getActionManager().getAddNodeAction());
-		file.add(MainView.getInstance().getActionManager().getDeleteNodeAction());
-		file.add(MainView.getInstance().getActionManager().getRenameNodeAction());
+		
 		
 		JMenu about=new JMenu("About");
 		
 		
 		JMenu edit=new JMenu("Edit");
-		
+		edit.add(MainView.getInstance().getActionManager().getAddNodeAction());
+		edit.add(MainView.getInstance().getActionManager().getDeleteNodeAction());
+		edit.add(MainView.getInstance().getActionManager().getRenameNodeAction());
 		
 		this.add(file);
 		this.add(edit);

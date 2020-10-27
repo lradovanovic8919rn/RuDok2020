@@ -18,7 +18,9 @@ public class MainView extends JFrame {
     private MenuLine menu;
     private JSplitPane splitPane;
     private ActionManager actionManager;
-
+    private JPanel panel2;
+    private JScrollPane scroll;
+    
 
     private MainView (){
         
@@ -42,19 +44,23 @@ public class MainView extends JFrame {
         setTitle("RuDok");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(700,700);
+        setSize(1000,700);
 
         setJMenuBar(menu);
-
-        splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
-
-        JScrollPane scroll = new JScrollPane();
-        scroll.setMinimumSize(new Dimension(145, 145));
-        splitPane.add(scroll);
+        
+        scroll = new JScrollPane();
+        scroll.setSize(420,420);
+        scroll.setMinimumSize(new Dimension(200,200));
+        
+        panel2=new JPanel(new BorderLayout());
+        
+        splitPane = new JSplitPane(SwingConstants.VERTICAL,scroll,panel2);
+        splitPane.setDividerLocation(300);
 
         add(toolBar, BorderLayout.NORTH);
         add(splitPane,BorderLayout.CENTER);
-
+        
+        
     }
 
     public static MainView getInstance() {
