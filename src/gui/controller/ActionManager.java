@@ -1,4 +1,4 @@
-package action;
+package gui.controller;
 
 public class ActionManager {
 	

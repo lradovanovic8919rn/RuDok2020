@@ -4,7 +4,7 @@ package gui.view;
 import javax.swing.JButton;
 import javax.swing.JToolBar;
 
-import app.MainView;
+import gui.view.MainView;
 
 public class Toolbar extends JToolBar{
 

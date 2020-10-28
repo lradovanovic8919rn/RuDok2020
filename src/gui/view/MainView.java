@@ -1,9 +1,9 @@
-package app;
+package gui.view;
 
 
 import javax.swing.*;
 
-import action.ActionManager;
+import gui.controller.ActionManager;
 import gui.view.MenuLine;
 import gui.view.Toolbar;
 

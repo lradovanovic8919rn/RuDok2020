@@ -1,4 +1,4 @@
-package action;
+package gui.controller;
 
 import javax.swing.*;
 import java.net.URL;

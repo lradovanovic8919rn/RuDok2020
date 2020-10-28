@@ -2,7 +2,7 @@ package gui.view;
 
 import javax.swing.JMenuBar;
 
-import app.MainView;
+import gui.view.MainView;
 
 import java.awt.event.KeyEvent;
 
