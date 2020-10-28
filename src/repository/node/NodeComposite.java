@@ -3,25 +3,25 @@ package repository.node;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class NodeComposite extends Node{
+public abstract class NodeComposite extends RafNode{
 	
-	List<Node> children;
+	List<RafNode> children;
 	
 
-	public NodeComposite(String name, Node parent) {
+	public NodeComposite(String name, RafNode parent) {
 		super(name, parent);
 		this.children = new ArrayList<>();
 	}
 	
-	public NodeComposite(String name, Node parent,List<Node> children) {
+	public NodeComposite(String name, RafNode parent,List<RafNode> children) {
 		super(name, parent);
 		this.children = new ArrayList<>();
 	}
 
-	public abstract void addChild(Node child);
+	public abstract void addChild(RafNode child);
 	
-	public Node getChildByName(String name) {
-        for (Node child: this.getChildren()) {
+	public RafNode getChildByName(String name) {
+        for (RafNode child: this.getChildren()) {
             if (name.equals(child.getName())) {
                 return child;
             }
@@ -29,7 +29,7 @@ public abstract class NodeComposite extends Node{
         return null;
     }
 
-	public List<Node> getChildren() {
+	public List<RafNode> getChildren() {
 		return children;
 	}
 	

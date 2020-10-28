@@ -1,7 +1,7 @@
 package repository;
 
-import repository.node.Node;
 import repository.node.NodeComposite;
+import repository.node.RafNode;
 
 public class Workspace extends NodeComposite {
 
@@ -10,7 +10,7 @@ public class Workspace extends NodeComposite {
 	}
 
 	@Override
-    public void addChild(Node child) {
+    public void addChild(RafNode child) {
         if (child != null &&  child instanceof Project){
             Project p = (Project) child;
             if (!this.getChildren().contains(p)){

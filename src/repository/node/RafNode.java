@@ -1,19 +1,19 @@
 package repository.node;
 
-public abstract class Node {
+public abstract class RafNode {
 
 	private String name;
-	private Node parent;
+	private RafNode parent;
 	
-	public Node(String name, Node parent) {
+	public RafNode(String name, RafNode parent) {
 		this.name = name;
 		this.parent = parent;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if(obj != null && obj instanceof Node) {
-			Node obj2 = (Node)obj;
+		if(obj != null && obj instanceof RafNode) {
+			RafNode obj2 = (RafNode)obj;
 			return this.getName().equals(obj2.getName());
 		}
 		return false;
@@ -27,11 +27,11 @@ public abstract class Node {
 		this.name = name;
 	}
 
-	public Node getParent() {
+	public RafNode getParent() {
 		return parent;
 	}
 
-	public void setParent(Node parent) {
+	public void setParent(RafNode parent) {
 		this.parent = parent;
 	}
 	
