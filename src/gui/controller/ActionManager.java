@@ -1,10 +1,15 @@
 package gui.controller;
 
+import javax.swing.*;
+
 public class ActionManager {
-	
+
+	private static ActionManager instance;
+
 	private AddNodeAction addNodeAction;
 	private DeleteNodeAction deleteNodeAction;
 	private RenameNodeAction renameNodeAction;
+	private AboutAction aboutAction;
 
 	public ActionManager() {
 		init();
@@ -14,6 +19,7 @@ public class ActionManager {
 		addNodeAction=new AddNodeAction();
 		deleteNodeAction=new DeleteNodeAction();
 		renameNodeAction=new RenameNodeAction();
+		aboutAction = new AboutAction();
 	}
 
 	public AddNodeAction getAddNodeAction() {
@@ -27,6 +33,17 @@ public class ActionManager {
 	public RenameNodeAction getRenameNodeAction() {
 		return renameNodeAction;
 	}
-	
-	
+
+	public AboutAction getAboutAction() {
+		return aboutAction;
+	}
+
+	public static ActionManager getInstance(){
+
+		if(instance==null) instance = new ActionManager();
+		return instance;
+
+	}
+
+
 }
