@@ -5,7 +5,7 @@ import java.util.List;
 
 public abstract class NodeComposite extends RafNode{
 	
-	List<RafNode> children;
+	 List<RafNode> children;
 	
 
 	public NodeComposite(String name, RafNode parent) {

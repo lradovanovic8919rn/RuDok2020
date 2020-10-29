@@ -17,7 +17,7 @@ public class AboutAction extends AbstractActionClass{
     public void actionPerformed(ActionEvent e) {
 
         AboutView about = new AboutView();
-        about.show();
+        about.setVisible(true);
 
 
     }
