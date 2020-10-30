@@ -111,7 +111,7 @@ public class TreeItem extends DefaultMutableTreeNode {
 
 	@Override
 	public String toString() {
-		return "TreeItem [name=" + name + "]";
+		return name ;
 	}
 
 	public String getName() {

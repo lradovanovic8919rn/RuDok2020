@@ -9,7 +9,7 @@ public class RepositoryImplementation implements Repository{
 	
 	
 	
-	public RepositoryImplementation(Workspace rootWorkspace) {
+	public RepositoryImplementation() {
 		rootWorkspace = new Workspace("Workspace");
 	}
 

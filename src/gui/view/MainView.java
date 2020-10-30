@@ -3,7 +3,10 @@ package gui.view;
 
 import javax.swing.*;
 
+import core.Repository;
 import gui.controller.ActionManager;
+import gui.tree.RafTree;
+import gui.tree.view.RafTreeImplementation;
 import gui.view.MenuLine;
 import gui.view.Toolbar;
 
@@ -21,9 +24,16 @@ public class MainView extends JFrame {
     private JPanel panel2;
     private JScrollPane scroll;
     
+    private Repository repo;
+    private RafTree tree;
+    private JTree workspaceTree;
 
     private MainView (){
         
+    }
+    
+    private void initAm() {
+    	actionManager=new ActionManager();
     }
     
     private void init() {
@@ -33,8 +43,13 @@ public class MainView extends JFrame {
         
     }
 
+    public void initWorkspaceTree(){
+    	tree = new RafTreeImplementation();
+        workspaceTree = tree.generateTree(repo.getWorkspace());
+        init();
+    }
+    
     private void initElements(){
-    	actionManager=new ActionManager();
         menu = new MenuLine();
         toolBar = new Toolbar();
         
@@ -48,7 +63,7 @@ public class MainView extends JFrame {
 
         setJMenuBar(menu);
         
-        scroll = new JScrollPane();
+        scroll = new JScrollPane(workspaceTree);
         scroll.setSize(420,420);
         scroll.setMinimumSize(new Dimension(200,200));
         
@@ -66,7 +81,7 @@ public class MainView extends JFrame {
     public static MainView getInstance() {
         if(instance == null) {
             instance = new MainView();
-            instance.init();
+            instance.initAm();
         }
         return instance;
     }
@@ -99,6 +114,50 @@ public class MainView extends JFrame {
 
 	public ActionManager getActionManager() {
 		return actionManager;
+	}
+
+	public JPanel getPanel2() {
+		return panel2;
+	}
+
+	public void setPanel2(JPanel panel2) {
+		this.panel2 = panel2;
+	}
+
+	public JScrollPane getScroll() {
+		return scroll;
+	}
+
+	public void setScroll(JScrollPane scroll) {
+		this.scroll = scroll;
+	}
+
+	public Repository getRepo() {
+		return repo;
+	}
+
+	public void setRepo(Repository repo) {
+		this.repo = repo;
+	}
+
+	public RafTree getTree() {
+		return tree;
+	}
+
+	public void setTree(RafTree tree) {
+		this.tree = tree;
+	}
+
+	public JTree getWorkspaceTree() {
+		return workspaceTree;
+	}
+
+	public void setWorkspaceTree(JTree workspaceTree) {
+		this.workspaceTree = workspaceTree;
+	}
+
+	public void setActionManager(ActionManager actionManager) {
+		this.actionManager = actionManager;
 	}
     
 }
