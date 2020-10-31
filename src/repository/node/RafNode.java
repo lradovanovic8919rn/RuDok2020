@@ -3,6 +3,7 @@ package repository.node;
 public abstract class RafNode {
 
 	private String name;
+
 	private RafNode parent;
 	
 	public RafNode(String name, RafNode parent) {
@@ -34,7 +35,10 @@ public abstract class RafNode {
 	public void setParent(RafNode parent) {
 		this.parent = parent;
 	}
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return name;
+
+	}
 }

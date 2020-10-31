@@ -16,5 +16,5 @@ public interface RafTree {
 	void addPage(Page page);
 	void addSlot(Slot slot);
 	
-	
+	//Dodajem RafNode get selected node
 }

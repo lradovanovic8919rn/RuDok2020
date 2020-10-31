@@ -6,9 +6,13 @@ import javax.swing.*;
 import core.Repository;
 import gui.controller.ActionManager;
 import gui.tree.RafTree;
+import gui.tree.model.TreeItem;
 import gui.tree.view.RafTreeImplementation;
+import gui.tree.view.TreeView;
 import gui.view.MenuLine;
 import gui.view.Toolbar;
+import repository.RepositoryImplementation;
+import repository.Workspace;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -23,65 +27,61 @@ public class MainView extends JFrame {
     private ActionManager actionManager;
     private JPanel panel2;
     private JScrollPane scroll;
-    
-    private Repository repo;
-    private RafTree tree;
+    private Repository documentRepository;
     private JTree workspaceTree;
+    private RafTree tree;
 
-    private MainView (){
-        
+
+    private MainView() {
+
     }
-    
-    private void initAm() {
-    	actionManager=new ActionManager();
-    }
-    
+
     private void init() {
-    	
-    	initElements();
+
+        initElements();
         addElements();
-        
+
     }
 
-    public void initWorkspaceTree(){
-    	tree = new RafTreeImplementation();
-        workspaceTree = tree.generateTree(repo.getWorkspace());
-        init();
-    }
-    
-    private void initElements(){
+    private void initElements() {
+        actionManager = ActionManager.getInstance();
         menu = new MenuLine();
         toolBar = new Toolbar();
-        
+        documentRepository = new RepositoryImplementation();
+        tree = new RafTreeImplementation();
+        workspaceTree = tree.generateTree(documentRepository.getWorkspace());
+
+
     }
 
-    private void addElements(){
+    private void addElements() {
         setTitle("RuDok");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1000,700);
+        setSize(1000, 700);
 
         setJMenuBar(menu);
-        
-        scroll = new JScrollPane(workspaceTree);
-        scroll.setSize(420,420);
-        scroll.setMinimumSize(new Dimension(200,200));
-        
-        panel2=new JPanel(new BorderLayout());
-        
-        splitPane = new JSplitPane(SwingConstants.VERTICAL,scroll,panel2);
-        splitPane.setDividerLocation(300);
 
+        JScrollPane scroll = new JScrollPane(workspaceTree);
+        scroll.setSize(420, 420);
+        scroll.setMinimumSize(new Dimension(200, 200));
+
+        panel2 = new JPanel(new BorderLayout());
+
+        splitPane = new JSplitPane(SwingConstants.VERTICAL, scroll, panel2);
+
+        splitPane.setDividerLocation(300);
+        getContentPane().add(splitPane,BorderLayout.CENTER);
         add(toolBar, BorderLayout.NORTH);
-        add(splitPane,BorderLayout.CENTER);
-        
-        
+
+
+
     }
 
     public static MainView getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new MainView();
-            instance.initAm();
+            instance.init();
         }
         return instance;
     }
@@ -104,60 +104,35 @@ public class MainView extends JFrame {
         this.splitPane = splitPane;
     }
 
-	public MenuLine getMenu() {
-		return menu;
-	}
+    public MenuLine getMenu() {
+        return menu;
+    }
 
-	public void setMenu(MenuLine menu) {
-		this.menu = menu;
-	}
+    public void setMenu(MenuLine menu) {
+        this.menu = menu;
+    }
 
-	public ActionManager getActionManager() {
-		return actionManager;
-	}
+    public ActionManager getActionManager() {
+        return actionManager;
+    }
 
-	public JPanel getPanel2() {
-		return panel2;
-	}
+    public Repository getDocumentRepository() {
+        return documentRepository;
+    }
 
-	public void setPanel2(JPanel panel2) {
-		this.panel2 = panel2;
-	}
+    public void setDocumentRepository(Repository documentRepository) {
+        this.documentRepository = documentRepository;
+    }
 
-	public JScrollPane getScroll() {
-		return scroll;
-	}
+    public JTree getWorkspaceTree() {
+        return workspaceTree;
+    }
 
-	public void setScroll(JScrollPane scroll) {
-		this.scroll = scroll;
-	}
+    public void setWorkspaceTree(JTree workspaceTree) {
+        this.workspaceTree = workspaceTree;
+    }
 
-	public Repository getRepo() {
-		return repo;
-	}
-
-	public void setRepo(Repository repo) {
-		this.repo = repo;
-	}
-
-	public RafTree getTree() {
-		return tree;
-	}
-
-	public void setTree(RafTree tree) {
-		this.tree = tree;
-	}
-
-	public JTree getWorkspaceTree() {
-		return workspaceTree;
-	}
-
-	public void setWorkspaceTree(JTree workspaceTree) {
-		this.workspaceTree = workspaceTree;
-	}
-
-	public void setActionManager(ActionManager actionManager) {
-		this.actionManager = actionManager;
-	}
-    
+    public void setWorkspaceTree(TreeView workspaceTree) {
+        this.workspaceTree = workspaceTree;
+    }
 }

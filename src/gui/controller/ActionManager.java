@@ -11,7 +11,7 @@ public class ActionManager {
 	private RenameNodeAction renameNodeAction;
 	private AboutAction aboutAction;
 
-	public ActionManager() {
+	private ActionManager() {
 		init();
 	}
 	

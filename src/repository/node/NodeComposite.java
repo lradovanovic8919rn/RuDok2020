@@ -32,5 +32,8 @@ public abstract class NodeComposite extends RafNode{
 	public List<RafNode> getChildren() {
 		return children;
 	}
-	
+
+
+
+
 }

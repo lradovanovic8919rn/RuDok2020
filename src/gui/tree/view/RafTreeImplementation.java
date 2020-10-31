@@ -55,4 +55,7 @@ public class RafTreeImplementation implements RafTree {
 		
 	}
 
+	//Fali implemetacija za getselected path - TreeView.Getlastselectedcompnent
+	//Onda radim .getModel , ne zelim samo tree item
+
 }

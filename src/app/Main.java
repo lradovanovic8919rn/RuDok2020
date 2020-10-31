@@ -31,10 +31,12 @@ public class Main extends AppFramework {
 
     public static void main(String[] args) {
 
-    	Repository r=new RepositoryImplementation();
+    	Repository r = new RepositoryImplementation();
     	Gui gui=new RafGui(r);
     	AppFramework main=Main.getInstance();
-    	main.initialise(gui, r);
+    	MainView.getInstance().setDocumentRepository(r);
+    	main.initialise(gui, r); //
+
     	main.run();
         
 

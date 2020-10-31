@@ -13,9 +13,9 @@ import repository.node.RafNode;
 public class TreeItem extends DefaultMutableTreeNode {
 	
 	private String name;
-	private RafNode node;
+	private RafNode node; // instanca je bilo koje klase u modeluy
 	
-	public TreeItem(String name, RafNode node) {
+	public 	TreeItem(String name, RafNode node) {
 		super();
 		this.name = name;
 		this.node = node;
