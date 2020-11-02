@@ -11,7 +11,6 @@ import gui.view.MenuLine;
 import gui.view.Toolbar;
 
 import java.awt.*;
-import java.awt.datatransfer.Clipboard;
 
 public class MainView extends JFrame {
 

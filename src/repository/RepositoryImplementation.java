@@ -9,6 +9,18 @@ public class RepositoryImplementation implements Repository{
 	
 	
 	
+	public Workspace getRootWorkspace() {
+		return rootWorkspace;
+	}
+
+
+
+	public void setRootWorkspace(Workspace rootWorkspace) {
+		this.rootWorkspace = rootWorkspace;
+	}
+
+
+
 	public RepositoryImplementation() {
 		rootWorkspace = new Workspace("Workspace");
 	}
