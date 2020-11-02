@@ -13,49 +13,56 @@ import repository.node.RafNode;
 public class TreeItem extends DefaultMutableTreeNode {
 	
 	private String name;
-	private RafNode node; // instanca je bilo koje klase u modeluy
+	private RafNode rafNodeModel;
 	
-	public 	TreeItem(String name, RafNode node) {
-		super();
+	public TreeItem(String name, RafNode node) {
+		this.rafNodeModel = node;
 		this.name = name;
-		this.node = node;
 	}
 	
 	public TreeItem( RafNode node) {
-		
-		this.node = node;
+		this.rafNodeModel = node;
+		this.name = rafNodeModel.getName();
+
 	}
 	
 	@Override
 	public int getChildCount() {
-		if(node instanceof NodeComposite) {
-			return ((NodeComposite) node).getChildren().size();
+		if(rafNodeModel instanceof NodeComposite) {
+			return ((NodeComposite) rafNodeModel).getChildren().size();
 		}
 		return 0;
 	}
 	
 	@Override
 	public boolean getAllowsChildren() {
-		if(node instanceof NodeComposite) {
+		if(rafNodeModel instanceof NodeComposite) {
 			return true;
 		}else {
 			return false;
 		}
 	}
 	
-	@Override
+	/*@Override
 	public boolean isLeaf() {
-		if (!(node instanceof Workspace) && (node != null)) {
+		if (!(rafNodeModel instanceof Workspace) && (rafNodeModel != null)) {
 			return false;
 		}else {
 			return true;
 		}
-	}
+	}*/
+	
+	 @Override
+	    public boolean isLeaf() {
+	        if(rafNodeModel instanceof NodeComposite)
+	            return false;
+	        return true;
+	    }
 	
 	@Override
 	public Enumeration children() {
-		if(node instanceof NodeComposite) {
-		return (Enumeration)((NodeComposite) node).getChildren();
+		if(rafNodeModel instanceof NodeComposite) {
+		return (Enumeration)((NodeComposite) rafNodeModel).getChildren();
 		}else {
 			return null;
 		}
@@ -65,15 +72,15 @@ public class TreeItem extends DefaultMutableTreeNode {
 	public boolean equals(Object o) {
 		if(o != null && o instanceof TreeItem) {
 			TreeItem o2=(TreeItem) o;
-			return this.node.equals(o2.node);
+			return this.rafNodeModel.equals(o2.rafNodeModel);
 		}else {
 			return false;
 		}		
 	}
 	
 	private TreeNode findChildByIndex(int index) {
-		if(node instanceof NodeComposite) {
-			TreeItem i = new TreeItem (((NodeComposite) node).getChildren().get(index));
+		if(rafNodeModel instanceof NodeComposite) {
+			TreeItem i = new TreeItem (((NodeComposite) rafNodeModel).getChildren().get(index));
 			 
 			Iterator childrenIterator = children.iterator();
 	        TreeNode current;
@@ -95,8 +102,8 @@ public class TreeItem extends DefaultMutableTreeNode {
 	}
 	
 	private int findIndexByChild(TreeItem n) {
-		if(this.node instanceof NodeComposite) {
-			return ((NodeComposite) this.node).getChildren().indexOf(n.getNode());
+		if(this.rafNodeModel instanceof NodeComposite) {
+			return ((NodeComposite) this.rafNodeModel).getChildren().indexOf(n.getRafNodeModel());
 		}else {
 			return -1;
 		}
@@ -122,12 +129,12 @@ public class TreeItem extends DefaultMutableTreeNode {
 		this.name = name;
 	}
 
-	public RafNode getNode() {
-		return node;
+	public RafNode getRafNodeModel() {
+		return rafNodeModel;
 	}
 
-	public void setNode(RafNode node) {
-		this.node = node;
+	public void setNodeRafNodeModel(RafNode node) {
+		this.rafNodeModel = node;
 	}
 
 	

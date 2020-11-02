@@ -15,7 +15,6 @@ import repository.RepositoryImplementation;
 import repository.Workspace;
 
 import java.awt.*;
-import java.awt.datatransfer.Clipboard;
 
 public class MainView extends JFrame {
 

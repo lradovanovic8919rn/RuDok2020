@@ -25,32 +25,36 @@ public class RafTreeCellRenderer extends DefaultTreeCellRenderer {
 
          super.getTreeCellRendererComponent(tree, value, sel,expanded, leaf, row, hasFocus);
 
-         if (((TreeItem)value).getNode() instanceof Workspace) {
+         if (((TreeItem)value).getRafNodeModel() instanceof Workspace) {
              URL imageURL = getClass().getResource("/workspace.png");
              Icon icon = null;
              if (imageURL != null)
                  icon = new ImageIcon(imageURL);
              setIcon(icon);
 
-         } else if (((TreeItem)value).getNode() instanceof Project) {
+         }
+         if (((TreeItem)value).getRafNodeModel() instanceof Project) {
              URL imageURL = getClass().getResource("/project.png");
              Icon icon = null;
              if (imageURL != null)
                  icon = new ImageIcon(imageURL);
              setIcon(icon);
-         }else if (((TreeItem)value).getNode() instanceof Document) {
+         }
+         if (((TreeItem)value).getRafNodeModel() instanceof Document) {
              URL imageURL = getClass().getResource("/document.png");
              Icon icon = null;
              if (imageURL != null)
                  icon = new ImageIcon(imageURL);
              setIcon(icon);
-         }else if (((TreeItem)value).getNode() instanceof Page) {
+         }
+         if (((TreeItem)value).getRafNodeModel() instanceof Page) {
              URL imageURL = getClass().getResource("/page.png");
              Icon icon = null;
              if (imageURL != null)
                  icon = new ImageIcon(imageURL);
              setIcon(icon);
-         }else if (((TreeItem)value).getNode() instanceof Slot) {
+         }
+         if (((TreeItem)value).getRafNodeModel() instanceof Slot) {
              URL imageURL = getClass().getResource("/slot.png");
              Icon icon = null;
              if (imageURL != null)

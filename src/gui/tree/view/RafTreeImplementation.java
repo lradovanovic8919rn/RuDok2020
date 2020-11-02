@@ -5,6 +5,7 @@ import java.util.List;
 import javax.swing.JTree;
 import javax.swing.SwingUtilities;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.MutableTreeNode;
 
 import gui.tree.RafTree;
 import gui.tree.model.TreeItem;
@@ -24,7 +25,6 @@ public class RafTreeImplementation implements RafTree {
 	@Override
 	public JTree generateTree(Workspace workspace) {
 		TreeItem root=new TreeItem(workspace);
-		root.setName("Workspace");
 		treeModel=new DefaultTreeModel(root);
 		treeView=new TreeView(treeModel);
 		return treeView;
@@ -33,13 +33,17 @@ public class RafTreeImplementation implements RafTree {
 
 	@Override
 	public void addProject(Project project) {
-		// TODO Auto-generated method stub
+		RafNode nodeModel = ((TreeItem)treeModel.getRoot()).getRafNodeModel();
+        ((TreeItem)treeModel.getRoot()).add(new TreeItem(project));
+        ((Workspace) nodeModel).addChild(project);
+        SwingUtilities.updateComponentTreeUI(treeView);
 
 	}
 
 	@Override
 	public void addDocument(Document document) {
-		// TODO Auto-generated method stub
+		
+        
 	}
 		
 
