@@ -12,9 +12,9 @@ public interface RafTree {
 
 	JTree generateTree(Workspace workspace);
 	void addProject(Project project);
-	void addDocument(Document document);
-	void addPage(Page page);
-	void addSlot(Slot slot);
+	void addPage(Page page, Object o);
+	void addSlot(Slot slot, Object o);
+	void addDocument(Document document, Object o);
 	
 	//Dodajem RafNode get selected node
 }

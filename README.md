@@ -23,17 +23,17 @@ Nakon skladištenja dokumenata želimo da budemo sigurni da se ne može kreirati
 Želimo da brzo i efikasno pronalazimo dokumente.
 
 
-## Mogucnosti koje alat nudi
+## Mogućnosti koje alat nudi
 + Kreiranje Projekata,dokumenata i strana
-+ Import/export projekata dokumenata i strna
++ Import/export projekata dokumenata i strana
 + Rad sa tekstom 
-+ Rad sa 2D oblicima
-    - Crtanje oblika
-    - Upisivanje u oblike
-    - Ubacivanje sadrzaja u oblike
++ Rad sa 2D oblicima </br>
+  + Crtanje oblika
+  + Upisivanje u oblike
+  + Ubacivanje sadržaja u oblike
 
 ## Tržište
 Na tržištu postoji nekoliko konkurenata, od kojih su neki besplatni. Od alata koji se plaćaju, tu je Microsoft Word čija je glavna prednost pozicija koju poseduje na tržištu. Što se tiče besplatnih alata, bitno je spomenuti LibreOffice Writter i OpenOffice Writer, koji kao glavnu prednost ističu svoju dostupnost.
 
-## Rad u razlicitim okruzenjima
-U pocetnim fazama alata rad ce biti omogucen samo na Windows operativniom sistemu, s namerom da u budućnosti alat bude dostupan i na ostalim operativnim sistemima.
+## Rad u različitim okruženjima
+U početnim fazama alata rad ce biti omogućen samo na Windows operativniom sistemu, s namerom da u budućnosti alat bude dostupan i na ostalim operativnim sistemima.

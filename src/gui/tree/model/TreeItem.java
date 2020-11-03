@@ -42,16 +42,7 @@ public class TreeItem extends DefaultMutableTreeNode {
 			return false;
 		}
 	}
-	
-	/*@Override
-	public boolean isLeaf() {
-		if (!(rafNodeModel instanceof Workspace) && (rafNodeModel != null)) {
-			return false;
-		}else {
-			return true;
-		}
-	}*/
-	
+
 	 @Override
 	    public boolean isLeaf() {
 	        if(rafNodeModel instanceof NodeComposite)

@@ -11,7 +11,9 @@ import javax.swing.SwingUtilities;
 import gui.tree.model.TreeItem;
 import gui.view.MainView;
 import repository.Document;
+import repository.Page;
 import repository.Project;
+import repository.Slot;
 import repository.Workspace;
 import repository.node.RafNode;
 
@@ -38,8 +40,20 @@ public class AddNodeAction extends AbstractActionClass{
 		}
 		if(tr.getRafNodeModel() instanceof Project) {
 			 int label = new Random().nextInt(1000);
-		  //   Document d = new Document("Document " + label, );
-		   //  MainView.getInstance().getTree().addDocument(d);   
+		     Document d = new Document("Document " + label, ((TreeItem) o).getRafNodeModel());
+		     MainView.getInstance().getTree().addDocument(d,o);   
+		}
+		if(tr.getRafNodeModel() instanceof Document) {
+			int label = new Random().nextInt(1000);
+			Page p=new Page("Page "+label,((TreeItem) o).getRafNodeModel());
+		     MainView.getInstance().getTree().addPage(p,o);   
+
+		}
+		if(tr.getRafNodeModel() instanceof Page) {
+			int label = new Random().nextInt(1000);
+			Slot s=new Slot("Slot "+label,((TreeItem) o).getRafNodeModel());
+		    MainView.getInstance().getTree().addSlot(s, o);   
+
 		}
 	}
 

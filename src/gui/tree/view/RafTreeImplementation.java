@@ -6,6 +6,7 @@ import javax.swing.JTree;
 import javax.swing.SwingUtilities;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.MutableTreeNode;
+import javax.swing.tree.TreeNode;
 
 import gui.tree.RafTree;
 import gui.tree.model.TreeItem;
@@ -41,25 +42,36 @@ public class RafTreeImplementation implements RafTree {
 	}
 
 	@Override
-	public void addDocument(Document document) {
-		
-        
+	public void addDocument(Document document,Object o) {
+		int index=treeModel.getIndexOfChild(treeModel.getRoot(), o);
+		RafNode nodeModel = ((TreeItem)treeModel.getChild(treeModel.getRoot(), index)).getRafNodeModel();
+        ((TreeItem)treeModel.getChild(treeModel.getRoot(), index)).add(new TreeItem(document));
+        ((Project) nodeModel).addChild(document);
+        SwingUtilities.updateComponentTreeUI(treeView);
 	}
 		
 
 	@Override
-	public void addPage(Page page) {
-		// TODO Auto-generated method stub
-		
+	public void addPage(Page page, Object o) {
+		int index=treeModel.getIndexOfChild(((TreeItem)o).getParent(), o);		
+		RafNode nodeModel = ((TreeItem)treeModel.getChild(((TreeItem)o).getParent(), index)).getRafNodeModel();
+		((TreeItem)treeModel.getChild(((TreeItem)o).getParent(), index)).add(new TreeItem(page));
+        ((Document) nodeModel).addChild(page);
+        SwingUtilities.updateComponentTreeUI(treeView);
+
 	}
 
 	@Override
-	public void addSlot(Slot slot) {
-		// TODO Auto-generated method stub
+	public void addSlot(Slot slot, Object o) {
+		int index=treeModel.getIndexOfChild(((TreeItem)o).getParent(), o);		
+		RafNode nodeModel = ((TreeItem)treeModel.getChild(((TreeItem)o).getParent(), index)).getRafNodeModel();
+		((TreeItem)treeModel.getChild(((TreeItem)o).getParent(), index)).add(new TreeItem(slot));
+        ((Page) nodeModel).addChild(slot);
+        System.out.println(nodeModel.getName()+" "+slot.getName()+" "+slot.getParent().getName());
+        SwingUtilities.updateComponentTreeUI(treeView);
 		
 	}
 
-	//Fali implemetacija za getselected path - TreeView.Getlastselectedcompnent
-	//Onda radim .getModel , ne zelim samo tree item
+
 
 }
