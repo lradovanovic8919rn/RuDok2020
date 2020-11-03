@@ -26,7 +26,7 @@ public class RafTreeCellRenderer extends DefaultTreeCellRenderer {
          super.getTreeCellRendererComponent(tree, value, sel,expanded, leaf, row, hasFocus);
 
          if (((TreeItem)value).getRafNodeModel() instanceof Workspace) {
-             URL imageURL = getClass().getResource("/workspace.png");
+             String imageURL = "images/workspace.png";
              Icon icon = null;
              if (imageURL != null)
                  icon = new ImageIcon(imageURL);
@@ -34,28 +34,28 @@ public class RafTreeCellRenderer extends DefaultTreeCellRenderer {
 
          }
          if (((TreeItem)value).getRafNodeModel() instanceof Project) {
-             URL imageURL = getClass().getResource("/project.png");
+        	 String imageURL = "images/project.png";
              Icon icon = null;
              if (imageURL != null)
                  icon = new ImageIcon(imageURL);
              setIcon(icon);
          }
          if (((TreeItem)value).getRafNodeModel() instanceof Document) {
-             URL imageURL = getClass().getResource("/document.png");
+        	 String imageURL = "images/document.png";
              Icon icon = null;
              if (imageURL != null)
                  icon = new ImageIcon(imageURL);
              setIcon(icon);
          }
          if (((TreeItem)value).getRafNodeModel() instanceof Page) {
-             URL imageURL = getClass().getResource("/page.png");
+        	 String imageURL = "images/page.png";
              Icon icon = null;
              if (imageURL != null)
                  icon = new ImageIcon(imageURL);
              setIcon(icon);
          }
          if (((TreeItem)value).getRafNodeModel() instanceof Slot) {
-             URL imageURL = getClass().getResource("/slot.png");
+        	 String imageURL = "images/slot.png";
              Icon icon = null;
              if (imageURL != null)
                  icon = new ImageIcon(imageURL);
