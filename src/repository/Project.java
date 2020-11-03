@@ -1,6 +1,7 @@
 package repository;
 
 
+import observer.IObserver;
 import repository.node.NodeComposite;
 import repository.node.RafNode;
 
@@ -16,8 +17,11 @@ public class Project extends NodeComposite {
         	Document doc = (Document) child;
             if (!this.getChildren().contains(doc)){
                 this.getChildren().add(doc);
+                //this.notifyListeners(ActionEnum.ACTION_ADD);
             }
         }
     }
+
+
 
 }

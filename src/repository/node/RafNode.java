@@ -1,5 +1,7 @@
 package repository.node;
 
+import gui.tree.RafTree;
+
 public abstract class RafNode {
 
 	private String name;
@@ -19,6 +21,11 @@ public abstract class RafNode {
 		}
 		return false;
 	}
+
+	//@Override
+	//public RafNode getChildAt(int index) {
+//		return this.No.get(index);
+//	}
 
 	public String getName() {
 		return name;

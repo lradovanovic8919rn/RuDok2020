@@ -1,12 +1,15 @@
 package repository.node;
 
+import observer.IListener;
+import observer.IObserver;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class NodeComposite extends RafNode{
+public abstract class NodeComposite extends RafNode implements IObserver {
 	
 	 List<RafNode> children;
-	
+	 private ArrayList<IListener> listeners;
 
 	public NodeComposite(String name, RafNode parent) {
 		super(name, parent);
@@ -29,11 +32,35 @@ public abstract class NodeComposite extends RafNode{
         return null;
     }
 
+
+
 	public List<RafNode> getChildren() {
 		return children;
 	}
 
+	@Override
+	public void addListener(IListener listener) {
+		if(listener == null) return;
+		if(listeners == null) listeners = new ArrayList<IListener>();
+		if(listeners.contains(listener)) return;
+		listeners.add(listener);
 
+	}
+
+	@Override
+	public void removeListener(IListener listener) {
+		if(listener == null || listeners == null || !listeners.contains(listener)) return;
+		listeners.remove(listener);
+	}
+
+	@Override
+	public void notifyListeners(Object event) {
+		if(this.listeners == null || this.listeners.isEmpty() || event == null)
+			return;
+		for(IListener l: listeners) {
+			l.update(event);
+		}
+	}
 
 
 }

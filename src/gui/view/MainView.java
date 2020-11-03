@@ -5,12 +5,14 @@ import javax.swing.*;
 
 import core.Repository;
 import gui.controller.ActionManager;
+import gui.rightPanelView.ProjectView;
 import gui.tree.RafTree;
 import gui.tree.model.TreeItem;
 import gui.tree.view.RafTreeImplementation;
 import gui.tree.view.TreeView;
 import gui.view.MenuLine;
 import gui.view.Toolbar;
+import repository.Project;
 import repository.RepositoryImplementation;
 import repository.Workspace;
 
@@ -134,4 +136,22 @@ public class MainView extends JFrame {
     public void setWorkspaceTree(TreeView workspaceTree) {
         this.workspaceTree = workspaceTree;
     }
+
+    public RafTree getTree() {
+        return tree;
+    }
+
+    public void setTree(RafTree tree) {
+        this.tree = tree;
+    }
+
+    public void projectViewMaker(Project project) {
+
+        ProjectView p = new ProjectView(project);
+        ProjectView.projectViews.add(p);
+
+        splitPane.setRightComponent(p);
+    }
+
+
 }

@@ -1,8 +1,9 @@
 package repository;
 
+import repository.node.NodeComposite;
 import repository.node.RafNode;
 
-public class Slot extends RafNode{
+public class Slot extends RafNode {
 
 	public Slot(String name, RafNode parent) {
 		super(name, parent);
