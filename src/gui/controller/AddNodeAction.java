@@ -44,12 +44,14 @@ public class AddNodeAction extends AbstractActionClass{
 			 int label = new Random().nextInt(1000);
 		     Project p = new Project("Project " + i++, (RafNode) ((TreeItem) MainView.getInstance().getWorkspaceTree().getModel().getRoot()).getRafNodeModel());
 		     MainView.getInstance().getTree().addProject(p);
+			 //MainView.getInstance().getTree().addDocument(d,o);
+			 MainView.getInstance().projectViewMaker(p);
 		}
 		if(tr.getRafNodeModel() instanceof Project) {
 			 int label = new Random().nextInt(1000);
 		     Document d = new Document("Document " + j++, ((TreeItem) o).getRafNodeModel());
 		     MainView.getInstance().getTree().addDocument(d,o);
-		     MainView.getInstance().projectViewMaker((Project) tr.getRafNodeModel());
+		     //MainView.getInstance().projectViewMaker((Project) tr.getRafNodeModel());
 		}
 		if(tr.getRafNodeModel() instanceof Document) {
 			int label = new Random().nextInt(1000);
