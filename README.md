@@ -27,10 +27,10 @@ Nakon skladištenja dokumenata želimo da budemo sigurni da se ne može kreirati
 + Kreiranje Projekata,dokumenata i strana
 + Import/export projekata dokumenata i strana
 + Rad sa tekstom 
-+ Rad sa 2D oblicima
-      - Crtanje oblika
-      - Upisivanje u oblike
-      - Ubacivanje sadržaja u oblike
++ Rad sa 2D oblicima </br>
+  + Crtanje oblika
+  + Upisivanje u oblike
+  + Ubacivanje sadržaja u oblike
 
 ## Tržište
 Na tržištu postoji nekoliko konkurenata, od kojih su neki besplatni. Od alata koji se plaćaju, tu je Microsoft Word čija je glavna prednost pozicija koju poseduje na tržištu. Što se tiče besplatnih alata, bitno je spomenuti LibreOffice Writter i OpenOffice Writer, koji kao glavnu prednost ističu svoju dostupnost.
