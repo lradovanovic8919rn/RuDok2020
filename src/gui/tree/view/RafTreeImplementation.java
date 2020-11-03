@@ -59,14 +59,16 @@ public class RafTreeImplementation implements RafTree {
         ((Document) nodeModel).addChild(page);
         SwingUtilities.updateComponentTreeUI(treeView);
 
-        
-
-
 	}
 
 	@Override
 	public void addSlot(Slot slot, Object o) {
-		// TODO Auto-generated method stub
+		int index=treeModel.getIndexOfChild(((TreeItem)o).getParent(), o);		
+		RafNode nodeModel = ((TreeItem)treeModel.getChild(((TreeItem)o).getParent(), index)).getRafNodeModel();
+		((TreeItem)treeModel.getChild(((TreeItem)o).getParent(), index)).add(new TreeItem(slot) );
+        ((Page) nodeModel).addChild(slot);
+        System.out.println(nodeModel.getName()+" "+slot.getName()+" "+slot.getParent().getName());
+        SwingUtilities.updateComponentTreeUI(treeView);
 		
 	}
 

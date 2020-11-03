@@ -13,6 +13,7 @@ import gui.view.MainView;
 import repository.Document;
 import repository.Page;
 import repository.Project;
+import repository.Slot;
 import repository.Workspace;
 import repository.node.RafNode;
 
@@ -46,6 +47,12 @@ public class AddNodeAction extends AbstractActionClass{
 			int label = new Random().nextInt(1000);
 			Page p=new Page("Page "+label,((TreeItem) o).getRafNodeModel());
 		     MainView.getInstance().getTree().addPage(p,o);   
+
+		}
+		if(tr.getRafNodeModel() instanceof Page) {
+			int label = new Random().nextInt(1000);
+			Slot s=new Slot("Slot "+label,((TreeItem) o).getRafNodeModel());
+		    MainView.getInstance().getTree().addSlot(s, o);   
 
 		}
 	}
