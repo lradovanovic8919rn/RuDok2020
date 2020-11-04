@@ -148,9 +148,11 @@ public class MainView extends JFrame {
     public void projectViewMaker(Project project) {
 
         ProjectView p = new ProjectView(project);
-        ProjectView.projectViews.add(p);
+        //ProjectView.projectViews.add(p);
+        System.out.println("Kreira ");
+       // this.splitPane.getRightComponent(p);
+        this.panel2.add(BorderLayout.CENTER,p);
 
-        panel2.add(p);
     }
 
 

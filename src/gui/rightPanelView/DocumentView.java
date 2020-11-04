@@ -1,7 +1,12 @@
 package gui.rightPanelView;
 
+import gui.controller.ActionEnum;
+import gui.view.MainView;
 import observer.IListener;
 import repository.Document;
+import repository.Page;
+import repository.Project;
+import repository.node.RafNode;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,42 +14,46 @@ import java.util.ArrayList;
 
 public class DocumentView extends JPanel implements IListener {
 
-        private Document document;
-        private JLabel name;
-        private ArrayList<PageView> pages;
-        private int pageCount = 0;
+    private Document document;
+    private JLabel name;
+    private ArrayList<PageView> pages;
+    private int pageCount = 0;
 
-        private JSplitPane split;
-        private JScrollPane scroll;
-        private JPanel panel;
-        private JPanel panel2;
+    private JSplitPane split;
+    private JScrollPane scroll;
+    private JPanel panel;
+    private JPanel panel2;
 
-        public DocumentView(Document document){
-            super(new BorderLayout());
-            this.document = document;
-            pages = new ArrayList<PageView>();
+    public DocumentView(Document document) {
+        super(new GridLayout(0,3));
+        this.document = document;
+        pages = new ArrayList<PageView>();
 
-            split = new JSplitPane();
-            scroll = new JScrollPane();
-            panel = new JPanel();
-            GridLayout grid = new GridLayout(0, 1);
-            grid.setVgap(20);
-            panel2 = new JPanel(grid);
-            scroll.setViewportView(panel2);
+        //split = new JSplitPane();
 
-            split.setLeftComponent(scroll);
-            split.setRightComponent(panel);
+        //scroll = new JScrollPane();
+       // scroll.setSize(420, 420);
+       // scroll.setMinimumSize(new Dimension(200, 200));
+        //panel = new JPanel();
+        //GridLayout grid = new GridLayout(0, 1);
+       // grid.setVgap(20);
+       // panel = new JPanel(grid);
+        //scroll.setViewportView(panel2);
 
-            scroll.setMinimumSize(new Dimension(145, 145));
-            panel.setMinimumSize(new Dimension(800, 500));
+        //split.setLeftComponent(scroll);
+        //split.setRightComponent(panel);
 
-            name = new JLabel(document.toString());
-            document.addListener(this);
+        //scroll.setMinimumSize(new Dimension(145, 145));
+        //  panel.setMinimumSize(new Dimension(800, 500));
+        //this.add(scroll);
+        //this.add(BorderLayout.CENTER,scroll);
+        name = new JLabel(document.toString());
+        document.addListener(this);
+        //this.add(panel);
+        //add(split);
 
-            add(split);
 
-
-        }
+    }
 
 
     public Document getDocument() {
@@ -114,6 +123,22 @@ public class DocumentView extends JPanel implements IListener {
 
     @Override
     public void update(Object event) {
+        //Project pr = (RafNode) this.document.getParent();
+        if (event == ActionEnum.ACTION_ADD) addPage();
+
+
+    }
+
+    private void addPage() {
+        System.out.println("uso u add page metodu");
+        if (!(document.getChildCount() == 0) && !(document.getChildCount() == pageCount)) {
+            System.out.println("usao u if");
+            PageView p = new PageView((Page) document.getChildAt(document.getChildCount() - 1));
+            //this.scroll.add(new JPanel());
+            //split.setRightComponent(p);
+            pages.add(p);
+            this.add(p);
+        }
 
     }
 }

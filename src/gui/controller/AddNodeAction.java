@@ -46,23 +46,29 @@ public class AddNodeAction extends AbstractActionClass{
 		     Project p = new Project("Project " + i++, (RafNode) ((TreeItem) MainView.getInstance().getWorkspaceTree().getModel().getRoot()).getRafNodeModel());
 		     MainView.getInstance().getTree().addProject(p);
 			 //MainView.getInstance().getTree().addDocument(d,o);
+			 System.out.println("Kreira project");
 			 MainView.getInstance().projectViewMaker(p);
-			 p.notifyListeners(ActionEnum.ACTION_ADD);
 			 SwingUtilities.updateComponentTreeUI(MainView.getInstance().getWorkspaceTree());
 		}
 		if(tr.getRafNodeModel() instanceof Project) {
 			 int label = new Random().nextInt(1000);
 		     Document d = new Document("Document " + j++, (RafNode) ((TreeItem) MainView.getInstance().getWorkspaceTree().getModel().getRoot()).getRafNodeModel());
 		     MainView.getInstance().getTree().addDocument(d,o);
-
-
+		     System.out.println("Ulazi u doc cre8");
+		    // RafNode proc = tr.getRafNodeModel();
+		    // proc.notifyListeners(ActionEnum.ACTION_ADD);
+			 SwingUtilities.updateComponentTreeUI(MainView.getInstance().getWorkspaceTree());
 		    // MainView.getInstance().getSplitPane().getRightComponent().
 		     //MainView.getInstance().projectViewMaker((Project) tr.getRafNodeModel());
 		}
 		if(tr.getRafNodeModel() instanceof Document) {
 			int label = new Random().nextInt(1000);
-			Page p=new Page("Page " + x++ ,((TreeItem) o).getRafNodeModel());
-		     MainView.getInstance().getTree().addPage(p,o);
+			Page p=new Page("Page " + x++ , (RafNode) ((TreeItem) MainView.getInstance().getWorkspaceTree().getModel().getRoot()).getRafNodeModel());
+					//((TreeItem) o).getRafNodeModel());
+			MainView.getInstance().getTree().addPage(p,o);
+			RafNode doc = tr.getRafNodeModel();
+			doc.notifyListeners(ActionEnum.ACTION_ADD);
+			SwingUtilities.updateComponentTreeUI(MainView.getInstance().getWorkspaceTree());
 
 		}
 		if(tr.getRafNodeModel() instanceof Page) {

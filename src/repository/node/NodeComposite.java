@@ -6,7 +6,7 @@ import observer.IObserver;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class NodeComposite extends RafNode  {
+public abstract class NodeComposite extends RafNode {
 	
 	 List<RafNode> children;
 	 private ArrayList<IListener> listeners;

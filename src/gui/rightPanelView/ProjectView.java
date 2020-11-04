@@ -17,7 +17,7 @@ public class ProjectView extends JPanel implements IListener {
     private JLabel projectName;
     private JTabbedPane documents;
     private Project project;
-    public static ArrayList<ProjectView> projectViews = new ArrayList<ProjectView>();
+    //public static ArrayList<ProjectView> projectViews = new ArrayList<ProjectView>();
     private ArrayList<DocumentView> documentViews;
 
 
@@ -37,6 +37,7 @@ public class ProjectView extends JPanel implements IListener {
         panel.add(documents,BorderLayout.CENTER);
         add(panel,BorderLayout.CENTER);
         add(projectName,BorderLayout.NORTH);
+
 
     }
 
@@ -65,13 +66,9 @@ public class ProjectView extends JPanel implements IListener {
         this.project = project;
     }
 
-    public static ArrayList<ProjectView> getProjectViews() {
-        return projectViews;
-    }
+  //  public static ArrayList<ProjectView> getProjectViews() {return projectViews;}
 
-    public static void setProjectViews(ArrayList<ProjectView> projectViews) {
-        ProjectView.projectViews = projectViews;
-    }
+  //  public static void setProjectViews(ArrayList<ProjectView> projectViews) {ProjectView.projectViews = projectViews;}
 
     public ArrayList<DocumentView> getDocumentViews() {
         return documentViews;
@@ -84,7 +81,7 @@ public class ProjectView extends JPanel implements IListener {
     @Override
     public void update(Object event) {
         //this.project.setChanged(true);
-        System.out.println("Upade projectView");
+        System.out.println("Update u ProjectView");
         if(event == ActionEnum.ACTION_ADD) {
             addTab();
         }
@@ -92,9 +89,9 @@ public class ProjectView extends JPanel implements IListener {
     }
 
     public void addTab() {
-
+        System.out.println("Ulazi u addTab");
         //if(!(documents.getTabCount() == project.getChildCount())) {
-        Document d = new Document("doc",project);
+        Document d = (Document) project.getChildAt(project.getChildCount()-1);
         DocumentView dView = new DocumentView(d);
         documentViews.add(dView);
         documents.addTab(dView.getName(), dView);

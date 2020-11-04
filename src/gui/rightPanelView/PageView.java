@@ -13,12 +13,18 @@ public class PageView extends  JPanel implements IListener {
 
     public PageView(Page page) {
 
+
+        System.out.println("Pravi PageView");
         this.page = page;
         page.addListener(this);
+        this.setBorder(BorderFactory.createMatteBorder(
+               1, 1, 1, 1, Color.red));
+        //setBorder(BorderFactory.createEmptyBorder(5,  5,  5,  5));
 
         name = new JLabel(page.getName());
         this.setPreferredSize(new Dimension(950, 560));
-
+       // this.setBackground(Color.BLUE);
+        this.add(name);
 
     }
 
