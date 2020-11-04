@@ -1,7 +1,9 @@
 package repository.node;
 
+import gui.controller.ActionEnum;
 import gui.tree.RafTree;
 import observer.IObserver;
+import repository.Document;
 
 public abstract class RafNode implements IObserver {
 
@@ -34,6 +36,7 @@ public abstract class RafNode implements IObserver {
 
 	public void setName(String name) {
 		this.name = name;
+		this.notifyListeners(ActionEnum.ACTION_RENAME);
 	}
 
 	public RafNode getParent() {
@@ -47,6 +50,8 @@ public abstract class RafNode implements IObserver {
 	@Override
 	public String toString() {
 		return name;
-
 	}
+
+
+
 }

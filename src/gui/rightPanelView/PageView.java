@@ -2,6 +2,7 @@ package gui.rightPanelView;
 
 import observer.IListener;
 import repository.Page;
+import repository.Project;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,7 +32,11 @@ public class PageView extends  JPanel implements IListener {
 
     @Override
     public void update(Object event) {
+        System.out.println("Update Page");
+        //Project pr = (Project)this.page.getParent().getParent();
 
+       // pr.setChanged(true);
+        name.setText(page.getName());
     }
 
 

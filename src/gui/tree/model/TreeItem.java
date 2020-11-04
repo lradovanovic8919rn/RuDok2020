@@ -128,5 +128,7 @@ public class TreeItem extends DefaultMutableTreeNode {
 		this.rafNodeModel = node;
 	}
 
+
+	}
 	
-}
+

@@ -25,10 +25,15 @@ public class Document extends NodeComposite {
             Page page = (Page) child;
             if (!this.getChildren().contains(page)){
                 this.getChildren().add(page);
-
+                this.notifyListeners(ActionEnum.ACTION_ADD);
             }
         }
     }
+
+    //@Override
+    //public int getIndex(RafNode aChild) {
+    //    return 0;
+    //}
 
     @Override
     public NodeComposite getChildAt(int index) {

@@ -62,4 +62,10 @@ public class Project extends NodeComposite implements  IObserver{
     public ArrayList<Document> getDocuments() {
         return documents;
     }
+
+    //@Override
+    //public int getIndex(RafNode aChild) {
+     //   return this.documents.indexOf(aChild);
+   // }
+
 }

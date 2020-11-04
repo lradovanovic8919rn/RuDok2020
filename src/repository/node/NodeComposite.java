@@ -38,7 +38,7 @@ public abstract class NodeComposite extends RafNode {
         return null;
     }
 
-
+	//public abstract int getIndex(RafNode aChild);
 
 	public List<RafNode> getChildren() {
 		return children;

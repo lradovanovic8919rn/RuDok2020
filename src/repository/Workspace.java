@@ -1,5 +1,6 @@
 package repository;
 
+import gui.controller.ActionEnum;
 import repository.node.NodeComposite;
 import repository.node.RafNode;
 
@@ -25,7 +26,13 @@ public class Workspace extends NodeComposite {
             Project p = (Project) child;
             if (!this.getChildren().contains(p)){
                 this.getChildren().add(p);
+                this.notifyListeners(ActionEnum.ACTION_ADD);
             }
         }
     }
+
+    //@Override
+    //public int getIndex(RafNode aChild) {
+     //   return 0;
+    //}
 }

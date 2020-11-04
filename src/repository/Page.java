@@ -20,6 +20,11 @@ public class Page extends NodeComposite{
         }
     }
 
+    //@Override
+   // public int getIndex(RafNode aChild) {
+     //   return 0;
+    //}
+
     @Override
     public NodeComposite getChildAt(int index) {
         return (NodeComposite) this.getChildren().get(index);

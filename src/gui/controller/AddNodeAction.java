@@ -67,7 +67,6 @@ public class AddNodeAction extends AbstractActionClass{
 					//((TreeItem) o).getRafNodeModel());
 			MainView.getInstance().getTree().addPage(p,o);
 			RafNode doc = tr.getRafNodeModel();
-			doc.notifyListeners(ActionEnum.ACTION_ADD);
 			SwingUtilities.updateComponentTreeUI(MainView.getInstance().getWorkspaceTree());
 
 		}
@@ -75,6 +74,7 @@ public class AddNodeAction extends AbstractActionClass{
 			int label = new Random().nextInt(1000);
 			Slot s=new Slot("Slot "+ y++,((TreeItem) o).getRafNodeModel());
 		    MainView.getInstance().getTree().addSlot(s, o);
+
 		}
 	}
 

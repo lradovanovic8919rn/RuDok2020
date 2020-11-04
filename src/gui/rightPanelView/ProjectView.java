@@ -17,7 +17,7 @@ public class ProjectView extends JPanel implements IListener {
     private JLabel projectName;
     private JTabbedPane documents;
     private Project project;
-    //public static ArrayList<ProjectView> projectViews = new ArrayList<ProjectView>();
+    public static ArrayList<ProjectView> projectViews = new ArrayList<ProjectView>();
     private ArrayList<DocumentView> documentViews;
 
 
@@ -84,6 +84,8 @@ public class ProjectView extends JPanel implements IListener {
         System.out.println("Update u ProjectView");
         if(event == ActionEnum.ACTION_ADD) {
             addTab();
+        }if(event == ActionEnum.ACTION_RENAME){
+            projectName.setText((project.getName()));
         }
 
     }

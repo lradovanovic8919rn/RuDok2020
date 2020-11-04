@@ -1,14 +1,17 @@
 package gui.rightPanelView;
 
 import gui.controller.ActionEnum;
+import gui.tree.model.TreeItem;
 import gui.view.MainView;
 import observer.IListener;
 import repository.Document;
 import repository.Page;
 import repository.Project;
+import repository.node.NodeComposite;
 import repository.node.RafNode;
 
 import javax.swing.*;
+import javax.swing.tree.TreeNode;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -25,19 +28,19 @@ public class DocumentView extends JPanel implements IListener {
     private JPanel panel2;
 
     public DocumentView(Document document) {
-        super(new GridLayout(0,3));
+        super(new GridLayout(0, 3));
         this.document = document;
         pages = new ArrayList<PageView>();
 
         //split = new JSplitPane();
 
         //scroll = new JScrollPane();
-       // scroll.setSize(420, 420);
-       // scroll.setMinimumSize(new Dimension(200, 200));
+        // scroll.setSize(420, 420);
+        // scroll.setMinimumSize(new Dimension(200, 200));
         //panel = new JPanel();
         //GridLayout grid = new GridLayout(0, 1);
-       // grid.setVgap(20);
-       // panel = new JPanel(grid);
+        // grid.setVgap(20);
+        // panel = new JPanel(grid);
         //scroll.setViewportView(panel2);
 
         //split.setLeftComponent(scroll);
@@ -125,7 +128,9 @@ public class DocumentView extends JPanel implements IListener {
     public void update(Object event) {
         //Project pr = (RafNode) this.document.getParent();
         if (event == ActionEnum.ACTION_ADD) addPage();
-
+        else if (event == ActionEnum.ACTION_RENAME) {
+            renameDocument();
+        }
 
     }
 
@@ -141,4 +146,15 @@ public class DocumentView extends JPanel implements IListener {
         }
 
     }
+
+    private void renameDocument() {
+        //NodeComposite p = document.getParent();
+    //
+  //      for (ProjectView projectView : ProjectView.projectViews) {
+    //        if (projectView.getProject().equals(p)) {
+      //          projectView.getDocuments().setTitleAt(p.getIndex(document), document.getName());
+        //        ((DocumentView) projectView.getDocumentViews().get(p.getIndex((TreeNode) document))).setName(new JLabel(document.getName()));
+           }
+
 }
+
