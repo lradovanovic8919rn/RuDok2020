@@ -1,8 +1,9 @@
 package repository.node;
 
 import gui.tree.RafTree;
+import observer.IObserver;
 
-public abstract class RafNode {
+public abstract class RafNode implements IObserver {
 
 	private String name;
 

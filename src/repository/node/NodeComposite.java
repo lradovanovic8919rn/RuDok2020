@@ -6,7 +6,7 @@ import observer.IObserver;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class NodeComposite extends RafNode implements IObserver {
+public abstract class NodeComposite extends RafNode  {
 	
 	 List<RafNode> children;
 	 private ArrayList<IListener> listeners;
@@ -14,12 +14,18 @@ public abstract class NodeComposite extends RafNode implements IObserver {
 	public NodeComposite(String name, RafNode parent) {
 		super(name, parent);
 		this.children = new ArrayList<>();
+		this.listeners = new ArrayList<IListener>();
 	}
 	
 	public NodeComposite(String name, RafNode parent,List<RafNode> children) {
 		super(name, parent);
 		this.children = new ArrayList<>();
 	}
+
+	public abstract NodeComposite getChildAt(int index);
+
+
+	public abstract int getChildCount();
 
 	public abstract void addChild(RafNode child);
 	

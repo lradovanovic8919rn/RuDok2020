@@ -37,20 +37,26 @@ public class AddNodeAction extends AbstractActionClass{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 	
-		Object o=MainView.getInstance().getWorkspaceTree().getLastSelectedPathComponent();
+		Object o=MainView.getInstance().getWorkspaceTree().getSelectionPath().getLastPathComponent();
 		TreeItem tr=(TreeItem) o;
-		
+
+
 		if(tr.getRafNodeModel() instanceof Workspace) {
 			 int label = new Random().nextInt(1000);
 		     Project p = new Project("Project " + i++, (RafNode) ((TreeItem) MainView.getInstance().getWorkspaceTree().getModel().getRoot()).getRafNodeModel());
 		     MainView.getInstance().getTree().addProject(p);
 			 //MainView.getInstance().getTree().addDocument(d,o);
 			 MainView.getInstance().projectViewMaker(p);
+			 p.notifyListeners(ActionEnum.ACTION_ADD);
+			 SwingUtilities.updateComponentTreeUI(MainView.getInstance().getWorkspaceTree());
 		}
 		if(tr.getRafNodeModel() instanceof Project) {
 			 int label = new Random().nextInt(1000);
-		     Document d = new Document("Document " + j++, ((TreeItem) o).getRafNodeModel());
+		     Document d = new Document("Document " + j++, (RafNode) ((TreeItem) MainView.getInstance().getWorkspaceTree().getModel().getRoot()).getRafNodeModel());
 		     MainView.getInstance().getTree().addDocument(d,o);
+
+
+		    // MainView.getInstance().getSplitPane().getRightComponent().
 		     //MainView.getInstance().projectViewMaker((Project) tr.getRafNodeModel());
 		}
 		if(tr.getRafNodeModel() instanceof Document) {

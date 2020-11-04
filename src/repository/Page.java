@@ -19,4 +19,15 @@ public class Page extends NodeComposite{
             }
         }
     }
+
+    @Override
+    public NodeComposite getChildAt(int index) {
+        return (NodeComposite) this.getChildren().get(index);
+    }
+
+    @Override
+    public int getChildCount() {
+        return this.getChildren().size();
+    }
+
 }

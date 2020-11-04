@@ -1,23 +1,40 @@
 package gui.rightPanelView;
 
+import observer.IListener;
 import repository.Page;
 
 import javax.swing.*;
+import java.awt.*;
 
-public class PageView {
+public class PageView extends  JPanel implements IListener {
 
     private JLabel name;
     private Page page;
 
-    public PageView(Page page){
+    public PageView(Page page) {
 
-        thi
+        this.page = page;
+        page.addListener(this);
 
-
+        name = new JLabel(page.getName());
+        this.setPreferredSize(new Dimension(950, 560));
 
 
     }
 
 
+    @Override
+    public void update(Object event) {
 
+    }
+
+
+
+    public Page getPage() {
+        return page;
+    }
+
+    public void setPage(Page page) {
+        this.page = page;
+    }
 }

@@ -150,8 +150,9 @@ public class MainView extends JFrame {
         ProjectView p = new ProjectView(project);
         ProjectView.projectViews.add(p);
 
-        splitPane.setRightComponent(p);
+        panel2.add(p);
     }
+
 
 
 }

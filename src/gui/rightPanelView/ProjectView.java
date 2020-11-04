@@ -1,8 +1,12 @@
 package gui.rightPanelView;
 
+import gui.controller.ActionEnum;
+import gui.tree.model.TreeItem;
+import gui.view.MainView;
 import observer.IListener;
 import repository.Document;
 import repository.Project;
+import repository.node.RafNode;
 
 import javax.swing.*;
 import java.awt.*;
@@ -79,6 +83,23 @@ public class ProjectView extends JPanel implements IListener {
 
     @Override
     public void update(Object event) {
+        //this.project.setChanged(true);
+        System.out.println("Upade projectView");
+        if(event == ActionEnum.ACTION_ADD) {
+            addTab();
+        }
 
     }
+
+    public void addTab() {
+
+        //if(!(documents.getTabCount() == project.getChildCount())) {
+        Document d = new Document("doc",project);
+        DocumentView dView = new DocumentView(d);
+        documentViews.add(dView);
+        documents.addTab(dView.getName(), dView);
+        //}
+    }
+
+
 }
