@@ -7,14 +7,15 @@ import repository.Page;
 import repository.Project;
 import repository.Slot;
 import repository.Workspace;
+import repository.node.RafNode;
 
 public interface RafTree {
 
 	JTree generateTree(Workspace workspace);
 	void addProject(Project project);
-	void addPage(Page page, Object o);
-	void addSlot(Slot slot, Object o);
-	void addDocument(Document document, Object o);
+	void addPage(Page page);
+	void addSlot(Slot slot);
+	void addDocument(Document document);
+	RafNode getSelectedNode();
 	
-	//Dodajem RafNode get selected node
 }

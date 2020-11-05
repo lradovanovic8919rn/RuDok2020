@@ -37,23 +37,21 @@ public class AddNodeAction extends AbstractActionClass{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 	
-		Object o=MainView.getInstance().getWorkspaceTree().getSelectionPath().getLastPathComponent();
-		TreeItem tr=(TreeItem) o;
+		RafNode node=MainView.getInstance().getTree().getSelectedNode();
+		
+		if(node!=null) {
 
-
-		if(tr.getRafNodeModel() instanceof Workspace) {
-			 int label = new Random().nextInt(1000);
-		     Project p = new Project("Project " + i++, (RafNode) ((TreeItem) MainView.getInstance().getWorkspaceTree().getModel().getRoot()).getRafNodeModel());
+		if(node instanceof Workspace) {
+		     Project p = new Project("Project " + i++, node);
 		     MainView.getInstance().getTree().addProject(p);
 			 //MainView.getInstance().getTree().addDocument(d,o);
 			 System.out.println("Kreira project");
 			 MainView.getInstance().projectViewMaker(p);
 			 SwingUtilities.updateComponentTreeUI(MainView.getInstance().getWorkspaceTree());
 		}
-		if(tr.getRafNodeModel() instanceof Project) {
-			 int label = new Random().nextInt(1000);
-		     Document d = new Document("Document " + j++, (RafNode) ((TreeItem) MainView.getInstance().getWorkspaceTree().getModel().getRoot()).getRafNodeModel());
-		     MainView.getInstance().getTree().addDocument(d,o);
+		if(node instanceof Project) {
+		     Document d = new Document("Document " + j++, node);
+		     MainView.getInstance().getTree().addDocument(d);
 		     System.out.println("Ulazi u doc cre8");
 		    // RafNode proc = tr.getRafNodeModel();
 		    // proc.notifyListeners(ActionEnum.ACTION_ADD);
@@ -61,21 +59,25 @@ public class AddNodeAction extends AbstractActionClass{
 		    // MainView.getInstance().getSplitPane().getRightComponent().
 		     //MainView.getInstance().projectViewMaker((Project) tr.getRafNodeModel());
 		}
-		if(tr.getRafNodeModel() instanceof Document) {
-			int label = new Random().nextInt(1000);
-			Page p=new Page("Page " + x++ , (RafNode) ((TreeItem) MainView.getInstance().getWorkspaceTree().getModel().getRoot()).getRafNodeModel());
+		if(node instanceof Document) {
+			Page p=new Page("Page " + x++ , node);
 					//((TreeItem) o).getRafNodeModel());
-			MainView.getInstance().getTree().addPage(p,o);
-			RafNode doc = tr.getRafNodeModel();
+			MainView.getInstance().getTree().addPage(p);
+
 			SwingUtilities.updateComponentTreeUI(MainView.getInstance().getWorkspaceTree());
 
 		}
-		if(tr.getRafNodeModel() instanceof Page) {
-			int label = new Random().nextInt(1000);
-			Slot s=new Slot("Slot "+ y++,((TreeItem) o).getRafNodeModel());
-		    MainView.getInstance().getTree().addSlot(s, o);
+		if(node instanceof Page) {
+			Slot s=new Slot("Slot "+ y++,node);
+		    MainView.getInstance().getTree().addSlot(s);
 
 		}
+		if(node instanceof Slot) {
+			//Error handler
+		}
+		
+		}
+		
 	}
 
 }

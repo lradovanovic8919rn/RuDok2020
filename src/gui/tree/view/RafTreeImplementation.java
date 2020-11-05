@@ -42,7 +42,8 @@ public class RafTreeImplementation implements RafTree {
 	}
 
 	@Override
-	public void addDocument(Document document,Object o) {
+	public void addDocument(Document document) {
+		Object o=MainView.getInstance().getWorkspaceTree().getSelectionPath().getLastPathComponent();
 		int index=treeModel.getIndexOfChild(treeModel.getRoot(), o);
 		RafNode nodeModel = ((TreeItem)treeModel.getChild(treeModel.getRoot(), index)).getRafNodeModel();
         ((TreeItem)treeModel.getChild(treeModel.getRoot(), index)).add(new TreeItem(document));
@@ -52,7 +53,8 @@ public class RafTreeImplementation implements RafTree {
 		
 
 	@Override
-	public void addPage(Page page, Object o) {
+	public void addPage(Page page) {
+		Object o=MainView.getInstance().getWorkspaceTree().getSelectionPath().getLastPathComponent();
 		int index=treeModel.getIndexOfChild(((TreeItem)o).getParent(), o);		
 		RafNode nodeModel = ((TreeItem)treeModel.getChild(((TreeItem)o).getParent(), index)).getRafNodeModel();
 		((TreeItem)treeModel.getChild(((TreeItem)o).getParent(), index)).add(new TreeItem(page));
@@ -62,7 +64,8 @@ public class RafTreeImplementation implements RafTree {
 	}
 
 	@Override
-	public void addSlot(Slot slot, Object o) {
+	public void addSlot(Slot slot) {
+		Object o=MainView.getInstance().getWorkspaceTree().getSelectionPath().getLastPathComponent();
 		int index=treeModel.getIndexOfChild(((TreeItem)o).getParent(), o);		
 		RafNode nodeModel = ((TreeItem)treeModel.getChild(((TreeItem)o).getParent(), index)).getRafNodeModel();
 		((TreeItem)treeModel.getChild(((TreeItem)o).getParent(), index)).add(new TreeItem(slot));
@@ -72,6 +75,13 @@ public class RafTreeImplementation implements RafTree {
 		
 	}
 
-
+	@Override
+	public RafNode getSelectedNode() {
+		Object o = MainView.getInstance().getWorkspaceTree().getLastSelectedPathComponent();
+		TreeItem ti=(TreeItem)o;
+		RafNode n=ti.getRafNodeModel();
+		
+		return n;
+	}
 
 }
