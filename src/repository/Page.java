@@ -12,7 +12,7 @@ public class Page extends NodeComposite{
 	
 	@Override
     public void addChild(RafNode child) {
-        if (child != null &&  child instanceof Document){
+        if (child != null &&  child instanceof Slot){
         	Slot s = (Slot) child;
             if (!this.getChildren().contains(s)){
                 this.getChildren().add(s);
