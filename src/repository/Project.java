@@ -54,6 +54,10 @@ public class Project extends NodeComposite implements  IObserver{
         }
     }
 
+    public int getIndex(RafNode aChild) {
+        return this.documents.indexOf(aChild);
+    }
+
     public void add(MutableTreeNode newChild) {
         Document document = (Document)newChild;
         documents.add(document);

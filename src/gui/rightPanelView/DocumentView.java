@@ -31,7 +31,7 @@ public class DocumentView extends JPanel implements IListener {
         super(new GridLayout(0, 3));
         this.document = document;
         pages = new ArrayList<PageView>();
-
+        document.addListener(this);
         //split = new JSplitPane();
 
         //scroll = new JScrollPane();
@@ -51,7 +51,7 @@ public class DocumentView extends JPanel implements IListener {
         //this.add(scroll);
         //this.add(BorderLayout.CENTER,scroll);
         name = new JLabel(document.toString());
-        document.addListener(this);
+
         //this.add(panel);
         //add(split);
 
@@ -148,13 +148,15 @@ public class DocumentView extends JPanel implements IListener {
     }
 
     private void renameDocument() {
-        //NodeComposite p = document.getParent();
-    //
-  //      for (ProjectView projectView : ProjectView.projectViews) {
-    //        if (projectView.getProject().equals(p)) {
-      //          projectView.getDocuments().setTitleAt(p.getIndex(document), document.getName());
-        //        ((DocumentView) projectView.getDocumentViews().get(p.getIndex((TreeNode) document))).setName(new JLabel(document.getName()));
-           }
+        System.out.println("Udje u rename Document");
+        System.out.println(name.getText());
+        name.setText(document.getName());
+      //  Project p = this.document.getParent();
+       // for (ProjectView projectView : ProjectView.projectViews) {
+       //     if (projectView.getProject().equals(p)) {
+       //         projectView.getDocuments().setTitleAt(p.getIndex(document), document.getName());
+       //         ((DocumentView) projectView.getDocumentViews().get(p.getIndex((TreeNode) document))).setName(new JLabel(document.getName()));
+      //      }
 
-}
-
+        }
+    }

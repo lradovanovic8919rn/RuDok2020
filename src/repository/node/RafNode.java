@@ -30,6 +30,8 @@ public abstract class RafNode implements IObserver {
 //		return this.No.get(index);
 //	}
 
+
+
 	public String getName() {
 		return name;
 	}
