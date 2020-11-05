@@ -73,7 +73,7 @@ public class AddNodeAction extends AbstractActionClass{
 
 		}
 		if(node instanceof Slot) {
-			//Error handler
+			//Error handler,slot ne moze imati child node
 		}
 		
 		}

@@ -84,4 +84,24 @@ public class RafTreeImplementation implements RafTree {
 		return n;
 	}
 
+
+	@Override
+	public void deleteNode(RafNode n) {
+		
+		RafNode prt=n.getParent();
+
+		if(n instanceof Project) {	
+			((Workspace)prt).getChildren().remove(n);
+		}if(n instanceof Document) {			
+			((Project)prt).getChildren().remove(n);	
+		}if(n instanceof Page) {
+			((Document) prt).getChildren().remove(n);
+		}if (n instanceof Slot)  {
+			((Page)prt).getChildren().remove(n);
+		}
+   
+		
+        SwingUtilities.updateComponentTreeUI(treeView);
+
+	}
 }

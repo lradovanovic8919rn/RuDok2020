@@ -5,6 +5,10 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.KeyStroke;
 
+import gui.view.MainView;
+import repository.Workspace;
+import repository.node.RafNode;
+
 public class DeleteNodeAction extends AbstractActionClass{
 	 public DeleteNodeAction() {
 	        putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(
@@ -16,8 +20,17 @@ public class DeleteNodeAction extends AbstractActionClass{
 	 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+		RafNode node=MainView.getInstance().getTree().getSelectedNode();
 		
+		if(node!=null) {
+			if(!(node instanceof Workspace)) {
+		MainView.getInstance().getTree().deleteNode(node);
+			}else {
+				//Error handler,Workspace ne moze biti obrisan
+			}
+		}else {
+			//Error handler,nije izabran cvor
+		}
 	}
 
 }

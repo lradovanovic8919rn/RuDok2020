@@ -17,5 +17,6 @@ public interface RafTree {
 	void addSlot(Slot slot);
 	void addDocument(Document document);
 	RafNode getSelectedNode();
+	void deleteNode(RafNode node);
 	
 }
