@@ -77,9 +77,13 @@ public class RafTreeImplementation implements RafTree {
 
 	@Override
 	public RafNode getSelectedNode() {
+		RafNode n=null;
 		Object o = MainView.getInstance().getWorkspaceTree().getLastSelectedPathComponent();
 		TreeItem ti=(TreeItem)o;
-		RafNode n=ti.getRafNodeModel();
+		if(ti==null) {
+			return n;
+		}
+		n=ti.getRafNodeModel();
 		
 		return n;
 	}
@@ -100,6 +104,7 @@ public class RafTreeImplementation implements RafTree {
 			((Page)prt).getChildren().remove(n);
 		}
    
+		treeView.clearSelection();
 		
         SwingUtilities.updateComponentTreeUI(treeView);
 

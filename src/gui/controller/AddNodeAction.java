@@ -5,10 +5,11 @@ import java.awt.event.KeyEvent;
 import java.util.Random;
 import java.util.jar.Manifest;
 
+import javax.swing.JFrame;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
-
+import gui.controller.error.ErrorHandler;
 import gui.rightPanelView.ProjectView;
 import gui.tree.model.TreeItem;
 import gui.view.MainView;
@@ -38,9 +39,10 @@ public class AddNodeAction extends AbstractActionClass{
 	public void actionPerformed(ActionEvent arg0) {
 	
 		RafNode node=MainView.getInstance().getTree().getSelectedNode();
-		
+		System.out.print("");
 		if(node!=null) {
 
+			
 		if(node instanceof Workspace) {
 		     Project p = new Project("Project " + i++, node);
 		     MainView.getInstance().getTree().addProject(p);
@@ -73,11 +75,14 @@ public class AddNodeAction extends AbstractActionClass{
 
 		}
 		if(node instanceof Slot) {
-			//Error handler,slot ne moze imati child node
-		}
+			JFrame error=new ErrorHandler().slotChildException();			
+			}
+		
+		}else {
+			JFrame error=new ErrorHandler().nodeNotSelectedException();			}
 		
 		}
 		
 	}
 
-}
+

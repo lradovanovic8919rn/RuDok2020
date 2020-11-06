@@ -3,8 +3,10 @@ package gui.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
+import javax.swing.JFrame;
 import javax.swing.KeyStroke;
 
+import gui.controller.error.ErrorHandler;
 import gui.view.MainView;
 import repository.Workspace;
 import repository.node.RafNode;
@@ -25,12 +27,13 @@ public class DeleteNodeAction extends AbstractActionClass{
 		if(node!=null) {
 			if(!(node instanceof Workspace)) {
 		MainView.getInstance().getTree().deleteNode(node);
-			}else {
-				//Error handler,Workspace ne moze biti obrisan
+		}else {
+			JFrame error=new ErrorHandler().deleteWorkspaceException();			
 			}
 		}else {
-			//Error handler,nije izabran cvor
+			JFrame error=new ErrorHandler().nodeNotSelectedException();	
+			}
 		}
 	}
 
-}
+
