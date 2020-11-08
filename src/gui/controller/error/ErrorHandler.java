@@ -2,7 +2,7 @@ package gui.controller.error;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
+///Ne moze ovo mora drugacije
 public class ErrorHandler {
 	
 	public JFrame deleteWorkspaceException() {

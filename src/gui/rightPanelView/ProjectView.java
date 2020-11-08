@@ -1,5 +1,6 @@
 package gui.rightPanelView;
 
+import com.sun.source.tree.Tree;
 import gui.controller.ActionEnum;
 import gui.tree.model.TreeItem;
 import gui.view.MainView;
@@ -28,7 +29,7 @@ public class ProjectView extends JPanel implements IListener {
         documentViews = new ArrayList<DocumentView>();
 
         projectName = new JLabel(project.getName());
-
+        project.addListener(this);
         this.setLayout(new BorderLayout());
 
         JPanel panel = new JPanel(new BorderLayout());
@@ -86,6 +87,8 @@ public class ProjectView extends JPanel implements IListener {
             addTab();
         }if(event == ActionEnum.ACTION_RENAME){
             projectName.setText((project.getName()));
+        }else if(event == ActionEnum.ACTION_REMOVE) {
+            removeTab();
         }
 
     }
@@ -100,5 +103,24 @@ public class ProjectView extends JPanel implements IListener {
         //}
     }
 
+    private void removeTab() {
+        TreeItem d = ((TreeItem) MainView.getInstance().getWorkspaceTree().getSelectionPath().getLastPathComponent());
+        RafNode p = d.getRafNodeModel().getParent();
+
+
+        this.getDocumentViews().remove(((Project) p).getIndex(p));
+        try {
+            this.getDocuments().remove(((Project) p).getIndex(p));
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Index out");
+        }
+    }
+
+    public void addClickedTab(Document document) {
+        documents.removeAll();
+        for(DocumentView d: documentViews) {
+            documents.add(d);
+        }
+    }
 
 }

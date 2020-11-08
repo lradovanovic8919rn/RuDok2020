@@ -72,4 +72,9 @@ public class Project extends NodeComposite implements  IObserver{
      //   return this.documents.indexOf(aChild);
    // }
 
+    public void remove(RafNode aChild) {
+        System.out.println("Dodje dovde");
+        this.notifyListeners(ActionEnum.ACTION_REMOVE);
+        this.documents.remove(aChild);
+    }
 }

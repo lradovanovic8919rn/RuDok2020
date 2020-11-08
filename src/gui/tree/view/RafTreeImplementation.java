@@ -8,6 +8,7 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeNode;
 
+import gui.controller.ActionEnum;
 import gui.tree.RafTree;
 import gui.tree.model.TreeItem;
 import gui.view.MainView;
@@ -96,6 +97,7 @@ public class RafTreeImplementation implements RafTree {
 
 		if(n instanceof Project) {	
 			((Workspace)prt).getChildren().remove(n);
+			//n.notifyListeners(ActionEnum.ACTION_REMOVE);
 		}if(n instanceof Document) {			
 			((Project)prt).getChildren().remove(n);	
 		}if(n instanceof Page) {

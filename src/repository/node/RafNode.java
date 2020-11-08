@@ -37,8 +37,8 @@ public abstract class RafNode implements IObserver {
 	}
 
 	public void setName(String name) {
-		this.name = name;
-		this.notifyListeners(ActionEnum.ACTION_RENAME);
+		this.name = name;//Promenio ime u stablu
+		this.notifyListeners(ActionEnum.ACTION_RENAME);//Menjas ime u View
 	}
 
 	public RafNode getParent() {

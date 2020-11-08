@@ -68,5 +68,6 @@ public abstract class NodeComposite extends RafNode {
 		}
 	}
 
+	//Imam metodu za remove,uzecu dete izbrisati ga iz liste,pozvati lisenerr za remove.
 
 }
