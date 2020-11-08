@@ -2,8 +2,10 @@ package app;
 
 
 import core.AppFramework;
+import core.ErrorHandler;
 import core.Gui;
 import core.Repository;
+import error.ErrorHandlerImplementation;
 import gui.RafGui;
 import gui.view.MainView;
 import repository.RepositoryImplementation;
@@ -32,7 +34,8 @@ public class Main extends AppFramework {
     public static void main(String[] args) {
 
     	Repository r = new RepositoryImplementation();
-    	Gui gui=new RafGui(r);
+    	ErrorHandler eh=new ErrorHandlerImplementation();
+    	Gui gui=new RafGui(r,eh);
     	AppFramework main=Main.getInstance();
     	MainView.getInstance().setDocumentRepository(r);
     	main.initialise(gui, r); //

@@ -9,7 +9,6 @@ import javax.swing.JFrame;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
-import gui.controller.error.ErrorHandler;
 import gui.rightPanelView.ProjectView;
 import gui.tree.model.TreeItem;
 import gui.view.MainView;
@@ -75,14 +74,12 @@ public class AddNodeAction extends AbstractActionClass{
 
 		}
 		if(node instanceof Slot) {
-			JFrame error=new ErrorHandler().slotChildException();			
-			}
+			MainView.getInstance().getErrorHandler().slotCantHaveChildren();			}
 		
 		}else {
-			JFrame error=new ErrorHandler().nodeNotSelectedException();			}
-		
+			MainView.getInstance().getErrorHandler().noChosenNode();		
 		}
 		
 	}
 
-
+}

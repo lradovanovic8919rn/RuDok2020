@@ -6,7 +6,6 @@ import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.KeyStroke;
 
-import gui.controller.error.ErrorHandler;
 import gui.view.MainView;
 import repository.Workspace;
 import repository.node.RafNode;
@@ -28,10 +27,9 @@ public class DeleteNodeAction extends AbstractActionClass{
 			if(!(node instanceof Workspace)) {
 		MainView.getInstance().getTree().deleteNode(node);
 		}else {
-			JFrame error=new ErrorHandler().deleteWorkspaceException();			
-			}
+			MainView.getInstance().getErrorHandler().cantDeleteWorkspace();			}
 		}else {
-			JFrame error=new ErrorHandler().nodeNotSelectedException();	
+			MainView.getInstance().getErrorHandler().noChosenNode();	
 			}
 		}
 	}
