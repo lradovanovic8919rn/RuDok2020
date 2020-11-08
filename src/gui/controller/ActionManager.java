@@ -8,7 +8,6 @@ public class ActionManager {
 
 	private AddNodeAction addNodeAction;
 	private DeleteNodeAction deleteNodeAction;
-	private RenameNodeAction renameNodeAction;
 	private AboutAction aboutAction;
 
 	private ActionManager() {
@@ -18,7 +17,6 @@ public class ActionManager {
 	private void init() {
 		addNodeAction=new AddNodeAction();
 		deleteNodeAction=new DeleteNodeAction();
-		renameNodeAction=new RenameNodeAction();
 		aboutAction = new AboutAction();
 	}
 
@@ -28,10 +26,6 @@ public class ActionManager {
 
 	public DeleteNodeAction getDeleteNodeAction() {
 		return deleteNodeAction;
-	}
-
-	public RenameNodeAction getRenameNodeAction() {
-		return renameNodeAction;
 	}
 
 	public AboutAction getAboutAction() {

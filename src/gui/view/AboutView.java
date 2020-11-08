@@ -17,7 +17,7 @@ public class AboutView  extends JDialog {
         add(lazarSplit());
 
 
-        this.setSize(600  ,600);
+        this.setSize(680  ,680);
 
     }
 

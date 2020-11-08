@@ -13,7 +13,6 @@ public class Toolbar extends JToolBar{
 	
 		add(MainView.getInstance().getActionManager().getAddNodeAction());
 		add(MainView.getInstance().getActionManager().getDeleteNodeAction());
-		add(MainView.getInstance().getActionManager().getRenameNodeAction());
 		
 		this.addSeparator();
 	}
