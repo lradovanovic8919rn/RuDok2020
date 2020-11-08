@@ -89,6 +89,7 @@ public class ProjectView extends JPanel implements IListener {
             projectName.setText((project.getName()));
         }else if(event == ActionEnum.ACTION_REMOVE) {
             removeTab();
+
         }
 
     }
@@ -114,6 +115,7 @@ public class ProjectView extends JPanel implements IListener {
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Index out");
         }
+
     }
 
     public void addClickedTab(Document document) {

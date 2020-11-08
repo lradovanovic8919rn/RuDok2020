@@ -127,7 +127,10 @@ public class DocumentView extends JPanel implements IListener {
     @Override
     public void update(Object event) {
         //Project pr = (RafNode) this.document.getParent();
-        if (event == ActionEnum.ACTION_ADD) addPage();
+        if (event == ActionEnum.ACTION_ADD) {
+        	addPage();
+        	revalidate();
+        }
         else if (event == ActionEnum.ACTION_RENAME) {
             renameDocument();
         }
