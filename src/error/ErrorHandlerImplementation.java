@@ -3,28 +3,49 @@ package error;
 import javax.swing.JOptionPane;
 
 import core.ErrorHandler;
-import gui.controller.ErrorEnum;
+import error.ErrorEnum;
 import gui.view.MainView;
+import observer.IListener;
+
+import java.util.ArrayList;
 
 public class ErrorHandlerImplementation implements ErrorHandler {
 
+	private ArrayList<IListener> listeners;
+
 	@Override
-	public void noChosenNode() {
-		Object o=ErrorEnum.ERROR_NOSELECTEDNODE;
-		MainView.getInstance().fireError(o);
+	public void generateError(ErrorEnum type) {
+		if(type == ErrorEnum.ERROR_DELETEWS)
+			notifyListeners(new ErrorClass(1,"Error!","Workspace can not be deleted!"));
+		if(type == ErrorEnum.ERROR_SLOTCHILDREN)
+			notifyListeners(new ErrorClass(2,"Error!","Slot can not have children!"));
+		if(type == ErrorEnum.ERROR_NOSELECTEDNODE)
+			notifyListeners(new ErrorClass(3,"Error!","You have to select node first!"));
+
 	}
 
 	@Override
-	public void cantDeleteWorkspace() {
-		Object o=ErrorEnum.ERROR_DELETEWS;
-		MainView.getInstance().fireError(o);
+	public void addListener(IListener listener) {
+		if(listener == null) return;
+		if(listeners == null) listeners = new ArrayList<IListener>();
+		if(listeners.contains(listener)) return;
+		listeners.add(listener);
+
 	}
 
 	@Override
-	public void slotCantHaveChildren() {
-		Object o=ErrorEnum.ERROR_SLOTCHILDREN;
-		MainView.getInstance().fireError(o);
-	
+	public void removeListener(IListener listener) {
+		if(listener == null || listeners == null || !listeners.contains(listener)) return;
+		listeners.remove(listener);
 	}
 
+	@Override
+	public void notifyListeners(Object event) {
+		if(this.listeners == null || this.listeners.isEmpty() || event == null)
+			return;
+		for(IListener l: listeners) {
+			l.update(event);
+		}
+	}
 }
+

@@ -1,8 +1,10 @@
 package core;
 
-public interface ErrorHandler {
+import error.ErrorEnum;
+import observer.IObserver;
 
-	void noChosenNode();
-	void cantDeleteWorkspace();
-	void slotCantHaveChildren();
+public interface ErrorHandler extends IObserver {
+
+	void generateError(ErrorEnum type);
+
 }

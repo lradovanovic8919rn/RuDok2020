@@ -13,7 +13,6 @@ import repository.RepositoryImplementation;
 public class Main extends AppFramework {
 	
 	private static Main instance;
-	
 	private Main() {
 		
 	}
@@ -31,14 +30,15 @@ public class Main extends AppFramework {
 		
 	}
 
-    public static void main(String[] args) {
+
+	public static void main(String[] args) {
 
     	Repository r = new RepositoryImplementation();
     	ErrorHandler eh=new ErrorHandlerImplementation();
-    	Gui gui=new RafGui(r,eh);
+    	Gui gui=new RafGui(r);
     	AppFramework main=Main.getInstance();
     	MainView.getInstance().setDocumentRepository(r);
-    	main.initialise(gui, r); //
+    	main.initialise(gui, r, eh); //
 
     	main.run();
         

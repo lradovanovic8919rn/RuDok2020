@@ -24,7 +24,7 @@ public class PageView extends  JPanel implements IListener {
 
         name = new JLabel(page.getName());
         this.setPreferredSize(new Dimension(950, 560));
-       // this.setBackground(Color.BLUE);
+        this.setBackground(Color.WHITE);
         this.add(name);
 
     }

@@ -3,6 +3,7 @@ package gui;
 import core.ErrorHandler;
 import core.Gui;
 import core.Repository;
+import error.ErrorClass;
 import gui.view.MainView;
 import repository.Workspace;
 
@@ -11,12 +12,10 @@ public class RafGui implements Gui{
 	private MainView mv;
 	private Repository repository;
 	private Workspace workspace;
-	private ErrorHandler errorHandler;
 	
 	
-	public RafGui(Repository repository, ErrorHandler errorHandler) {
+	public RafGui(Repository repository) {
 		this.repository = repository;
-		this.errorHandler=errorHandler;
 	}
 
 
@@ -25,9 +24,14 @@ public class RafGui implements Gui{
 	public void start() {
 		mv=MainView.getInstance();
 		mv.setDocumentRepository(repository);
-		mv.setErrorHandler(errorHandler);
 		mv.initTree();
 		mv.setVisible(true);
 	}
 
+	@Override
+	public void update(Object notification) {
+		if(notification instanceof ErrorClass){
+			MainView.getInstance().fireError((ErrorClass) notification);
+		}
+	}
 }

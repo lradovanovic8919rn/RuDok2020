@@ -5,8 +5,9 @@ import javax.swing.*;
 
 import core.ErrorHandler;
 import core.Repository;
+import error.ErrorClass;
 import gui.controller.ActionManager;
-import gui.controller.ErrorEnum;
+import error.ErrorEnum;
 import gui.rightPanelView.ProjectView;
 import gui.tree.RafTree;
 import gui.tree.model.TreeItem;
@@ -33,7 +34,7 @@ public class MainView extends JFrame {
     private Repository documentRepository;
     private JTree workspaceTree;
     private RafTree tree;
-    private ErrorHandler errorHandler;
+
 
 
 
@@ -165,26 +166,13 @@ public class MainView extends JFrame {
         else{
         this.panel2.add(BorderLayout.CENTER,p);}
     }
-    public void fireError(Object o) {
-    	if(o==ErrorEnum.ERROR_DELETEWS) {
-            JOptionPane.showMessageDialog(null, "Workspace can not be deleted!",
-                            "Error!",JOptionPane.ERROR_MESSAGE);
-            
-    	}if(o==ErrorEnum.ERROR_SLOTCHILDREN) {
-            JOptionPane.showMessageDialog(null, "Slot can not have children!",
-                            "Error!",JOptionPane.ERROR_MESSAGE);
-    	
-    	}if(o==ErrorEnum.ERROR_NOSELECTEDNODE) {
-            JOptionPane.showMessageDialog(null, "You have to select node first!",
-                            "Error!",JOptionPane.ERROR_MESSAGE);    	}
+
+    public void fireError(ErrorClass e) {
+
+	    JOptionPane.showMessageDialog(null,e.getMessage(),
+                e.getTitle(),JOptionPane.ERROR_MESSAGE);
+
     
     }
 
-    public ErrorHandler getErrorHandler() {
-		return errorHandler;
-	}
-
-	public void setErrorHandler(ErrorHandler errorHandler) {
-		this.errorHandler = errorHandler;
-	}
 }
