@@ -1,5 +1,7 @@
 package gui.rightPanelView.graphics.element;
 
+import gui.rightPanelView.graphics.painters.ElementPainter;
+
 import java.awt.*;
 
 public abstract class SlotElement {
@@ -10,7 +12,7 @@ public abstract class SlotElement {
     protected Dimension size;
     protected Point position;
 
-    //protected ElementPainter elementPainter;
+    protected ElementPainter elementPainter;
 
     public SlotElement(Paint paint, Stroke stroke, Dimension size, Point position) {
         this.paint = paint;
@@ -58,7 +60,8 @@ public abstract class SlotElement {
     public void setPosition(Point position) {
         this.position = position;
     }
-    /*	public ElementPainter getPainter() {
+
+    public ElementPainter getPainter() {
 		return elementPainter;
-	}*/
+	}
 }
