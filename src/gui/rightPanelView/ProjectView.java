@@ -101,6 +101,7 @@ public class ProjectView extends JPanel implements IListener {
         DocumentView dView = new DocumentView(d);
         documentViews.add(dView);
         documents.addTab(dView.getName(), dView);
+        revalidate();
         //}
     }
 
