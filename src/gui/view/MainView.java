@@ -34,7 +34,7 @@ public class MainView extends JFrame {
     private Repository documentRepository;
     private JTree workspaceTree;
     private RafTree tree;
-
+    private Pallete pallete;
 
 
 
@@ -65,6 +65,7 @@ public class MainView extends JFrame {
 
         menu = new MenuLine();
         toolBar = new Toolbar();
+        pallete = new Pallete();
         
         setJMenuBar(menu);
 
@@ -79,7 +80,7 @@ public class MainView extends JFrame {
         splitPane.setDividerLocation(300);
         getContentPane().add(splitPane,BorderLayout.CENTER);
         add(toolBar, BorderLayout.NORTH);
-
+        add(pallete, BorderLayout.EAST);
 
 
     }
