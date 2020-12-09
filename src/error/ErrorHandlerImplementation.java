@@ -21,6 +21,12 @@ public class ErrorHandlerImplementation implements ErrorHandler {
 			notifyListeners(new ErrorClass(2,"Error!","Slot can not have children!"));
 		if(type == ErrorEnum.ERROR_NOSELECTEDNODE)
 			notifyListeners(new ErrorClass(3,"Error!","You have to select node first!"));
+		if(type == ErrorEnum.ERROR_ISNOTDOCUMENT)
+			notifyListeners(new ErrorClass(4,"Error!","You must select document first!"));
+		if(type == ErrorEnum.ERROR_ALREADYPARENT)
+			notifyListeners(new ErrorClass(5,"Error!","Selected project is already a parent of selected document!"));
+		if(type == ErrorEnum.ERROR_ISNOTPROJECT)
+			notifyListeners(new ErrorClass(6,"Error!","You must select new parent project!"));
 
 	}
 

@@ -2,6 +2,8 @@ package gui.tree;
 
 import javax.swing.JTree;
 
+import com.sun.source.tree.Tree;
+import gui.tree.model.TreeItem;
 import repository.Document;
 import repository.Page;
 import repository.Project;
@@ -18,5 +20,7 @@ public interface RafTree {
 	void addDocument(Document document);
 	RafNode getSelectedNode();
 	void deleteNode(RafNode node);
+	void insert(RafNode node);
+	void removeFromOldParent(RafNode child,RafNode parent);
 	
 }

@@ -75,7 +75,7 @@ public class TreeItem extends DefaultMutableTreeNode {
 			 
 			Iterator childrenIterator = children.iterator();
 	        TreeNode current;
-		
+
 	        while(childrenIterator.hasNext()) {
 	        	current = (TreeNode) childrenIterator.next();
 	        	if(current.equals(i)) {
@@ -83,7 +83,6 @@ public class TreeItem extends DefaultMutableTreeNode {
 	        	}
 	        }
 		}
-		
 		return null;
 	}
 	

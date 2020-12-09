@@ -12,6 +12,7 @@ public class ActionManager {
 	private TriangleAction triangleAction;
 	private RectangleAction rectangleAction;
 	private CircleAction circleAction;
+	private ShareDocumentAction shareDocumentAction;
 
 	private ActionManager() {
 		init();
@@ -24,6 +25,7 @@ public class ActionManager {
 		triangleAction = new TriangleAction();
 		rectangleAction = new RectangleAction();
 		circleAction = new CircleAction();
+		shareDocumentAction = new ShareDocumentAction();
 	}
 
 	public AddNodeAction getAddNodeAction() {
@@ -48,6 +50,10 @@ public class ActionManager {
 
 	public CircleAction getCircleAction() {
 		return circleAction;
+	}
+
+	public ShareDocumentAction getShareDocumentAction() {
+		return shareDocumentAction;
 	}
 
 	public static ActionManager getInstance(){

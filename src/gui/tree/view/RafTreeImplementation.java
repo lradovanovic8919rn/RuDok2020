@@ -8,6 +8,7 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeNode;
 
+import com.sun.source.tree.Tree;
 import gui.controller.ActionEnum;
 import gui.tree.RafTree;
 import gui.tree.model.TreeItem;
@@ -47,8 +48,8 @@ public class RafTreeImplementation implements RafTree {
 		Object o=MainView.getInstance().getWorkspaceTree().getSelectionPath().getLastPathComponent();
 		int index=treeModel.getIndexOfChild(treeModel.getRoot(), o);
 		RafNode nodeModel = ((TreeItem)treeModel.getChild(treeModel.getRoot(), index)).getRafNodeModel();
-        ((TreeItem)treeModel.getChild(treeModel.getRoot(), index)).add(new TreeItem(document));
-        ((Project) nodeModel).addChild(document);
+		((TreeItem)treeModel.getChild(treeModel.getRoot(), index)).add(new TreeItem(document));
+		((Project) nodeModel).addChild(document);
         SwingUtilities.updateComponentTreeUI(treeView);
 	}
 		
@@ -111,4 +112,25 @@ public class RafTreeImplementation implements RafTree {
         SwingUtilities.updateComponentTreeUI(treeView);
 
 	}
+
+	@Override
+	public void insert(RafNode node) {
+		Object o = MainView.getInstance().getWorkspaceTree().getLastSelectedPathComponent();
+		int index=treeModel.getIndexOfChild(treeModel.getRoot(), o);
+		RafNode nodeModel = ((TreeItem)treeModel.getChild(treeModel.getRoot(), index)).getRafNodeModel();
+		((TreeItem)treeModel.getChild(treeModel.getRoot(), index)).add(new TreeItem(node));
+		((Project) nodeModel).addChild(node);
+		SwingUtilities.updateComponentTreeUI(treeView);
+	}
+
+
+	@Override
+	public void removeFromOldParent(RafNode child, RafNode parent) {
+		((Project)parent).getChildren().remove(child);
+		treeView.clearSelection();
+
+		SwingUtilities.updateComponentTreeUI(treeView);
+	}
+
+
 }
