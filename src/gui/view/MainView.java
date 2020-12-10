@@ -162,9 +162,12 @@ public class MainView extends JFrame {
     }
 
     public void openProjectView(ProjectView p) {
-        System.out.println("Dodaje projectView  u desni panel");
-        if(p == null ) return;
-        else{
+       // System.out.println("Dodaje projectView  u desni panel");
+        if(p == null ){
+            System.out.println("Project je null");
+        }else{
+        System.out.println("Udje u open");
+        this.panel2.removeAll();
         this.panel2.add(BorderLayout.CENTER,p);}
     }
 

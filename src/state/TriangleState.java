@@ -14,12 +14,12 @@ public class TriangleState extends State {
     }
     public void mousePressed(MouseEvent e) {
         Point position = e.getPoint();
-        if (e.getButton()== MouseEvent.BUTTON1){
-            if (mediator.getDeviceAtPosition(position)==-1){
-                SlotElement device = TriangleElement.createDefault(position,mediator.getDeviceCount());//tek treba dodati
-                mediator.addSlotElements(device);
-            }
-        }
+       // if (e.getButton()== MouseEvent.BUTTON1){
+          //  if (mediator.getDeviceAtPosition(position)==-1){
+           //     SlotElement device = TriangleElement.createDefault(position,mediator.getDeviceCount());//tek treba dodati
+            //    mediator.addSlotElements(device);
+       //     }
+      //  }
     }
 
 }
