@@ -6,27 +6,15 @@ import java.awt.*;
 
 public abstract class SlotElement {
 
-    protected Paint paint;
-    protected Stroke stroke;
     protected String name;
     protected Dimension size;
     protected Point position;
 
     protected ElementPainter elementPainter;
 
-    public SlotElement(Paint paint, Stroke stroke, Dimension size, Point position) {
-        this.paint = paint;
-        this.stroke = stroke;
+    public SlotElement( Dimension size, Point position) {
         this.size = size;
         this.position = position;
-    }
-
-    public Paint getPaint() {
-        return paint;
-    }
-
-    public Stroke getStroke() {
-        return stroke;
     }
 
     public String getName() {
@@ -41,13 +29,6 @@ public abstract class SlotElement {
         return position;
     }
 
-    public void setPaint(Paint paint) {
-        this.paint = paint;
-    }
-
-    public void setStroke(Stroke stroke) {
-        this.stroke = stroke;
-    }
 
     public void setName(String name) {
         this.name = name;
