@@ -5,6 +5,7 @@ import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.TreePath;
 
 import app.Main;
+import gui.controller.ActionEnum;
 import gui.rightPanelView.ProjectView;
 import gui.tree.model.TreeItem;
 import gui.view.MainView;
@@ -16,6 +17,7 @@ import repository.node.RafNode;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Collections;
 
 public class RafTreeSelectionListener implements TreeSelectionListener {
 
@@ -32,15 +34,10 @@ public class RafTreeSelectionListener implements TreeSelectionListener {
 					TreeItem tr = (TreeItem) path.getLastPathComponent();
 					RafNode node = tr.getRafNodeModel();
 					if(node instanceof Workspace) {
-						MainView.getInstance().openProjectView(null);
+						//node.notifyListeners(ActionEnum.ACTION_FOCUS);
 					}
-
 					else if(node instanceof Project) {
-						for(ProjectView view: ProjectView.projectViews) {
-							if(view.getProject().equals(node)) {
-								MainView.getInstance().openProjectView(view);
-							}
-						}
+						node.notifyListeners(ActionEnum.ACTION_FOCUS);
 					}
 					else if(node instanceof Document) {
 						System.out.println("ovo je document");
@@ -48,7 +45,7 @@ public class RafTreeSelectionListener implements TreeSelectionListener {
 						Project p = (Project) d.getParent();
 						for(ProjectView view: ProjectView.projectViews) {
 							if(view.getProject().equals(p)) {
-								MainView.getInstance().openProjectView(view);
+								//MainView.getInstance().openProjectView(view);
 								view.addClickedTab(d);
 								view.getDocuments().setSelectedIndex(p.getIndex(d));
 							}
@@ -60,7 +57,7 @@ public class RafTreeSelectionListener implements TreeSelectionListener {
 						Project p = (Project) d.getParent();
 						for(ProjectView view: ProjectView.projectViews) {
 							if(view.getProject().equals(p)) {
-								MainView.getInstance().openProjectView(view);
+								//MainView.getInstance().openProjectView(view);
 								view.getDocuments().setSelectedIndex(p.getIndex(d));
 
 							}

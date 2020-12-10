@@ -74,6 +74,8 @@ public class MainView extends JFrame {
         scroll.setMinimumSize(new Dimension(200, 200));
 
         panel2 = new JPanel(new BorderLayout());
+        panel2.setFocusable(true);
+        panel2.setRequestFocusEnabled(true);
 
         splitPane = new JSplitPane(SwingConstants.VERTICAL, scroll, panel2);
 
@@ -161,15 +163,18 @@ public class MainView extends JFrame {
 
     }
 
-    public void openProjectView(ProjectView p) {
-       // System.out.println("Dodaje projectView  u desni panel");
-        if(p == null ){
+   /* public void openProjectView(ProjectView p) {
+        // System.out.println("Dodaje projectView  u desni panel");
+        if (p == null) {
             System.out.println("Project je null");
-        }else{
-        System.out.println("Udje u open");
-        this.panel2.removeAll();
-        this.panel2.add(BorderLayout.CENTER,p);}
-    }
+            this.panel2.removeAll();
+        } else {
+            this.panel2.removeAll();
+            //this.panel2.add(BorderLayout.CENTER,p);
+            this.panel2.add(BorderLayout.CENTER, p);
+            this.panel2.grabFocus();
+        }
+    }*/
 
     public void fireError(ErrorClass e) {
 
@@ -179,4 +184,7 @@ public class MainView extends JFrame {
     
     }
 
+    public JPanel getPanel2() {
+        return panel2;
+    }
 }

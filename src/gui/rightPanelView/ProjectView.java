@@ -85,11 +85,12 @@ public class ProjectView extends JPanel implements IListener {
         System.out.println("Update u ProjectView");
         if(event == ActionEnum.ACTION_ADD) {
             addTab();
-        }if(event == ActionEnum.ACTION_RENAME){
+        }else if(event == ActionEnum.ACTION_RENAME){
             projectName.setText((project.getName()));
         }else if(event == ActionEnum.ACTION_REMOVE) {
             removeTab();
-
+        }else if(event == ActionEnum.ACTION_FOCUS){
+            focus();
         }
 
     }
@@ -124,6 +125,16 @@ public class ProjectView extends JPanel implements IListener {
         for(DocumentView d: documentViews) {
             documents.add(d);
         }
+    }
+
+    public void focus(){
+        System.out.println("Dodje do focusa");
+        System.out.println(this.getProject().getName());
+        //System.out.println(MainView.getInstance().getSplitPane().getRightComponent().getName());
+        //MainView.getInstance().getSplitPane().getRightComponent().add(BorderLayout.CENTER,this);
+        MainView.getInstance().getSplitPane().setRightComponent(this);
+        MainView.getInstance().getSplitPane().revalidate();
+        MainView.getInstance().getSplitPane().repaint();
     }
 
 }

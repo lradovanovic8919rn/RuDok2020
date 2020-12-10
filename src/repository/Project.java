@@ -77,4 +77,7 @@ public class Project extends NodeComposite implements  IObserver{
         this.notifyListeners(ActionEnum.ACTION_REMOVE);
         this.documents.remove(aChild);
     }
+
+
+
 }
