@@ -12,15 +12,15 @@ public class DevicePainter extends ElementPainter{
         super(element);
     }
 
-    Paint paint;
-    Stroke stroke;
+    Paint paint=new Color(255,255,255);
+    Stroke stroke=new BasicStroke(2f);
 
     @Override
     public void paint(Graphics2D g, SlotElement element) {
         g.setPaint(Color.RED);
-        g.setStroke(new BasicStroke(2f));
+        g.setStroke(stroke);
         g.draw(getShape());
-        g.setPaint(new Color(255,255,255));
+        g.setPaint(paint);
         g.fill(getShape());
 
         if(element instanceof SlotElement){
