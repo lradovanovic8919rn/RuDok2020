@@ -2,23 +2,17 @@ package gui.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import java.util.Random;
-import java.util.jar.Manifest;
 
-import javax.swing.JFrame;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
 import app.Main;
-import core.AppFramework;
 import error.ErrorEnum;
-import gui.rightPanelView.ProjectView;
-import gui.tree.model.TreeItem;
 import gui.view.MainView;
 import repository.Document;
 import repository.Page;
 import repository.Project;
-import repository.Slot;
+import repository.slot.Slot;
 import repository.Workspace;
 import repository.node.RafNode;
 
@@ -71,11 +65,11 @@ public class AddNodeAction extends AbstractActionClass {
 				SwingUtilities.updateComponentTreeUI(MainView.getInstance().getWorkspaceTree());
 
 			}
-			if (node instanceof Page) {
+			/*if (node instanceof Page) {
 				Slot s = new Slot("Slot " + y++, node);
 				MainView.getInstance().getTree().addSlot(s);
 
-			}
+			}*/
 			if (node instanceof Slot) {
 				Main.getInstance().getErrorHandler().generateError(ErrorEnum.ERROR_SLOTCHILDREN);			}
 

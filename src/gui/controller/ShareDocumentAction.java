@@ -36,12 +36,20 @@ public class ShareDocumentAction extends AbstractActionClass {
             String text="Now choose the new parent project and then click share!";
             JDialog popup=new JDialog();
             popup.setSize(400,150);
-            //popup.setResizable(false);
+            popup.setResizable(false);
             popup.setTitle("Chose new parent!");
             JLabel jLabel=new JLabel(text);
-            popup.add(jLabel,BorderLayout.CENTER);
             JButton share=new JButton("Share");
-            popup.add(share,BorderLayout.SOUTH);
+            JPanel buttonPanel=new JPanel();
+            JPanel textPanel=new JPanel();
+
+            textPanel.add(jLabel);
+            buttonPanel.add(share);
+            textPanel.setBorder(BorderFactory.createEmptyBorder(20,20,10,20));
+            buttonPanel.setBorder(BorderFactory.createEmptyBorder(10,20,20,20));
+            popup.add(textPanel,BorderLayout.CENTER);
+            popup.add(buttonPanel,BorderLayout.SOUTH);
+
             popup.setVisible(true);
 
             share.addActionListener(new ActionListener() {
@@ -58,7 +66,7 @@ public class ShareDocumentAction extends AbstractActionClass {
 
 
                         }else{
-                            MainView.getInstance().getTree().insert(node);
+                            MainView.getInstance().getTree().shareDocument(node);
                             MainView.getInstance().getTree().removeFromOldParent(node,p);
                             popup.setVisible(false);
 

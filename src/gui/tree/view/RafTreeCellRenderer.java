@@ -1,7 +1,6 @@
 package gui.tree.view;
 
 import java.awt.Component;
-import java.net.URL;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -12,7 +11,7 @@ import gui.tree.model.TreeItem;
 import repository.Document;
 import repository.Page;
 import repository.Project;
-import repository.Slot;
+import repository.slot.Slot;
 import repository.Workspace;
 
 public class RafTreeCellRenderer extends DefaultTreeCellRenderer {

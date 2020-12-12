@@ -2,6 +2,7 @@ package repository;
 
 import repository.node.RafNode;
 import repository.node.NodeComposite;
+import repository.slot.Slot;
 
 
 public class Page extends NodeComposite{

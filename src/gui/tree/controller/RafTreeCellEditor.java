@@ -13,6 +13,7 @@ import javax.swing.tree.DefaultTreeCellRenderer;
 
 import gui.tree.model.TreeItem;
 import repository.*;
+import repository.slot.Slot;
 
 public class RafTreeCellEditor extends DefaultTreeCellEditor implements ActionListener {
 

@@ -1,16 +1,16 @@
 package gui.rightPanelView.graphics.painters;
 
-import gui.rightPanelView.graphics.element.SlotElement;
+import repository.slot.Slot;
 
 import java.awt.*;
 
 public abstract class ElementPainter {
 
-    public ElementPainter(SlotElement element){ }
+    public ElementPainter(Slot element){ }
 
-    public abstract void paint(Graphics2D g, SlotElement element);
+    public abstract void paint(Graphics2D g, Slot element);
 
-    public  abstract boolean elementAt(SlotElement element,Point position);
+    public  abstract boolean elementAt(Slot element,Point position);
 
 
 }

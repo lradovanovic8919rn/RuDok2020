@@ -1,22 +1,16 @@
 package gui.tree.view;
 
-import java.util.List;
-
 import javax.swing.JTree;
 import javax.swing.SwingUtilities;
 import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.MutableTreeNode;
-import javax.swing.tree.TreeNode;
 
-import com.sun.source.tree.Tree;
-import gui.controller.ActionEnum;
 import gui.tree.RafTree;
 import gui.tree.model.TreeItem;
 import gui.view.MainView;
 import repository.Document;
 import repository.Page;
 import repository.Project;
-import repository.Slot;
+import repository.slot.Slot;
 import repository.Workspace;
 import repository.node.RafNode;
 
@@ -114,7 +108,7 @@ public class RafTreeImplementation implements RafTree {
 	}
 
 	@Override
-	public void insert(RafNode node) {
+	public void shareDocument(RafNode node) {
 		Object o = MainView.getInstance().getWorkspaceTree().getLastSelectedPathComponent();
 		int index=treeModel.getIndexOfChild(treeModel.getRoot(), o);
 		RafNode nodeModel = ((TreeItem)treeModel.getChild(treeModel.getRoot(), index)).getRafNodeModel();

@@ -1,4 +1,4 @@
-package state;
+package gui.rightPanelView.state;
 
 import java.awt.event.MouseEvent;
 

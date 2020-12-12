@@ -1,8 +1,6 @@
-package state;
+package gui.rightPanelView.state;
 
 import gui.rightPanelView.PageView;
-import gui.rightPanelView.graphics.element.RectangleElement;
-import gui.rightPanelView.graphics.element.SlotElement;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
