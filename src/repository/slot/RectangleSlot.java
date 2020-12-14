@@ -12,6 +12,7 @@ public class RectangleSlot extends Slot{
         type= SlotTypeEnum.R;
     }
 
+
     public SlotTypeEnum getType() {
         return type;
     }

@@ -123,6 +123,7 @@ public class RafTreeImplementation implements RafTree {
 		((Project)parent).getChildren().remove(child);
 		treeView.clearSelection();
 
+
 		SwingUtilities.updateComponentTreeUI(treeView);
 	}
 
