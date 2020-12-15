@@ -10,7 +10,7 @@ public abstract class ElementPainter {
 
     public abstract void paint(Graphics2D g, Slot element);
 
-    public  abstract boolean elementAt(Slot element,Point position);
+    public  abstract boolean isElementAt(Point position);
 
 
 }

@@ -1,17 +1,12 @@
 package gui.rightPanelView;
 
 import gui.controller.ActionEnum;
-import gui.tree.model.TreeItem;
-import gui.view.MainView;
 import observer.IListener;
 import repository.Document;
 import repository.Page;
-import repository.Project;
-import repository.node.NodeComposite;
-import repository.node.RafNode;
+
 
 import javax.swing.*;
-import javax.swing.tree.TreeNode;
 import java.awt.*;
 import java.util.ArrayList;
 

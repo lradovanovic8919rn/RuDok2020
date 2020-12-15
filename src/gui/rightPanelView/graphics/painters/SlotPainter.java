@@ -33,7 +33,7 @@ public class SlotPainter extends ElementPainter{
     }
 
     @Override
-    public boolean elementAt(Slot element, Point position) {
+    public boolean isElementAt(Point position) {
         return getShape().contains(position);
     }
 

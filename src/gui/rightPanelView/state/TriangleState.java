@@ -23,12 +23,14 @@ public class TriangleState extends State {
     public void mousePressed(MouseEvent e) {
         Point position = e.getPoint();
         if (e.getButton()== MouseEvent.BUTTON1){
-          //  if (mediator.getDeviceAtPosition(position)==-1){
+            if (mediator.getElementAtPosition(position)==-1){
                 SlotFactory slotFactory=new TriangleFactory();
                 Slot slot=slotFactory.createSlot("Triangle"+mediator.getPage().getChildCount(), SlotTypeEnum.T, mediator.getPage(), position);
                 SlotPainter element=new TrianglePainter(slot);
                 mediator.getPage().addChild(slot);
                 mediator.getSlotPainters().add(element);
+                mediator.setSelectedSlot(element);
+
                /* ProjectView projectView=(ProjectView) MainView.getInstance().getSplitPane().getRightComponent();
 
                 for (DocumentView d:projectView.getDocumentViews()){
@@ -36,7 +38,7 @@ public class TriangleState extends State {
                             projectView.setFocused(mediator);
                         }
                     }*/
-       //     }
+            }
         }
     }
 

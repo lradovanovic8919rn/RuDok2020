@@ -26,19 +26,20 @@ public class CircleState extends State{
     public void mousePressed(MouseEvent e) {
         Point position = e.getPoint();
         if (e.getButton()== MouseEvent.BUTTON1){
-          //  if (mediator.getDeviceAtPosition(position)==-1){
+            if (mediator.getElementAtPosition(position)==-1){
             SlotFactory slotFactory=new CircleFactory();
             Slot slot=slotFactory.createSlot("Circle"+mediator.getPage().getChildCount(), SlotTypeEnum.C, mediator.getPage(), position);
             mediator.getPage().addChild(slot);
             SlotPainter painter=new CirclePainter(slot);
             mediator.getSlotPainters().add(painter);
+            mediator.setSelectedSlot(painter);
            /* ProjectView projectView=(ProjectView) MainView.getInstance().getSplitPane().getRightComponent();
             for (DocumentView d:projectView.getDocumentViews()){
                 if(d.getPages().contains(mediator)){
                     projectView.setFocused(mediator);
                 }
             }*/
-           // }
+            }
         }
     }
 }

@@ -5,8 +5,7 @@ import gui.rightPanelView.graphics.painters.SlotPainter;
 import gui.rightPanelView.state.StateManager;
 import observer.IListener;
 import repository.Page;
-import repository.Project;
-import repository.slot.Slot;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,6 +21,7 @@ public class PageView extends  JPanel implements IListener {
     private ViewController viewController;
     private ArrayList<SlotPainter> slotPainters;
     private StateManager stateManager;
+    private SlotPainter selectedSlot=null;
 
     public PageView(Page page) {
 
@@ -107,4 +107,23 @@ public class PageView extends  JPanel implements IListener {
         return slotPainters;
     }
 
+    public SlotPainter getSelectedSlot() {
+        return selectedSlot;
+    }
+
+    public void setSelectedSlot(SlotPainter selectedSlot) {
+        this.selectedSlot = selectedSlot;
+    }
+    public int getElementAtPosition(Point point) {
+        for(int i=this.slotPainters.size()-1;i>=0;i--){
+            SlotPainter slp = getElementAt(i);
+            if(slp.isElementAt(point)){
+                return i;
+            }
+        }
+        return -1;
+    }
+    public SlotPainter getElementAt(int i){
+        return slotPainters.get(i);
+    }
 }

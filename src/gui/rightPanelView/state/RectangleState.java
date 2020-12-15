@@ -26,12 +26,14 @@ public class RectangleState extends State{
     public void mousePressed(MouseEvent e) {
         Point position = e.getPoint();
         if (e.getButton()== MouseEvent.BUTTON1){
-         //   if (mediator.getDeviceAtPosition(position)==-1){
+            if (mediator.getElementAtPosition(position)==-1){
             SlotFactory slotFactory=new RectangleFactory();
             Slot slot=slotFactory.createSlot("Rectangle"+mediator.getSlotPainters().size(), SlotTypeEnum.R, mediator.getPage(), position);
             SlotPainter painter=new RectanglePainter(slot);
             mediator.getPage().addChild(slot);
             mediator.getSlotPainters().add(painter);
+            mediator.setSelectedSlot(painter);
+
             /*ProjectView projectView=(ProjectView) MainView.getInstance().getSplitPane().getRightComponent();
 
             for (DocumentView d:projectView.getDocumentViews()){
@@ -40,7 +42,7 @@ public class RectangleState extends State{
                 }
             }*/
 
-          //  }
+            }
         }
     }
 }
