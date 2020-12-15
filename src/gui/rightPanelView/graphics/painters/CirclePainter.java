@@ -6,7 +6,7 @@ import repository.slot.Slot;
 
 import java.awt.geom.GeneralPath;
 
-public class CirclePainter extends DevicePainter{
+public class CirclePainter extends SlotPainter {
 
     public CirclePainter(Slot element) {
         super(element);

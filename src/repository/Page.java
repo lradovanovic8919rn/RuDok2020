@@ -1,8 +1,12 @@
 package repository;
 
+import gui.controller.ActionEnum;
+import gui.view.MainView;
 import repository.node.RafNode;
 import repository.node.NodeComposite;
 import repository.slot.Slot;
+
+import javax.swing.*;
 
 
 public class Page extends NodeComposite{
@@ -17,6 +21,8 @@ public class Page extends NodeComposite{
         	Slot s = (Slot) child;
             if (!this.getChildren().contains(s)){
                 this.getChildren().add(s);
+                this.notifyListeners(ActionEnum.ACTION_ADD);
+
             }
         }
     }

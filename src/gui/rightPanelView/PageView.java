@@ -1,20 +1,27 @@
 package gui.rightPanelView;
 
+import gui.controller.ActionEnum;
+import gui.rightPanelView.graphics.painters.SlotPainter;
+import gui.rightPanelView.state.StateManager;
 import observer.IListener;
 import repository.Page;
 import repository.Project;
+import repository.slot.Slot;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
 
 public class PageView extends  JPanel implements IListener {
 
     private JLabel name;
     private Page page;
     private ViewController viewController;
+    private ArrayList<SlotPainter> slotPainters;
+    private StateManager stateManager;
 
     public PageView(Page page) {
 
@@ -22,6 +29,7 @@ public class PageView extends  JPanel implements IListener {
         System.out.println("Pravi PageView");
         this.page = page;
         page.addListener(this);
+        slotPainters=new ArrayList<SlotPainter>();
         this.setBorder(BorderFactory.createMatteBorder(
                1, 1, 1, 1, Color.red));
         //setBorder(BorderFactory.createEmptyBorder(5,  5,  5,  5));
@@ -31,6 +39,9 @@ public class PageView extends  JPanel implements IListener {
         this.setBackground(Color.WHITE);
         this.add(name);
         viewController=new ViewController();
+        this.addMouseListener(viewController);
+        stateManager=new StateManager(this);
+
 
     }
 
@@ -38,26 +49,48 @@ public class PageView extends  JPanel implements IListener {
 
     @Override
     public void update(Object event) {
-        System.out.println("Update Page");
-        //Project pr = (Project)this.page.getParent().getParent();
+        if(event== ActionEnum.ACTION_ADD) {
+           // System.out.println("Update Page");
+          // name.setText(page.getName());
 
-       // pr.setChanged(true);
-        name.setText(page.getName());
+            repaint();
+            revalidate();
+        }
+        if(event==ActionEnum.ACTION_RENAME){
+            System.out.println("Update Page");
+            name.setText(page.getName());
+            revalidate();
+        }
     }
 
     private class ViewController extends MouseAdapter implements MouseMotionListener {
 
         public void mousePressed(MouseEvent e) {
-            //	   documentView.getStateManager().getCurrentState().mousePressed(e);
+            stateManager.getCurrentState().mousePressed(e);
         }
 
         public void mouseReleased(MouseEvent e) {
-            //	   documentView.getStateManager().getCurrentState().mouseReleased(e);
+            stateManager.getCurrentState().mouseReleased(e);
         }
 
         public void mouseDragged(MouseEvent e ){
-            //	   documentView.getStateManager().getCurrentState().mouseDragged(e);
+            stateManager.getCurrentState().mouseDragged(e);
         }
+
+    }
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        Graphics2D g2 = (Graphics2D) g;
+
+        g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.8f));
+
+        for(SlotPainter sp:this.getSlotPainters()){
+            sp.paint(g2,sp.getSlot());
+
+        }
+
 
     }
 
@@ -69,4 +102,9 @@ public class PageView extends  JPanel implements IListener {
     public void setPage(Page page) {
         this.page = page;
     }
+
+    public ArrayList<SlotPainter> getSlotPainters() {
+        return slotPainters;
+    }
+
 }

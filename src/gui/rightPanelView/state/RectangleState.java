@@ -1,8 +1,13 @@
 package gui.rightPanelView.state;
 
+import app.Main;
+import gui.rightPanelView.DocumentView;
 import gui.rightPanelView.PageView;
+import gui.rightPanelView.ProjectView;
 import gui.rightPanelView.graphics.painters.ElementPainter;
 import gui.rightPanelView.graphics.painters.RectanglePainter;
+import gui.rightPanelView.graphics.painters.SlotPainter;
+import gui.view.MainView;
 import repository.factory.RectangleFactory;
 import repository.factory.SlotFactory;
 import repository.slot.Slot;
@@ -23,8 +28,18 @@ public class RectangleState extends State{
         if (e.getButton()== MouseEvent.BUTTON1){
          //   if (mediator.getDeviceAtPosition(position)==-1){
             SlotFactory slotFactory=new RectangleFactory();
-            Slot slot=slotFactory.createSlot("Rectangle"+mediator.getPage().getChildCount(), SlotTypeEnum.R, mediator.getPage(), position);
-            ElementPainter painter=new RectanglePainter(slot);
+            Slot slot=slotFactory.createSlot("Rectangle"+mediator.getSlotPainters().size(), SlotTypeEnum.R, mediator.getPage(), position);
+            SlotPainter painter=new RectanglePainter(slot);
+            mediator.getPage().addChild(slot);
+            mediator.getSlotPainters().add(painter);
+            /*ProjectView projectView=(ProjectView) MainView.getInstance().getSplitPane().getRightComponent();
+
+            for (DocumentView d:projectView.getDocumentViews()){
+                if(d.getPages().contains(mediator)){
+                    projectView.setFocused(mediator);
+                }
+            }*/
+
           //  }
         }
     }

@@ -4,18 +4,18 @@ import repository.slot.Slot;
 
 import java.awt.*;
 
-public class DevicePainter extends ElementPainter{
+public class SlotPainter extends ElementPainter{
 
     protected Shape shape;
     protected Slot slot;
 
-    public DevicePainter(Slot element) {
+    public SlotPainter(Slot element) {
         super(element);
         this.slot=element;
     }
 
     Paint paint=new Color(255,255,255);
-    Stroke stroke=new BasicStroke(2f);
+    Stroke stroke=new BasicStroke(3f);
 
     @Override
     public void paint(Graphics2D g, Slot element) {

@@ -2,6 +2,7 @@ package gui.tree.model;
 
 import java.util.Enumeration;
 import java.util.Iterator;
+import java.util.Vector;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeNode;
@@ -72,7 +73,12 @@ public class TreeItem extends DefaultMutableTreeNode {
 	private TreeNode findChildByIndex(int index) {
 		if(rafNodeModel instanceof NodeComposite) {
 			TreeItem i = new TreeItem (((NodeComposite) rafNodeModel).getChildren().get(index));
-			 
+
+			if(super.children==null){
+				super.children=new Vector<>();
+			}
+			super.children.add(i);
+
 			Iterator childrenIterator = children.iterator();
 	        TreeNode current;
 

@@ -20,6 +20,7 @@ public class ProjectView extends JPanel implements IListener {
     private Project project;
     public static ArrayList<ProjectView> projectViews = new ArrayList<ProjectView>();
     private ArrayList<DocumentView> documentViews;
+    //private PageView focused=null;
 
 
     public ProjectView(Project project){
@@ -102,6 +103,7 @@ public class ProjectView extends JPanel implements IListener {
         DocumentView dView = new DocumentView(d);
         documentViews.add(dView);
         documents.addTab(dView.getName(), dView);
+
         revalidate();
         //}
     }
@@ -135,6 +137,14 @@ public class ProjectView extends JPanel implements IListener {
         MainView.getInstance().getSplitPane().setRightComponent(this);
         MainView.getInstance().getSplitPane().revalidate();
         MainView.getInstance().getSplitPane().repaint();
+
     }
 
+   /* public PageView getFocused() {
+        return focused;
+    }
+
+    public void setFocused(PageView focused) {
+        this.focused = focused;
+    }*/
 }

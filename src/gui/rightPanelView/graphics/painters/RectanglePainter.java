@@ -5,7 +5,7 @@ import repository.slot.Slot;
 
 import java.awt.geom.GeneralPath;
 
-public class RectanglePainter extends DevicePainter {
+public class RectanglePainter extends SlotPainter {
     public RectanglePainter(Slot element) {
         super(element);
 

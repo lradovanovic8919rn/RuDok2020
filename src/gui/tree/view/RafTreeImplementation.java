@@ -124,6 +124,7 @@ public class RafTreeImplementation implements RafTree {
 		treeView.clearSelection();
 
 
+
 		SwingUtilities.updateComponentTreeUI(treeView);
 	}
 
