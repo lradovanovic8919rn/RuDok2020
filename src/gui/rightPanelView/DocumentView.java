@@ -132,6 +132,7 @@ public class DocumentView extends JPanel implements IListener {
 
     }
 
+
     private void addPage() {
         System.out.println("uso u add page metodu");
         if (!(document.getChildCount() == 0) && !(document.getChildCount() == pageCount)) {

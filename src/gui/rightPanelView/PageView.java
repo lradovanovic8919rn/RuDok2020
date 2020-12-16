@@ -50,9 +50,6 @@ public class PageView extends  JPanel implements IListener {
     @Override
     public void update(Object event) {
         if(event== ActionEnum.ACTION_ADD) {
-           // System.out.println("Update Page");
-          // name.setText(page.getName());
-
             repaint();
             revalidate();
         }
@@ -125,5 +122,21 @@ public class PageView extends  JPanel implements IListener {
     }
     public SlotPainter getElementAt(int i){
         return slotPainters.get(i);
+    }
+    public void startCircleState() {
+        stateManager.setCircleState();
+    }
+
+    public void startSelectState() {
+        stateManager.setSelectState();
+    }
+    public void startTriangleState(){
+        stateManager.setTriangleState();
+    }
+    public void startRectangleState(){
+        stateManager.setRectangleState();
+    }
+    public StateManager getStateManager() {
+        return stateManager;
     }
 }

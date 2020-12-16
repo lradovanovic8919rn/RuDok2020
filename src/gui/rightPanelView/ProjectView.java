@@ -20,7 +20,7 @@ public class ProjectView extends JPanel implements IListener {
     private Project project;
     public static ArrayList<ProjectView> projectViews = new ArrayList<ProjectView>();
     private ArrayList<DocumentView> documentViews;
-    //private PageView focused=null;
+    private boolean focused;
 
 
     public ProjectView(Project project){
@@ -36,10 +36,11 @@ public class ProjectView extends JPanel implements IListener {
         JPanel panel = new JPanel(new BorderLayout());
         documents = new JTabbedPane(JTabbedPane.TOP);
 
+
         panel.add(documents,BorderLayout.CENTER);
         add(panel,BorderLayout.CENTER);
         add(projectName,BorderLayout.NORTH);
-
+        focused=false;
 
     }
 
@@ -103,9 +104,10 @@ public class ProjectView extends JPanel implements IListener {
         DocumentView dView = new DocumentView(d);
         documentViews.add(dView);
         documents.addTab(dView.getName(), dView);
-
+        focus();
         revalidate();
         //}
+
     }
 
     private void removeTab() {
@@ -129,6 +131,11 @@ public class ProjectView extends JPanel implements IListener {
         }
     }
 
+    public DocumentView getDocumentViewAt(ProjectView pv,int index){
+        return this.documentViews.get(index);
+
+    }
+
     public void focus(){
         System.out.println("Dodje do focusa");
         System.out.println(this.getProject().getName());
@@ -137,14 +144,23 @@ public class ProjectView extends JPanel implements IListener {
         MainView.getInstance().getSplitPane().setRightComponent(this);
         MainView.getInstance().getSplitPane().revalidate();
         MainView.getInstance().getSplitPane().repaint();
+        setProjectFocused(this);
 
     }
 
-   /* public PageView getFocused() {
+
+    public void setProjectFocused(ProjectView pv){
+        for(ProjectView prv:projectViews){
+            prv.setFocused(false);
+        }
+        pv.setFocused(true);
+    }
+
+    public boolean isFocused() {
         return focused;
     }
 
-    public void setFocused(PageView focused) {
+    public void setFocused(boolean focused) {
         this.focused = focused;
-    }*/
+    }
 }

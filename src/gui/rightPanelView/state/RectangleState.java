@@ -34,13 +34,13 @@ public class RectangleState extends State{
             mediator.getSlotPainters().add(painter);
             mediator.setSelectedSlot(painter);
 
-            /*ProjectView projectView=(ProjectView) MainView.getInstance().getSplitPane().getRightComponent();
 
-            for (DocumentView d:projectView.getDocumentViews()){
+            DocumentView dv =((DocumentView)(((ProjectView)(MainView.getInstance().getSplitPane().getRightComponent())).getDocuments().getSelectedComponent()));
+
+          /*  for (DocumentView d:projectView.getDocumentViews()){
                 if(d.getPages().contains(mediator)){
                     projectView.setFocused(mediator);
-                }
-            }*/
+                }            }*/
 
             }
         }

@@ -8,6 +8,8 @@ import core.Repository;
 import error.ErrorClass;
 import gui.controller.ActionManager;
 import error.ErrorEnum;
+import gui.rightPanelView.DocumentView;
+import gui.rightPanelView.PageView;
 import gui.rightPanelView.ProjectView;
 import gui.tree.RafTree;
 import gui.tree.model.TreeItem;
@@ -37,15 +39,13 @@ public class MainView extends JFrame {
     private Pallete pallete;
 
 
-
-
-	private MainView() {
+    private MainView() {
 
     }
 
     private void init() {
 
-    	actionManager = ActionManager.getInstance();
+        actionManager = ActionManager.getInstance();
 
     }
 
@@ -66,7 +66,7 @@ public class MainView extends JFrame {
         menu = new MenuLine();
         toolBar = new Toolbar();
         pallete = new Pallete();
-        
+
         setJMenuBar(menu);
 
         JScrollPane scroll = new JScrollPane(workspaceTree);
@@ -80,7 +80,7 @@ public class MainView extends JFrame {
         splitPane = new JSplitPane(SwingConstants.VERTICAL, scroll, panel2);
 
         splitPane.setDividerLocation(300);
-        getContentPane().add(splitPane,BorderLayout.CENTER);
+        getContentPane().add(splitPane, BorderLayout.CENTER);
         add(toolBar, BorderLayout.NORTH);
         add(pallete, BorderLayout.EAST);
 
@@ -156,12 +156,25 @@ public class MainView extends JFrame {
     public void projectViewMaker(Project project) {
 
         ProjectView p = new ProjectView(project);
+        ProjectView.projectViews.add(p);
         //ProjectView.projectViews.add(p);
         System.out.println("Kreira ");
-       // this.splitPane.getRightComponent(p);
-        this.panel2.add(BorderLayout.CENTER,p);
+        // this.splitPane.getRightComponent(p);
+        this.panel2.add(BorderLayout.CENTER, p);
 
     }
+
+    public DocumentView getActiveDocument() {
+        for (ProjectView pv : ProjectView.projectViews) {
+            if (pv.isFocused()) {
+                int index = pv.getDocuments().getSelectedIndex();
+                DocumentView dv = pv.getDocumentViewAt(pv, index);
+                return dv;
+            }
+        }
+        return null;
+    }
+
 
    /* public void openProjectView(ProjectView p) {
         // System.out.println("Dodaje projectView  u desni panel");

@@ -1,5 +1,9 @@
 package gui.controller;
 
+import gui.rightPanelView.DocumentView;
+import gui.rightPanelView.PageView;
+import gui.view.MainView;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -15,6 +19,8 @@ public class TriangleAction extends AbstractActionClass{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        for(PageView pv:MainView.getInstance().getActiveDocument().getPages()){
+            pv.startTriangleState();
+        }
     }
 }

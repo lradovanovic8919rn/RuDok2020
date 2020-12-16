@@ -43,25 +43,25 @@ public class RafTreeSelectionListener implements TreeSelectionListener {
 						System.out.println("ovo je document");
 						Document d = (Document)node;
 						Project p = (Project) d.getParent();
-						for(ProjectView view: ProjectView.projectViews) {
+						/*for(ProjectView view: ProjectView.projectViews) {
 							if(view.getProject().equals(p)) {
 								//MainView.getInstance().openProjectView(view);
 								view.addClickedTab(d);
 								view.getDocuments().setSelectedIndex(p.getIndex(d));
 							}
-						}
+						}*/
 					}
 					else if(node instanceof Page) {
 						Page page = (Page)node;
 						Document d = (Document) page.getParent();
 						Project p = (Project) d.getParent();
-						for(ProjectView view: ProjectView.projectViews) {
+						/*for(ProjectView view: ProjectView.projectViews) {
 							if(view.getProject().equals(p)) {
 								//MainView.getInstance().openProjectView(view);
 								view.getDocuments().setSelectedIndex(p.getIndex(d));
 
 							}
-						}
+						}*/
 					}
 				}
 			}
