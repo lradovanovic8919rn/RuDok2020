@@ -61,9 +61,8 @@ public class PageView extends  JPanel implements IListener {
             System.out.println("Update Page");
             name.setText(page.getName());
             revalidate();
-        }else if (event == ActionEnum.ACTION_REMOVEPAGE){
-            System.out.println("Page remove");
-            removePage();
+        }else if (event == ActionEnum.ACTION_REMOVE){
+            removeSlot();
         }
     }
 
@@ -132,10 +131,12 @@ public class PageView extends  JPanel implements IListener {
     public SlotPainter getElementAt(int i){
         return slotPainters.get(i);
     }
+
+
+    //-----------------------Stateovi-----------------------
     public void startCircleState() {
         stateManager.setCircleState();
     }
-
     public void startSelectState() {
         stateManager.setSelectState();
     }
@@ -145,15 +146,13 @@ public class PageView extends  JPanel implements IListener {
     public void startRectangleState(){
         stateManager.setRectangleState();
     }
+    public void startDeleteState(){stateManager.setDeleteState();}
     public StateManager getStateManager() {
         return stateManager;
     }
 
-    private void removePage(){
-        TreeItem d = ((TreeItem) MainView.getInstance().getWorkspaceTree().getSelectionPath().getLastPathComponent());
-        Document p = (Document) d.getRafNodeModel().getParent();
-
-        p.notifyListeners(ActionEnum.ACTION_REMOVEPAGE);
+    private void removeSlot(){
+       repaint();
 
     }
 

@@ -92,16 +92,13 @@ public class RafTreeImplementation implements RafTree {
 		RafNode prt=n.getParent();
 
 		if(n instanceof Project) {	
-			((Workspace)prt).getChildren().remove(n);
-			n.notifyListeners(ActionEnum.ACTION_REMOVE);
+			((Workspace)prt).removeChild(n);
 		}if(n instanceof Document) {			
-			((Project)prt).getChildren().remove(n);
-			n.notifyListeners(ActionEnum.ACTION_REMOVE);
+			((Project)prt).removeChild(n);
 		}if(n instanceof Page) {
-			((Document) prt).getChildren().remove(n);
-			n.notifyListeners(ActionEnum.ACTION_REMOVEPAGE);
+			((Document) prt).removeChild(n);
 		}if (n instanceof Slot)  {
-			((Page)prt).getChildren().remove(n);
+			((Page)prt).removeChild(n);
 		}
    
 		treeView.clearSelection();

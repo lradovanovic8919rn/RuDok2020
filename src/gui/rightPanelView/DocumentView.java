@@ -138,9 +138,6 @@ public class DocumentView extends JPanel implements IListener {
             renameDocument();
         }
         else if (event == ActionEnum.ACTION_REMOVE){
-            System.out.println("Zeli da se obrise");
-            removeDocument();
-        }else if (event == ActionEnum.ACTION_REMOVEPAGE){
             removePage();
         }else if (event == ActionEnum.ACTION_SHARE){
             share();
@@ -175,7 +172,7 @@ public class DocumentView extends JPanel implements IListener {
       //      }
 
         }
-    private void removeDocument(){
+    /*private void removeDocument(){
         TreeItem d = ((TreeItem) MainView.getInstance().getWorkspaceTree().getSelectionPath().getLastPathComponent());
         Project p = (Project) d.getRafNodeModel().getParent();
 
@@ -184,13 +181,13 @@ public class DocumentView extends JPanel implements IListener {
 //        this.setVisible(false);
 //        MainView.getInstance().getSplitPane().revalidate();
 //        MainView.getInstance().getSplitPane().repaint();
-    }
+    }*/
 
     private void removePage(){
         TreeItem d = ((TreeItem) MainView.getInstance().getWorkspaceTree().getSelectionPath().getLastPathComponent());
-        Page doc = (Page) d.getRafNodeModel();
-        String a = doc.toString();
-        System.out.println(a);
+        Page page = (Page) d.getRafNodeModel();
+
+        PageView tbd=null;
 //        String page = docdoc[1];
 //        PageView newPv = null;
 //        int i = 0;
@@ -205,16 +202,18 @@ public class DocumentView extends JPanel implements IListener {
 //        System.out.println("removePage docview");
 
         for(PageView pv : this.pages){
-            if(pv.toString().equals(doc.toString())){
-                this.pages.remove(pv);
+            if(pv.getPage()==page){
+                tbd=pv;
             }
         }
+        this.pages.remove(tbd);
         this.removeAll();
-        for(PageView pv : pages){
+        for(PageView pv : this.pages){
             this.add(pv);
         }
-        this.revalidate();
-        this.repaint();
+        System.out.println("Broj stranica"+this.getPages().size());
+        revalidate();
+        repaint();
 
 
     }

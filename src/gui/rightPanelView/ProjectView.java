@@ -90,11 +90,11 @@ public class ProjectView extends JPanel implements IListener {
         }else if(event == ActionEnum.ACTION_RENAME){
             projectName.setText((project.getName()));
         }else if(event == ActionEnum.ACTION_REMOVE) {
-            removeTab();
+            removeDoc();
         }else if(event == ActionEnum.ACTION_FOCUS){
             focus();
-        }else if(event == ActionEnum.ACTION_DOCUMENTDELETE){
-            removeDoc();
+        }else if(event == ActionEnum.ACTION_REMOVEPROJECT){
+            removeProject();
         }
 
     }
@@ -112,13 +112,23 @@ public class ProjectView extends JPanel implements IListener {
 
     }
 
-    private void removeTab() {
+    private void removeProject() {
         TreeItem d = ((TreeItem) MainView.getInstance().getWorkspaceTree().getSelectionPath().getLastPathComponent());
-        RafNode p = d.getRafNodeModel().getParent();
+        RafNode p = (Project)d.getRafNodeModel();
 
-        this.setVisible(false);
+        for(ProjectView pv:ProjectView.projectViews){
+            if(pv.getProject()==p){
+                MainView.getInstance().getPanel2().remove(pv);
+                ProjectView.projectViews.remove(pv);
+                MainView.getInstance().getPanel2().revalidate();
+                MainView.getInstance().getSplitPane().repaint();
+                break;
+            }
+        }
+        //MainView.getInstance().getPanel2().remove(pv);
+        // this.setVisible(false);
         //this.getDocumentViews().remove(((Project) p).getIndex(p));
-
+        revalidate();
     }
 
     public void addClickedTab(Document document) {
@@ -147,9 +157,14 @@ public class ProjectView extends JPanel implements IListener {
     }
 
     private void removeDoc(){
-        TreeItem d = ((TreeItem) MainView.getInstance().getWorkspaceTree().getSelectionPath().getLastPathComponent());
-        Document doc = (Document) d.getRafNodeModel();
-
+        TreeItem docItem = ((TreeItem) MainView.getInstance().getWorkspaceTree().getSelectionPath().getLastPathComponent());
+        Document doc = (Document) docItem.getRafNodeModel();
+        DocumentView tbr=null;
+        for (DocumentView cdv :this.getDocumentViews()){
+            if (doc == cdv.getDocument()){
+                tbr=cdv;
+            }
+        }
 //        System.out.println(doc.toString());
 //        String spliter = " ";
 //        String[] docdoc = doc.toString().split(spliter);
@@ -158,7 +173,7 @@ public class ProjectView extends JPanel implements IListener {
 //        System.out.println(a);
 //        //System.out.println(docdoc);
 //        int index = Integer.parseInt(a);
-        documentViews.remove(documents.indexOfTab(doc.toString()));
+      /*  documentViews.remove(documents.indexOfTab(doc.toString()));
         documents.removeAll();
         for(DocumentView dv : documentViews){
             System.out.println("For remove all");
@@ -167,7 +182,20 @@ public class ProjectView extends JPanel implements IListener {
 
         MainView.getInstance().getSplitPane().revalidate();
         MainView.getInstance().getSplitPane().repaint();
-        System.out.println("RemoveDOC");
+        System.out.println("RemoveDOC");*/
+        this.getDocumentViews().remove(tbr);
+        try {
+            documents.removeAll();
+            for(DocumentView dv : documentViews){
+                System.out.println("For remove all");
+                documents.add(dv);
+            };
+        } catch(IndexOutOfBoundsException e) {
+            System.out.println("Special case...");
+        }
+
+        revalidate();
+        repaint();
 
     }
 

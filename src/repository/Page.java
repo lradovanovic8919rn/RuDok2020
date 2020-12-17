@@ -27,6 +27,15 @@ public class Page extends NodeComposite{
         }
     }
 
+    @Override
+    public void removeChild(RafNode node) {
+        if (node != null &&  node instanceof Slot){
+            Slot slot = (Slot) node;
+            this.getChildren().remove(node);
+            this.notifyListeners(ActionEnum.ACTION_REMOVE);
+        }
+    }
+
     //@Override
    // public int getIndex(RafNode aChild) {
      //   return 0;

@@ -31,6 +31,15 @@ public class Workspace extends NodeComposite {
         }
     }
 
+    @Override
+    public void removeChild(RafNode node) {
+        if (node != null &&  node instanceof Project){
+            Project proj = (Project) node;
+            this.getChildren().remove(node);
+            this.notifyListeners(ActionEnum.ACTION_REMOVEPROJECT);
+        }
+    }
+
     //@Override
     //public int getIndex(RafNode aChild) {
      //   return 0;

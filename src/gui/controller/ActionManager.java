@@ -14,6 +14,7 @@ public class ActionManager {
 	private CircleAction circleAction;
 	private ShareDocumentAction shareDocumentAction;
 	private SelectAction selectAction;
+	private DeleteAction deleteAction;
 
 	private ActionManager() {
 		init();
@@ -28,6 +29,7 @@ public class ActionManager {
 		circleAction = new CircleAction();
 		shareDocumentAction = new ShareDocumentAction();
 		selectAction=new SelectAction();
+		deleteAction=new DeleteAction();
 	}
 
 	public AddNodeAction getAddNodeAction() {
@@ -60,6 +62,10 @@ public class ActionManager {
 
 	public SelectAction getSelectAction() {
 		return selectAction;
+	}
+
+	public DeleteAction getDeleteAction() {
+		return deleteAction;
 	}
 
 	public static ActionManager getInstance(){

@@ -30,6 +30,14 @@ public class Document extends NodeComposite {
         }
     }
 
+    @Override
+    public void removeChild(RafNode node) {
+        if (node != null &&  node instanceof Page){
+            Page page = (Page) node;
+            this.getChildren().remove(page);
+            this.notifyListeners(ActionEnum.ACTION_REMOVE);        }
+	}
+
     //@Override
     //public int getIndex(RafNode aChild) {
     //    return 0;

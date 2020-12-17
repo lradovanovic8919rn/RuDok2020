@@ -42,6 +42,15 @@ public class Project extends NodeComposite implements  IObserver{
         }
     }
 
+    @Override
+    public void removeChild(RafNode node) {
+        if (node != null &&  node instanceof Document){
+            Document doc = (Document) node;
+            this.getChildren().remove(node);
+            this.notifyListeners(ActionEnum.ACTION_REMOVE);
+        }
+    }
+
     public boolean isChanged() {
         return changed;
     }
