@@ -142,6 +142,8 @@ public class DocumentView extends JPanel implements IListener {
             removeDocument();
         }else if (event == ActionEnum.ACTION_REMOVEPAGE){
             removePage();
+        }else if (event == ActionEnum.ACTION_SHARE){
+            share();
         }
 
 
@@ -216,5 +218,15 @@ public class DocumentView extends JPanel implements IListener {
 
 
     }
+
+    private void share(){
+        System.out.println("desi se share");
+        for(PageView pv : pages){
+            this.add(pv);
+            MainView.getInstance().getSplitPane().revalidate();
+            MainView.getInstance().getSplitPane().repaint();
+        }
+    }
+
 
 }

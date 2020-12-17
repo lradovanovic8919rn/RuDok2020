@@ -9,6 +9,6 @@ public enum ActionEnum {
     ACTION_FOCUS,
     ACTION_DOCUMENTDELETE,
     ACTION_REMOVEPAGE,
-
+    ACTION_SHARE
 
 }

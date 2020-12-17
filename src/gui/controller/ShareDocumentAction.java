@@ -67,7 +67,7 @@ public class ShareDocumentAction extends AbstractActionClass {
 
                         }else{
                             MainView.getInstance().getTree().shareDocument(node);
-                            MainView.getInstance().getTree().removeFromOldParent(node,p);
+                           // MainView.getInstance().getTree().removeFromOldParent(node,p);
                             popup.setVisible(false);
 
 

@@ -118,6 +118,7 @@ public class RafTreeImplementation implements RafTree {
 		((TreeItem)treeModel.getChild(treeModel.getRoot(), index)).add(new TreeItem(node));
 		((Project) nodeModel).addChild(node);
 		SwingUtilities.updateComponentTreeUI(treeView);
+		node.notifyListeners(ActionEnum.ACTION_SHARE);
 	}
 
 
