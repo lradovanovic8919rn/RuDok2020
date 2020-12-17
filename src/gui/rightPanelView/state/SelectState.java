@@ -18,6 +18,7 @@ public class SelectState extends State{
             for(SlotPainter sp: mediator.getSlotPainters()){
                 if(sp.isElementAt(position)){
                     mediator.setSelectedSlot(sp);
+                    System.out.println("Selektovan : "+mediator.getPage().getName()+" "+mediator.getSelectedSlot().getSlot().getName());
                     break;
                 }
             }

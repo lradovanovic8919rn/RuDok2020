@@ -21,6 +21,7 @@ public class TriangleAction extends AbstractActionClass{
     public void actionPerformed(ActionEvent e) {
         for(PageView pv:MainView.getInstance().getActiveDocument().getPages()){
             pv.startTriangleState();
+            System.out.println(pv.getName()+"   "+pv.getStateManager().getCurrentState());
         }
     }
 }

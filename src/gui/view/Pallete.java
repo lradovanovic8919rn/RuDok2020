@@ -9,7 +9,7 @@ public class Pallete extends JToolBar{
         add(ActionManager.getInstance().getCircleAction());
         add(ActionManager.getInstance().getRectangleAction());
         add(ActionManager.getInstance().getTriangleAction());
-
+        add(ActionManager.getInstance().getSelectAction());
         setFloatable(false);
         setOrientation(JToolBar.VERTICAL);
     }

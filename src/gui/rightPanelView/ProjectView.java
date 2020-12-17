@@ -142,6 +142,7 @@ public class ProjectView extends JPanel implements IListener {
         //System.out.println(MainView.getInstance().getSplitPane().getRightComponent().getName());
         //MainView.getInstance().getSplitPane().getRightComponent().add(BorderLayout.CENTER,this);
         MainView.getInstance().getSplitPane().setRightComponent(this);
+
         MainView.getInstance().getSplitPane().revalidate();
         MainView.getInstance().getSplitPane().repaint();
         setProjectFocused(this);

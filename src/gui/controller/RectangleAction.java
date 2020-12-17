@@ -20,6 +20,7 @@ public class RectangleAction extends AbstractActionClass{
     public void actionPerformed(ActionEvent e) {
         for(PageView pv: MainView.getInstance().getActiveDocument().getPages()){
             pv.startRectangleState();
+            System.out.println(pv.getName()+"   "+pv.getStateManager().getCurrentState());
         }
     }
 }
