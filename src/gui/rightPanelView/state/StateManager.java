@@ -16,7 +16,7 @@ public class StateManager {
         this.circleState = new CircleState(mediator);
         this.rectangleState = new RectangleState(mediator);
         this.triangleState = new TriangleState(mediator);
-        this.currentState = rectangleState;
+        this.currentState = circleState;
     }
     public void setSelectState(){currentState=selectState;}
     public void setCircleState(){currentState=circleState;}

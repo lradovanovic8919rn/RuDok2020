@@ -4,6 +4,7 @@ import javax.swing.JTree;
 import javax.swing.SwingUtilities;
 import javax.swing.tree.DefaultTreeModel;
 
+import gui.controller.ActionEnum;
 import gui.tree.RafTree;
 import gui.tree.model.TreeItem;
 import gui.view.MainView;
@@ -92,9 +93,10 @@ public class RafTreeImplementation implements RafTree {
 
 		if(n instanceof Project) {	
 			((Workspace)prt).getChildren().remove(n);
-			//n.notifyListeners(ActionEnum.ACTION_REMOVE);
+			n.notifyListeners(ActionEnum.ACTION_REMOVE);
 		}if(n instanceof Document) {			
-			((Project)prt).getChildren().remove(n);	
+			((Project)prt).getChildren().remove(n);
+			n.notifyListeners(ActionEnum.ACTION_REMOVE);
 		}if(n instanceof Page) {
 			((Document) prt).getChildren().remove(n);
 		}if (n instanceof Slot)  {

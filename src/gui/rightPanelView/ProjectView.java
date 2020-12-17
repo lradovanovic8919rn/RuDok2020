@@ -93,6 +93,8 @@ public class ProjectView extends JPanel implements IListener {
             removeTab();
         }else if(event == ActionEnum.ACTION_FOCUS){
             focus();
+        }else if(event == ActionEnum.ACTION_DOCUMENTDELETE){
+            removeDoc();
         }
 
     }
@@ -114,13 +116,8 @@ public class ProjectView extends JPanel implements IListener {
         TreeItem d = ((TreeItem) MainView.getInstance().getWorkspaceTree().getSelectionPath().getLastPathComponent());
         RafNode p = d.getRafNodeModel().getParent();
 
-
-        this.getDocumentViews().remove(((Project) p).getIndex(p));
-        try {
-            this.getDocuments().remove(((Project) p).getIndex(p));
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("Index out");
-        }
+        this.setVisible(false);
+        //this.getDocumentViews().remove(((Project) p).getIndex(p));
 
     }
 
@@ -146,6 +143,30 @@ public class ProjectView extends JPanel implements IListener {
         MainView.getInstance().getSplitPane().revalidate();
         MainView.getInstance().getSplitPane().repaint();
         setProjectFocused(this);
+
+    }
+
+    private void removeDoc(){
+        TreeItem d = ((TreeItem) MainView.getInstance().getWorkspaceTree().getSelectionPath().getLastPathComponent());
+        Document doc = (Document) d.getRafNodeModel();
+
+        System.out.println(doc.toString());
+        String spliter = " ";
+        String[] docdoc = doc.toString().split(spliter);
+
+        for(String a : docdoc){
+            System.out.println(a);
+        }
+
+        String a = docdoc[1];
+        System.out.println(a);
+        //System.out.println(docdoc);
+        int index = Integer.parseInt(a);
+        documents.remove(index);
+
+        MainView.getInstance().getSplitPane().revalidate();
+        MainView.getInstance().getSplitPane().repaint();
+        System.out.println("RemoveDOC");
 
     }
 

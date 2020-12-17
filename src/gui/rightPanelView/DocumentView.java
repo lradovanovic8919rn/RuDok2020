@@ -1,9 +1,13 @@
 package gui.rightPanelView;
 
 import gui.controller.ActionEnum;
+import gui.tree.model.TreeItem;
+import gui.view.MainView;
 import observer.IListener;
 import repository.Document;
 import repository.Page;
+import repository.Project;
+import repository.node.RafNode;
 
 
 import javax.swing.*;
@@ -129,6 +133,11 @@ public class DocumentView extends JPanel implements IListener {
         else if (event == ActionEnum.ACTION_RENAME) {
             renameDocument();
         }
+        else if (event == ActionEnum.ACTION_REMOVE){
+            System.out.println("Zeli da se obrise");
+            removeDocument();
+        }
+
 
     }
 
@@ -158,4 +167,16 @@ public class DocumentView extends JPanel implements IListener {
       //      }
 
         }
+    private void removeDocument(){
+        TreeItem d = ((TreeItem) MainView.getInstance().getWorkspaceTree().getSelectionPath().getLastPathComponent());
+        Project p = (Project) d.getRafNodeModel().getParent();
+
+        p.notifyListeners(ActionEnum.ACTION_DOCUMENTDELETE);
+
+//        this.setVisible(false);
+//        MainView.getInstance().getSplitPane().revalidate();
+//        MainView.getInstance().getSplitPane().repaint();
+    }
+
+
     }

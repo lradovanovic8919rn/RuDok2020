@@ -111,6 +111,7 @@ public class PageView extends  JPanel implements IListener {
     public void setSelectedSlot(SlotPainter selectedSlot) {
         this.selectedSlot = selectedSlot;
     }
+
     public int getElementAtPosition(Point point) {
         for(int i=this.slotPainters.size()-1;i>=0;i--){
             SlotPainter slp = getElementAt(i);
@@ -120,6 +121,7 @@ public class PageView extends  JPanel implements IListener {
         }
         return -1;
     }
+
     public SlotPainter getElementAt(int i){
         return slotPainters.get(i);
     }
