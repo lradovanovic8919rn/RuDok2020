@@ -1,5 +1,7 @@
 package gui.rightPanelView;
 
+import app.Main;
+import error.ErrorEnum;
 import gui.controller.ActionEnum;
 import gui.tree.model.TreeItem;
 import gui.view.MainView;
@@ -20,7 +22,7 @@ public class DocumentView extends JPanel implements IListener {
     private JLabel name;
     private ArrayList<PageView> pages;
     private int pageCount = 0;
-    private  GridLayout grid;
+    private GridLayout grid;
     private JSplitPane split;
     private JScrollPane scroll;
     private JPanel panel;
@@ -186,25 +188,32 @@ public class DocumentView extends JPanel implements IListener {
         TreeItem d = ((TreeItem) MainView.getInstance().getWorkspaceTree().getSelectionPath().getLastPathComponent());
         Page doc = (Page) d.getRafNodeModel();
         String a = doc.toString();
+        System.out.println(a);
+//        String page = docdoc[1];
+//        PageView newPv = null;
+//        int i = 0;
+//        for(PageView pv : pages){
+//            if(i == Integer.parseInt(page)) {
+//                 newPv = pv;
+//            }
+//            i++;
+//        }
+//        i = 0;
+//        System.out.println(newPv.toString() + " za brisanje");
+//        System.out.println("removePage docview");
 
-        String spliter = " ";
-        String[] docdoc = a.toString().split(spliter);
-
-        String page = docdoc[1];
-        PageView newPv = null;
-        int i = 0;
-        for(PageView pv : pages){
-            if(i == Integer.parseInt(page)) {
-                 newPv = pv;
+        for(PageView pv : this.pages){
+            if(pv.toString().equals(doc.toString())){
+                this.pages.remove(pv);
             }
-            i++;
         }
-        i = 0;
-        System.out.println(newPv.toString() + " za brisanje");
-        System.out.println("removePage docview");
-        this.remove(newPv);
+        this.removeAll();
+        for(PageView pv : pages){
+            this.add(pv);
+        }
         this.revalidate();
         this.repaint();
+
 
     }
 

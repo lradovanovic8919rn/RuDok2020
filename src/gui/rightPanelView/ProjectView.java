@@ -150,19 +150,20 @@ public class ProjectView extends JPanel implements IListener {
         TreeItem d = ((TreeItem) MainView.getInstance().getWorkspaceTree().getSelectionPath().getLastPathComponent());
         Document doc = (Document) d.getRafNodeModel();
 
-        System.out.println(doc.toString());
-        String spliter = " ";
-        String[] docdoc = doc.toString().split(spliter);
-
-        for(String a : docdoc){
-            System.out.println(a);
-        }
-
-        String a = docdoc[1];
-        System.out.println(a);
-        //System.out.println(docdoc);
-        int index = Integer.parseInt(a);
-        documents.remove(index);
+//        System.out.println(doc.toString());
+//        String spliter = " ";
+//        String[] docdoc = doc.toString().split(spliter);
+//
+//        String a = docdoc[1];
+//        System.out.println(a);
+//        //System.out.println(docdoc);
+//        int index = Integer.parseInt(a);
+        documentViews.remove(documents.indexOfTab(doc.toString()));
+        documents.removeAll();
+        for(DocumentView dv : documentViews){
+            System.out.println("For remove all");
+            documents.add(dv);
+       }
 
         MainView.getInstance().getSplitPane().revalidate();
         MainView.getInstance().getSplitPane().repaint();

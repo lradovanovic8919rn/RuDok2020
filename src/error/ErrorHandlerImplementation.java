@@ -27,7 +27,8 @@ public class ErrorHandlerImplementation implements ErrorHandler {
 			notifyListeners(new ErrorClass(5,"Error!","Selected project is already a parent of selected document!"));
 		if(type == ErrorEnum.ERROR_ISNOTPROJECT)
 			notifyListeners(new ErrorClass(6,"Error!","You must select new parent project!"));
-
+		if(type == ErrorEnum.ERROR_REMOVE)
+			notifyListeners(new ErrorClass(7,"Error!","You must be in right document!"));
 	}
 
 	@Override
