@@ -8,6 +8,7 @@ public enum ActionEnum {
     ACTION_CLOSE,
     ACTION_FOCUS,
     ACTION_REMOVEPROJECT,
-    ACTION_SHARE
+    ACTION_SHARE,
+    ACTION_SELECTED,
 
 }

@@ -21,6 +21,7 @@ public class DeleteState extends State{
             }
             if(mediator.getSelectedSlot()==tbd){
                 mediator.setSelectedSlot(null);
+                mediator.getPage().setSelected(null);
             }
             if(!(tbd==null)){
                 mediator.getSlotPainters().remove(tbd);

@@ -32,10 +32,7 @@ public class RectangleState extends State{
             SlotPainter painter=new RectanglePainter(slot);
             mediator.getPage().addChild(slot);
             mediator.getSlotPainters().add(painter);
-            mediator.setSelectedSlot(painter);
 
-
-            DocumentView dv =((DocumentView)(((ProjectView)(MainView.getInstance().getSplitPane().getRightComponent())).getDocuments().getSelectedComponent()));
 
           /*  for (DocumentView d:projectView.getDocumentViews()){
                 if(d.getPages().contains(mediator)){

@@ -11,6 +11,8 @@ import javax.swing.*;
 
 public class Page extends NodeComposite{
 
+    Slot selected=null;
+
 	public Page(String name, RafNode parent) {
 		super(name, parent);
 	}
@@ -51,4 +53,12 @@ public class Page extends NodeComposite{
         return this.getChildren().size();
     }
 
+    public Slot getSelected() {
+        return selected;
+    }
+
+    public void setSelected(Slot selected) {
+        this.selected = selected;
+        this.notifyListeners(ActionEnum.ACTION_SELECTED);
+    }
 }

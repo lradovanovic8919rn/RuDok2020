@@ -63,7 +63,10 @@ public class PageView extends  JPanel implements IListener {
             revalidate();
         }else if (event == ActionEnum.ACTION_REMOVE){
             removeSlot();
+        }else if(event==ActionEnum.ACTION_SELECTED){
+            repaint();
         }
+
     }
 
     private class ViewController extends MouseAdapter implements MouseMotionListener {

@@ -29,7 +29,7 @@ public class TriangleState extends State {
                 SlotPainter element=new TrianglePainter(slot);
                 mediator.getPage().addChild(slot);
                 mediator.getSlotPainters().add(element);
-                mediator.setSelectedSlot(element);
+
 
                /* ProjectView projectView=(ProjectView) MainView.getInstance().getSplitPane().getRightComponent();
 

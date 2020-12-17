@@ -32,7 +32,7 @@ public class CircleState extends State{
             mediator.getPage().addChild(slot);
             SlotPainter painter=new CirclePainter(slot);
             mediator.getSlotPainters().add(painter);
-            mediator.setSelectedSlot(painter);
+
            /* ProjectView projectView=(ProjectView) MainView.getInstance().getSplitPane().getRightComponent();
             for (DocumentView d:projectView.getDocumentViews()){
                 if(d.getPages().contains(mediator)){

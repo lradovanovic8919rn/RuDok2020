@@ -15,10 +15,21 @@ public class SelectState extends State{
     public void mousePressed(MouseEvent e) {
         Point position = e.getPoint();
         if (e.getButton()== MouseEvent.BUTTON1){
+            if(!(mediator.getSelectedSlot()==null)){
+                for(SlotPainter sp:mediator.getSlotPainters()){
+                    sp.setPaint(Color.RED);
+
+                }
+            }
             for(SlotPainter sp: mediator.getSlotPainters()){
-                if(sp.isElementAt(position)){
+                if((sp.isElementAt(position))&&(mediator.getSelectedSlot()==sp)){
+                    sp.setPaint(Color.RED);
+                    mediator.setSelectedSlot(null);
+                    mediator.getPage().setSelected(null);
+                }else if(sp.isElementAt(position)){
+                    sp.setPaint(Color.GREEN);
                     mediator.setSelectedSlot(sp);
-                    System.out.println("Selektovan : "+mediator.getPage().getName()+" "+mediator.getSelectedSlot().getSlot().getName());
+                    mediator.getPage().setSelected(sp.getSlot());
                     break;
                 }
             }

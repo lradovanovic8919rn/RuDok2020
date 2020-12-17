@@ -14,15 +14,15 @@ public class SlotPainter extends ElementPainter{
         this.slot=element;
     }
 
-    Paint paint=new Color(255,255,255);
+    Paint paint=Color.RED;
     Stroke stroke=new BasicStroke(3f);
 
     @Override
     public void paint(Graphics2D g, Slot element) {
-        g.setPaint(Color.RED);
+        g.setPaint(paint);
         g.setStroke(stroke);
         g.draw(getShape());
-        g.setPaint(paint);
+        g.setPaint(new Color(255,255,255));
         g.fill(getShape());
 
         if(element instanceof Slot){
