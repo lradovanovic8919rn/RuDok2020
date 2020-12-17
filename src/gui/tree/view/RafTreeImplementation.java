@@ -99,6 +99,7 @@ public class RafTreeImplementation implements RafTree {
 			n.notifyListeners(ActionEnum.ACTION_REMOVE);
 		}if(n instanceof Page) {
 			((Document) prt).getChildren().remove(n);
+			n.notifyListeners(ActionEnum.ACTION_REMOVEPAGE);
 		}if (n instanceof Slot)  {
 			((Page)prt).getChildren().remove(n);
 		}

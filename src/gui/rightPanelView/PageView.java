@@ -3,8 +3,12 @@ package gui.rightPanelView;
 import gui.controller.ActionEnum;
 import gui.rightPanelView.graphics.painters.SlotPainter;
 import gui.rightPanelView.state.StateManager;
+import gui.tree.model.TreeItem;
+import gui.view.MainView;
 import observer.IListener;
+import repository.Document;
 import repository.Page;
+import repository.Project;
 
 
 import javax.swing.*;
@@ -53,10 +57,13 @@ public class PageView extends  JPanel implements IListener {
             repaint();
             revalidate();
         }
-        if(event==ActionEnum.ACTION_RENAME){
+        else if(event==ActionEnum.ACTION_RENAME){
             System.out.println("Update Page");
             name.setText(page.getName());
             revalidate();
+        }else if (event == ActionEnum.ACTION_REMOVEPAGE){
+            System.out.println("Page remove");
+            removePage();
         }
     }
 
@@ -140,5 +147,18 @@ public class PageView extends  JPanel implements IListener {
     }
     public StateManager getStateManager() {
         return stateManager;
+    }
+
+    private void removePage(){
+        TreeItem d = ((TreeItem) MainView.getInstance().getWorkspaceTree().getSelectionPath().getLastPathComponent());
+        Document p = (Document) d.getRafNodeModel().getParent();
+
+        p.notifyListeners(ActionEnum.ACTION_REMOVEPAGE);
+
+    }
+
+    @Override
+    public String toString() {
+        return page.toString() ;
     }
 }

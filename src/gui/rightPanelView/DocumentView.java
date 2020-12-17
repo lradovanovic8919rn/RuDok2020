@@ -20,14 +20,16 @@ public class DocumentView extends JPanel implements IListener {
     private JLabel name;
     private ArrayList<PageView> pages;
     private int pageCount = 0;
-
+    private  GridLayout grid;
     private JSplitPane split;
     private JScrollPane scroll;
     private JPanel panel;
     private JPanel panel2;
 
     public DocumentView(Document document) {
-        super(new GridLayout(0, 3));
+        super();
+        grid = new GridLayout(0, 3);
+        this.setLayout(grid);
         this.document = document;
         pages = new ArrayList<PageView>();
         document.addListener(this);
@@ -136,6 +138,8 @@ public class DocumentView extends JPanel implements IListener {
         else if (event == ActionEnum.ACTION_REMOVE){
             System.out.println("Zeli da se obrise");
             removeDocument();
+        }else if (event == ActionEnum.ACTION_REMOVEPAGE){
+            removePage();
         }
 
 
@@ -178,5 +182,30 @@ public class DocumentView extends JPanel implements IListener {
 //        MainView.getInstance().getSplitPane().repaint();
     }
 
+    private void removePage(){
+        TreeItem d = ((TreeItem) MainView.getInstance().getWorkspaceTree().getSelectionPath().getLastPathComponent());
+        Page doc = (Page) d.getRafNodeModel();
+        String a = doc.toString();
+
+        String spliter = " ";
+        String[] docdoc = a.toString().split(spliter);
+
+        String page = docdoc[1];
+        PageView newPv = null;
+        int i = 0;
+        for(PageView pv : pages){
+            if(i == Integer.parseInt(page)) {
+                 newPv = pv;
+            }
+            i++;
+        }
+        i = 0;
+        System.out.println(newPv.toString() + " za brisanje");
+        System.out.println("removePage docview");
+        this.remove(newPv);
+        this.revalidate();
+        this.repaint();
 
     }
+
+}
