@@ -66,6 +66,8 @@ public class PageView extends  JPanel implements IListener {
             removeSlot();
         }else if(event==ActionEnum.ACTION_SELECTED){
             repaint();
+        }else if(event==ActionEnum.ACTION_SLOTCHANGED){
+            repaint();
         }
 
     }
@@ -152,6 +154,7 @@ public class PageView extends  JPanel implements IListener {
     }
     public void startResizeState(){stateManager.setResizeState();}
     public void startDeleteState(){stateManager.setDeleteState();}
+    public void startMoveState(){stateManager.setMoveState();}
     //-------------------------------------------------------
     public StateManager getStateManager() {
         return stateManager;

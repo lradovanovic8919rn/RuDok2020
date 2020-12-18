@@ -40,7 +40,7 @@ public class Slot extends RafNode {
 
 	public void setDimension(Dimension dimension) {
 		this.dimension = dimension;
-		this.notifyListeners(ActionEnum.ACTION_SELECTED);
+		this.notifyListeners(ActionEnum.ACTION_SLOTCHANGED);
 
 	}
 
@@ -50,7 +50,7 @@ public class Slot extends RafNode {
 
 	public void setPosition(Point2D position) {
 		this.position = position;
-		this.notifyListeners(ActionEnum.ACTION_SELECTED);
+		this.notifyListeners(ActionEnum.ACTION_SLOTCHANGED);
 
 	}
 }

@@ -7,10 +7,10 @@ import java.awt.geom.Point2D;
 
 public interface SlotHandler {
 
-    void resize(Point2D start, Point2D dragged, SlotPainter slotPainter, PageView pv);
+    void resize(Point2D start, Point2D dragged, SlotPainter slotPainter, PageView pv,int x,int y);
 
     void rotate();
 
-    void move();
+    void move(Point2D start,Point2D dragged,SlotPainter slotPainter,PageView mediator,int x,int y) ;
 
 }

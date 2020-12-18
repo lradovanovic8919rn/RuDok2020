@@ -12,6 +12,9 @@ public class ResizeState extends State {
     PageView mediator;
     Point start;
     Point dragged;
+    SlotPainter sp;
+    int originalx;
+    int originaly;
 
     public ResizeState(PageView mediator) {
         this.mediator = mediator;
@@ -25,20 +28,23 @@ public class ResizeState extends State {
 
                     System.out.println(position.getLocation());
                     start = position;
+                    sp=mediator.getSelectedSlot();
+                    originalx= (int) sp.getSlot().getDimension().getWidth();
+                    originaly= (int) sp.getSlot().getDimension().getHeight();
 
             }
 
     }
 
     public void mouseDragged(MouseEvent e){
-        SlotPainter sp=mediator.getSelectedSlot();
+        sp=mediator.getSelectedSlot();
         dragged=e.getPoint();
 
         if(sp==null){
 
         }
         else {
-            Main.getInstance().getSlotHandler().resize(start, dragged, sp, mediator);
+            Main.getInstance().getSlotHandler().resize(start, dragged, sp, mediator,originalx,originaly);
         }
 
     }

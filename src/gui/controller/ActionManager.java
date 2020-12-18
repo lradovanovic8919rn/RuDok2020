@@ -1,6 +1,9 @@
 package gui.controller;
 
+import gui.rightPanelView.state.MoveState;
+
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 
 public class ActionManager {
 
@@ -16,6 +19,7 @@ public class ActionManager {
 	private SelectAction selectAction;
 	private DeleteAction deleteAction;
 	private ResizeAction resizeAction;
+	private MoveSlotAction moveSlotAction;
 
 	private ActionManager() {
 		init();
@@ -32,6 +36,7 @@ public class ActionManager {
 		selectAction=new SelectAction();
 		deleteAction=new DeleteAction();
 		resizeAction=new ResizeAction();
+		moveSlotAction=new MoveSlotAction();
 	}
 
 	public AddNodeAction getAddNodeAction() {
@@ -69,6 +74,8 @@ public class ActionManager {
 	public DeleteAction getDeleteAction() { return deleteAction; }
 
 	public ResizeAction getResizeAction() { return resizeAction; }
+
+	public MoveSlotAction getMoveSlotAction() { return moveSlotAction; }
 
 	public static ActionManager getInstance(){
 

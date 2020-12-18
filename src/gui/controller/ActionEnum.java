@@ -10,5 +10,6 @@ public enum ActionEnum {
     ACTION_REMOVEPROJECT,
     ACTION_SHARE,
     ACTION_SELECTED,
+    ACTION_SLOTCHANGED,
 
 }

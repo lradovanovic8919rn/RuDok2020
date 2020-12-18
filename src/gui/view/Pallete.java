@@ -12,6 +12,7 @@ public class Pallete extends JToolBar{
         add(ActionManager.getInstance().getSelectAction());
         add(ActionManager.getInstance().getDeleteAction());
         add(ActionManager.getInstance().getResizeAction());
+        add(ActionManager.getInstance().getMoveSlotAction());
         setFloatable(false);
         setOrientation(JToolBar.VERTICAL);
     }
