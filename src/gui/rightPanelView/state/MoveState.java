@@ -27,10 +27,10 @@ public class MoveState extends State{
 
             sp=mediator.getSelectedSlot();
             start = position;
-            originaly= (int) sp.getSlot().getPosition().getY();
-            originalX= (int) sp.getSlot().getPosition().getX();
-            System.out.println(position.getLocation()+" "+mediator.getPage().getSelected().getName());
-
+            if(!(sp==null)) {
+                originaly = (int) sp.getSlot().getPosition().getY();
+                originalX = (int) sp.getSlot().getPosition().getX();
+            }
 
 
         }
@@ -41,7 +41,8 @@ public class MoveState extends State{
         Point dragged=e.getPoint();
 
             SlotPainter sp=mediator.getSelectedSlot();
-            Main.getInstance().getSlotHandler().move(start, dragged, sp, mediator,originalX,originaly);
+            if (!(sp==null))
+                Main.getInstance().getSlotHandler().move(start, dragged, sp, mediator,originalX,originaly);
 
 
     }

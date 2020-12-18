@@ -29,8 +29,11 @@ public class ResizeState extends State {
                     System.out.println(position.getLocation());
                     start = position;
                     sp=mediator.getSelectedSlot();
-                    originalx= (int) sp.getSlot().getDimension().getWidth();
-                    originaly= (int) sp.getSlot().getDimension().getHeight();
+            if (!(sp==null)) {
+
+                originalx = (int) sp.getSlot().getDimension().getWidth();
+                originaly = (int) sp.getSlot().getDimension().getHeight();
+            }
 
             }
 
