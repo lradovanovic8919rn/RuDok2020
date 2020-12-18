@@ -155,6 +155,7 @@ public class PageView extends  JPanel implements IListener {
     public void startResizeState(){stateManager.setResizeState();}
     public void startDeleteState(){stateManager.setDeleteState();}
     public void startMoveState(){stateManager.setMoveState();}
+    public void startRotateState(){stateManager.setRotateState();}
     //-------------------------------------------------------
     public StateManager getStateManager() {
         return stateManager;

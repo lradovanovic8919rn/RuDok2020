@@ -47,7 +47,20 @@ public class SlotHandlerImplementation implements SlotHandler {
     }
 
     @Override
-    public void rotate() {
+    public void rotate(Point2D start, Point2D dragged, SlotPainter slotPainter,int x,int y) {
+        double startx=start.getX()-x;
+        double starty=start.getY()-y;
+        double draggedx=dragged.getX()-x;
+        double draggedy=dragged.getY()-y;
+        double point1=startx*draggedy-starty*draggedx;
+        double point2=startx*draggedx-starty*draggedy;
+
+        double newAngle=Math.toDegrees(Math.atan2(point1,point2));
+        AffineTransform transform = new AffineTransform();
+        transform.rotate(Math.toRadians(newAngle),x,y);
+        slotPainter.setShape(transform.createTransformedShape(slotPainter.getShape()));
+
+        slotPainter.getSlot().setAngle(newAngle);
 
     }
 

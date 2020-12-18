@@ -13,6 +13,7 @@ public class StateManager {
     DeleteState deleteState;
     ResizeState resizeState;
     MoveState moveState;
+    RotateState rotateState;
 
     public StateManager(PageView mediator) {
         this.selectState=new SelectState(mediator);
@@ -22,6 +23,7 @@ public class StateManager {
         this.deleteState=new DeleteState(mediator);
         this.resizeState=new ResizeState(mediator);
         this.moveState=new MoveState(mediator);
+        this.rotateState=new RotateState(mediator);
         this.currentState = circleState;
     }
     public void setSelectState(){currentState=selectState;}
@@ -31,6 +33,7 @@ public class StateManager {
     public void setDeleteState(){currentState=deleteState;}
     public void setResizeState(){currentState=resizeState;}
     public void setMoveState(){currentState=moveState;}
+    public void setRotateState(){currentState=rotateState;}
     public State getCurrentState() {
         return currentState;
     }

@@ -20,6 +20,7 @@ public class ActionManager {
 	private DeleteAction deleteAction;
 	private ResizeAction resizeAction;
 	private MoveSlotAction moveSlotAction;
+	private RotateAction rotateAction;
 
 	private ActionManager() {
 		init();
@@ -37,6 +38,7 @@ public class ActionManager {
 		deleteAction=new DeleteAction();
 		resizeAction=new ResizeAction();
 		moveSlotAction=new MoveSlotAction();
+		rotateAction=new RotateAction();
 	}
 
 	public AddNodeAction getAddNodeAction() {
@@ -76,6 +78,8 @@ public class ActionManager {
 	public ResizeAction getResizeAction() { return resizeAction; }
 
 	public MoveSlotAction getMoveSlotAction() { return moveSlotAction; }
+
+	public RotateAction getRotateAction() { return rotateAction; }
 
 	public static ActionManager getInstance(){
 

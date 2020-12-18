@@ -12,11 +12,13 @@ public class Slot extends RafNode {
 
 	private Dimension dimension;
 	private Point2D position;
+	private double angle;
 
 	public Slot(String name, RafNode parent, Dimension dimension, Point2D position) {
 		super(name, parent);
 		this.dimension = dimension;
 		this.position = position;
+		this.angle=0;
 	}
 
 	@Override
@@ -52,5 +54,14 @@ public class Slot extends RafNode {
 		this.position = position;
 		this.notifyListeners(ActionEnum.ACTION_SLOTCHANGED);
 
+	}
+
+	public double getAngle() {
+		return angle;
+	}
+
+	public void setAngle(double angle) {
+		this.angle = angle;
+		this.notifyListeners(ActionEnum.ACTION_SLOTCHANGED);
 	}
 }
