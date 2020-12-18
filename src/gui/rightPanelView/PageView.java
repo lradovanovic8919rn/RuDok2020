@@ -44,6 +44,7 @@ public class PageView extends  JPanel implements IListener {
         this.add(name);
         viewController=new ViewController();
         this.addMouseListener(viewController);
+        this.addMouseMotionListener(viewController);
         stateManager=new StateManager(this);
 
 
@@ -75,12 +76,12 @@ public class PageView extends  JPanel implements IListener {
             stateManager.getCurrentState().mousePressed(e);
         }
 
-        public void mouseReleased(MouseEvent e) {
-            stateManager.getCurrentState().mouseReleased(e);
+        public void mouseDragged(MouseEvent e){
+            stateManager.getCurrentState().mouseDragged(e);
         }
 
-        public void mouseDragged(MouseEvent e ){
-            stateManager.getCurrentState().mouseDragged(e);
+        public void mouseReleased(MouseEvent e) {
+            stateManager.getCurrentState().mouseReleased(e);
         }
 
     }
@@ -149,7 +150,9 @@ public class PageView extends  JPanel implements IListener {
     public void startRectangleState(){
         stateManager.setRectangleState();
     }
+    public void startResizeState(){stateManager.setResizeState();}
     public void startDeleteState(){stateManager.setDeleteState();}
+    //-------------------------------------------------------
     public StateManager getStateManager() {
         return stateManager;
     }

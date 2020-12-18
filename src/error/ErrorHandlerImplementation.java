@@ -1,10 +1,7 @@
 package error;
 
-import javax.swing.JOptionPane;
 
 import core.ErrorHandler;
-import error.ErrorEnum;
-import gui.view.MainView;
 import observer.IListener;
 
 import java.util.ArrayList;
@@ -29,6 +26,8 @@ public class ErrorHandlerImplementation implements ErrorHandler {
 			notifyListeners(new ErrorClass(6,"Error!","You must select new parent project!"));
 		if(type == ErrorEnum.ERROR_REMOVE)
 			notifyListeners(new ErrorClass(7,"Error!","You must be in right document!"));
+		if(type==ErrorEnum.ERROR_NOSELECTEDNODE)
+			notifyListeners(new ErrorClass(8,"Error!","You must select shape first!"));
 	}
 
 	@Override

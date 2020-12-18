@@ -1,8 +1,10 @@
 package repository.slot;
 
+import gui.controller.ActionEnum;
 import observer.IListener;
 import repository.node.RafNode;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Point2D;
 
@@ -38,6 +40,8 @@ public class Slot extends RafNode {
 
 	public void setDimension(Dimension dimension) {
 		this.dimension = dimension;
+		this.notifyListeners(ActionEnum.ACTION_SELECTED);
+
 	}
 
 	public Point2D getPosition() {
@@ -46,5 +50,7 @@ public class Slot extends RafNode {
 
 	public void setPosition(Point2D position) {
 		this.position = position;
+		this.notifyListeners(ActionEnum.ACTION_SELECTED);
+
 	}
 }

@@ -1,14 +1,12 @@
 package app;
 
 
-import core.AppFramework;
-import core.ErrorHandler;
-import core.Gui;
-import core.Repository;
+import core.*;
 import error.ErrorHandlerImplementation;
 import gui.RafGui;
 import gui.view.MainView;
 import repository.RepositoryImplementation;
+import slotHandler.SlotHandlerImplementation;
 
 public class Main extends AppFramework {
 	
@@ -35,10 +33,11 @@ public class Main extends AppFramework {
 
     	Repository r = new RepositoryImplementation();
     	ErrorHandler eh=new ErrorHandlerImplementation();
+		SlotHandler sh=new SlotHandlerImplementation();
     	Gui gui=new RafGui(r);
     	AppFramework main=Main.getInstance();
     	MainView.getInstance().setDocumentRepository(r);
-    	main.initialise(gui, r, eh); //
+    	main.initialise(gui, r, eh,sh); //
 
     	main.run();
         

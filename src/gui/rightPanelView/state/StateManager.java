@@ -11,6 +11,7 @@ public class StateManager {
     TriangleState triangleState;
     SelectState selectState;
     DeleteState deleteState;
+    ResizeState resizeState;
 
     public StateManager(PageView mediator) {
         this.selectState=new SelectState(mediator);
@@ -18,6 +19,7 @@ public class StateManager {
         this.rectangleState = new RectangleState(mediator);
         this.triangleState = new TriangleState(mediator);
         this.deleteState=new DeleteState(mediator);
+        this.resizeState=new ResizeState(mediator);
         this.currentState = circleState;
     }
     public void setSelectState(){currentState=selectState;}
@@ -25,6 +27,7 @@ public class StateManager {
     public void setRectangleState(){currentState=rectangleState;}
     public void setTriangleState(){currentState=triangleState;}
     public void setDeleteState(){currentState=deleteState;}
+    public void setResizeState(){currentState=resizeState;}
     public State getCurrentState() {
         return currentState;
     }

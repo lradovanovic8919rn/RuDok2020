@@ -15,6 +15,7 @@ public class ActionManager {
 	private ShareDocumentAction shareDocumentAction;
 	private SelectAction selectAction;
 	private DeleteAction deleteAction;
+	private ResizeAction resizeAction;
 
 	private ActionManager() {
 		init();
@@ -30,6 +31,7 @@ public class ActionManager {
 		shareDocumentAction = new ShareDocumentAction();
 		selectAction=new SelectAction();
 		deleteAction=new DeleteAction();
+		resizeAction=new ResizeAction();
 	}
 
 	public AddNodeAction getAddNodeAction() {
@@ -64,9 +66,9 @@ public class ActionManager {
 		return selectAction;
 	}
 
-	public DeleteAction getDeleteAction() {
-		return deleteAction;
-	}
+	public DeleteAction getDeleteAction() { return deleteAction; }
+
+	public ResizeAction getResizeAction() { return resizeAction; }
 
 	public static ActionManager getInstance(){
 
