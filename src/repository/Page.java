@@ -7,14 +7,16 @@ import repository.node.NodeComposite;
 import repository.slot.Slot;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 
 public class Page extends NodeComposite{
 
-    Slot selected=null;
+    ArrayList<Slot> selectedSlots;
 
 	public Page(String name, RafNode parent) {
 		super(name, parent);
+        selectedSlots=new ArrayList<Slot>();
 	}
 	
 	@Override
@@ -53,12 +55,16 @@ public class Page extends NodeComposite{
         return this.getChildren().size();
     }
 
-    public Slot getSelected() {
-        return selected;
+    public ArrayList<Slot> getSelectedSlots() {
+        return selectedSlots;
     }
 
     public void setSelected(Slot selected) {
-        this.selected = selected;
+        this.selectedSlots.add(selected);
+        this.notifyListeners(ActionEnum.ACTION_SELECTED);
+    }
+    public void removeSelectedSlot(Slot slot){
+        this.selectedSlots.remove(slot);
         this.notifyListeners(ActionEnum.ACTION_SELECTED);
     }
 }

@@ -25,7 +25,7 @@ public class PageView extends  JPanel implements IListener {
     private ViewController viewController;
     private ArrayList<SlotPainter> slotPainters;
     private StateManager stateManager;
-    private SlotPainter selectedSlot=null;
+    private ArrayList<SlotPainter> selecetedSlotPainters;
 
     public PageView(Page page) {
 
@@ -46,6 +46,7 @@ public class PageView extends  JPanel implements IListener {
         this.addMouseListener(viewController);
         this.addMouseMotionListener(viewController);
         stateManager=new StateManager(this);
+        selecetedSlotPainters=new ArrayList<SlotPainter>();
 
 
     }
@@ -116,12 +117,12 @@ public class PageView extends  JPanel implements IListener {
         return slotPainters;
     }
 
-    public SlotPainter getSelectedSlot() {
-        return selectedSlot;
+    public ArrayList<SlotPainter> getSelecetedSlotPainters() {
+        return selecetedSlotPainters;
     }
 
-    public void setSelectedSlot(SlotPainter selectedSlot) {
-        this.selectedSlot = selectedSlot;
+    public void setSelecetedSlotPainters(ArrayList<SlotPainter> selecetedSlotPainters) {
+        this.selecetedSlotPainters = selecetedSlotPainters;
     }
 
     public int getElementAtPosition(Point point) {

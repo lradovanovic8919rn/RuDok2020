@@ -13,6 +13,8 @@ public class Slot extends RafNode {
 	private Dimension dimension;
 	private Point2D position;
 	private double angle;
+	private Point2D originalPosition=null;
+	private Dimension originalDimension=null;
 
 	public Slot(String name, RafNode parent, Dimension dimension, Point2D position) {
 		super(name, parent);
@@ -63,5 +65,21 @@ public class Slot extends RafNode {
 	public void setAngle(double angle) {
 		this.angle = angle;
 		this.notifyListeners(ActionEnum.ACTION_SLOTCHANGED);
+	}
+
+	public Point2D getOriginalPosition() {
+		return originalPosition;
+	}
+
+	public void setOriginalPosition(Point2D originalPosition) {
+		this.originalPosition = originalPosition;
+	}
+
+	public Dimension getOriginalDimension() {
+		return originalDimension;
+	}
+
+	public void setOriginalDimension(Dimension originalDimension) {
+		this.originalDimension = originalDimension;
 	}
 }

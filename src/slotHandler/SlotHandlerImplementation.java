@@ -24,9 +24,10 @@ public class SlotHandlerImplementation implements SlotHandler {
         slotPainter.getSlot().setDimension(new Dimension(widthInt,heightInt));
         Slot s=slotPainter.getSlot();
         Page p=(Page) s.getParent();
+        p.removeSelectedSlot(s);
         p.removeChild(s);
         mediator.getSlotPainters().remove(slotPainter);
-
+        mediator.getSelecetedSlotPainters().remove(slotPainter);
 
         mediator.getPage().addChild(s);
         SlotPainter painter=null;
@@ -41,7 +42,7 @@ public class SlotHandlerImplementation implements SlotHandler {
         painter.setPaint(Color.green);
         mediator.getSlotPainters().add(painter);
         mediator.getPage().setSelected(painter.getSlot());
-        mediator.setSelectedSlot(painter);
+        mediator.getSelecetedSlotPainters().add(painter);
 
 
     }
@@ -74,8 +75,11 @@ public class SlotHandlerImplementation implements SlotHandler {
 
         Slot s=slotPainter.getSlot();
         Page p=(Page) s.getParent();
+        p.removeSelectedSlot(s);
         p.removeChild(s);
+
         mediator.getSlotPainters().remove(slotPainter);
+        mediator.getSelecetedSlotPainters().remove(slotPainter);
 
 
         mediator.getPage().addChild(s);
@@ -91,6 +95,6 @@ public class SlotHandlerImplementation implements SlotHandler {
         painter.setPaint(Color.green);
         mediator.getSlotPainters().add(painter);
         mediator.getPage().setSelected(painter.getSlot());
-        mediator.setSelectedSlot(painter);
+        mediator.getSelecetedSlotPainters().add(painter);
     }
 }

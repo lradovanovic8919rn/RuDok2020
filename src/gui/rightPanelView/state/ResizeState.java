@@ -12,9 +12,6 @@ public class ResizeState extends State {
     PageView mediator;
     Point start;
     Point dragged;
-    SlotPainter sp;
-    int originalx;
-    int originaly;
 
     public ResizeState(PageView mediator) {
         this.mediator = mediator;
@@ -26,36 +23,36 @@ public class ResizeState extends State {
         if (e.getButton()== MouseEvent.BUTTON1){
 
 
-                    System.out.println(position.getLocation());
-                    start = position;
-                    sp=mediator.getSelectedSlot();
-            if (!(sp==null)) {
 
-                originalx = (int) sp.getSlot().getDimension().getWidth();
-                originaly = (int) sp.getSlot().getDimension().getHeight();
-            }
+                    if(!(mediator.getSelecetedSlotPainters()==null)){
+                        start = position;
+                        for (SlotPainter nsp: mediator.getSelecetedSlotPainters()) {
+                            nsp.getSlot().setOriginalDimension(nsp.getSlot().getDimension());
+                        }
+                    }
 
             }
 
     }
 
     public void mouseDragged(MouseEvent e){
-        sp=mediator.getSelectedSlot();
-        dragged=e.getPoint();
+        dragged = e.getPoint();
+        for(SlotPainter nsp: mediator.getSelecetedSlotPainters()) {
 
-        if(sp==null){
+             int originalx = (int) nsp.getSlot().getOriginalDimension().getWidth();
+             int originaly = (int) nsp.getSlot().getOriginalDimension().getHeight();
+
+                Main.getInstance().getSlotHandler().resize(start, dragged, nsp, mediator, originalx, originaly);
 
         }
-        else {
-            Main.getInstance().getSlotHandler().resize(start, dragged, sp, mediator,originalx,originaly);
-        }
-
     }
 
     public void mouseReleased(MouseEvent e) {
 
 
-
+        for (SlotPainter nsp: mediator.getSelecetedSlotPainters()) {
+            nsp.getSlot().setOriginalDimension(nsp.getSlot().getDimension());
+        }
 
 
     }

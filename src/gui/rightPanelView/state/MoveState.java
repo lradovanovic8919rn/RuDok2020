@@ -10,10 +10,9 @@ import java.awt.geom.Point2D;
 
 public class MoveState extends State{
     Point start;
+    Point dragged;
     PageView mediator;
-    SlotPainter sp;
-    int originalX;
-    int originaly;
+
 
     public MoveState(PageView mediator) {
         this.mediator = mediator;
@@ -25,11 +24,12 @@ public class MoveState extends State{
         Point position = e.getPoint();
         if (e.getButton()== MouseEvent.BUTTON1){
 
-            sp=mediator.getSelectedSlot();
-            start = position;
-            if(!(sp==null)) {
-                originaly = (int) sp.getSlot().getPosition().getY();
-                originalX = (int) sp.getSlot().getPosition().getX();
+
+            if(!(mediator.getSelecetedSlotPainters()==null)) {
+                start = position;
+                for (SlotPainter nsp: mediator.getSelecetedSlotPainters()) {
+                    nsp.getSlot().setOriginalPosition(nsp.getSlot().getPosition());
+                }
             }
 
 
@@ -38,19 +38,23 @@ public class MoveState extends State{
     }
 
     public void mouseDragged(MouseEvent e){
-        Point dragged=e.getPoint();
+         dragged=e.getPoint();
 
-            SlotPainter sp=mediator.getSelectedSlot();
-            if (!(sp==null))
-                Main.getInstance().getSlotHandler().move(start, dragged, sp, mediator,originalX,originaly);
+            for (SlotPainter nsp: mediator.getSelecetedSlotPainters()) {
+                int originalX= (int) nsp.getSlot().getOriginalPosition().getX();
+                int originaly= (int) nsp.getSlot().getOriginalPosition().getY();
 
+                Main.getInstance().getSlotHandler().move(start, dragged, nsp, mediator, originalX, originaly);
+            }
 
     }
 
     public void mouseReleased(MouseEvent e) {
 
 
-
+        for (SlotPainter nsp: mediator.getSelecetedSlotPainters()) {
+            nsp.getSlot().setOriginalPosition(nsp.getSlot().getPosition());
+        }
 
 
     }

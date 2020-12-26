@@ -17,7 +17,7 @@ public class RotateState extends State{
     public RotateState(PageView mediator) {
         this.mediator = mediator;
     }
-    public void mousePressed(MouseEvent e) {
+    public void mousePressed(MouseEvent e) {/*
 
         Point position = e.getPoint();
         if (e.getButton()== MouseEvent.BUTTON1){
@@ -32,11 +32,11 @@ public class RotateState extends State{
                 sloty = (int) sp.getSlot().getPosition().getY();
             }
 
-        }
+        }*/
 
     }
 
-    public void mouseDragged(MouseEvent e){
+    public void mouseDragged(MouseEvent e){/*
         sp=mediator.getSelectedSlot();
         dragged=e.getPoint();
 
@@ -45,7 +45,7 @@ public class RotateState extends State{
         }
         else {
             Main.getInstance().getSlotHandler().rotate(start,dragged,sp,slotx,sloty);
-        }
+        }*/
 
     }
 
