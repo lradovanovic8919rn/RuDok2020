@@ -8,6 +8,7 @@ import repository.node.NodeComposite;
 import repository.node.RafNode;
 
 import javax.swing.tree.MutableTreeNode;
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -15,6 +16,7 @@ public class Project extends NodeComposite implements  IObserver, Serializable {
 
     private transient boolean changed = false;
     private ArrayList<Document> documents;
+    private File file;
 
     public Project(String name, RafNode parent) {
 
@@ -83,5 +85,11 @@ public class Project extends NodeComposite implements  IObserver, Serializable {
    // }
 
 
+    public File getFile() {
+        return file;
+    }
 
+    public void setFile(File file) {
+        this.file = file;
+    }
 }
