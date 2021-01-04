@@ -6,15 +6,18 @@ public abstract class AppFramework {
 	protected Repository repository;
 	protected ErrorHandler errorHandler;
 	protected SlotHandler slotHandler;
+	protected Editor editor;
 	
 	public abstract void run();
 	
-	public void initialise(Gui g,Repository r,ErrorHandler eh,SlotHandler sh) {
+	public void initialise(Gui g,Repository r,ErrorHandler eh,SlotHandler sh,Editor e) {
 		this.gui=g;
 		this.repository=r;
 		this.errorHandler=eh;
 		this.slotHandler=sh;
+		this.editor=e;
 		this.errorHandler.addListener(gui);
+
 	}
 
 	public ErrorHandler getErrorHandler() {
@@ -23,5 +26,9 @@ public abstract class AppFramework {
 
 	public SlotHandler getSlotHandler() {
 		return slotHandler;
+	}
+
+	public Editor getEditor() {
+		return editor;
 	}
 }

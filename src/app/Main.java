@@ -2,6 +2,7 @@ package app;
 
 
 import core.*;
+import editor.EditorImplementation;
 import error.ErrorHandlerImplementation;
 import gui.RafGui;
 import gui.view.MainView;
@@ -34,10 +35,11 @@ public class Main extends AppFramework {
     	Repository r = new RepositoryImplementation();
     	ErrorHandler eh=new ErrorHandlerImplementation();
 		SlotHandler sh=new SlotHandlerImplementation();
+		Editor editor=new EditorImplementation();
     	Gui gui=new RafGui(r);
     	AppFramework main=Main.getInstance();
     	MainView.getInstance().setDocumentRepository(r);
-    	main.initialise(gui, r, eh,sh); //
+    	main.initialise(gui, r, eh,sh,editor); //
 
     	main.run();
         

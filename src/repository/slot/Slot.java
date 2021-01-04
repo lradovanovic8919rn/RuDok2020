@@ -1,10 +1,10 @@
 package repository.slot;
 
 import gui.controller.ActionEnum;
+import gui.rightPanelView.slotContent.SlotContent;
 import observer.IListener;
 import repository.node.RafNode;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Point2D;
 
@@ -15,6 +15,7 @@ public class Slot extends RafNode {
 	private double angle;
 	private Point2D originalPosition=null;
 	private Dimension originalDimension=null;
+	private SlotContent slotContent=null;
 
 	public Slot(String name, RafNode parent, Dimension dimension, Point2D position) {
 		super(name, parent);
@@ -81,5 +82,13 @@ public class Slot extends RafNode {
 
 	public void setOriginalDimension(Dimension originalDimension) {
 		this.originalDimension = originalDimension;
+	}
+
+	public SlotContent getSlotContent() {
+		return slotContent;
+	}
+
+	public void setSlotContent(SlotContent slotContent) {
+		this.slotContent = slotContent;
 	}
 }
