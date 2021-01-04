@@ -7,10 +7,11 @@ import repository.node.NodeComposite;
 import repository.slot.Slot;
 
 import javax.swing.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class Page extends NodeComposite{
+public class Page extends NodeComposite implements Serializable {
 
     ArrayList<Slot> selectedSlots;
 

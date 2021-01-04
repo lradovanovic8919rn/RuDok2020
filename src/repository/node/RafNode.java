@@ -5,7 +5,9 @@ import gui.tree.RafTree;
 import observer.IObserver;
 import repository.Document;
 
-public abstract class RafNode implements IObserver {
+import java.io.Serializable;
+
+public abstract class RafNode implements IObserver, Serializable {
 
 	private String name;
 

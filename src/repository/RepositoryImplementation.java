@@ -3,7 +3,9 @@ package repository;
 
 import core.Repository;
 
-public class RepositoryImplementation implements Repository{
+import java.io.Serializable;
+
+public class RepositoryImplementation implements Repository, Serializable {
 
 	private Workspace rootWorkspace;
 	

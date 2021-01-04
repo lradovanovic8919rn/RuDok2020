@@ -4,7 +4,9 @@ import gui.controller.ActionEnum;
 import repository.node.NodeComposite;
 import repository.node.RafNode;
 
-public class Workspace extends NodeComposite {
+import java.io.Serializable;
+
+public class Workspace extends NodeComposite implements Serializable {
 
 	public Workspace(String name) {
 		super(name,null);

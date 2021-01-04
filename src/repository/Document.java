@@ -6,11 +6,12 @@ import observer.IListener;
 import repository.node.NodeComposite;
 import repository.node.RafNode;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Document extends NodeComposite {
+public class Document extends NodeComposite implements Serializable {
     private ArrayList<Page> pages;
-    private ArrayList<IListener> listeners;
+    private transient ArrayList<IListener> listeners;
 
 
 	public Document(String name, RafNode parent) {

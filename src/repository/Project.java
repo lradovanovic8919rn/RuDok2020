@@ -8,11 +8,12 @@ import repository.node.NodeComposite;
 import repository.node.RafNode;
 
 import javax.swing.tree.MutableTreeNode;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Project extends NodeComposite implements  IObserver{
+public class Project extends NodeComposite implements  IObserver, Serializable {
 
-    private boolean changed = false;
+    private transient boolean changed = false;
     private ArrayList<Document> documents;
 
     public Project(String name, RafNode parent) {

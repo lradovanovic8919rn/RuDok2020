@@ -3,13 +3,14 @@ package repository.node;
 import observer.IListener;
 import observer.IObserver;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class NodeComposite extends RafNode {
+public abstract class NodeComposite extends RafNode implements Serializable {
 	
 	 List<RafNode> children;
-	 private ArrayList<IListener> listeners;
+	 private transient ArrayList<IListener> listeners;
 
 	public NodeComposite(String name, RafNode parent) {
 		super(name, parent);
