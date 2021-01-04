@@ -161,6 +161,7 @@ public class EditorImplementation implements Editor {
         underline.setIcon(uimg);
 
         JTextPane textArea=new JTextPane();
+        textArea.setContentType("text/html");
 
         JButton save=new JButton("SAVE");
         save.addActionListener(new ActionListener() {
