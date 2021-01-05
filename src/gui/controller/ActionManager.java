@@ -1,5 +1,6 @@
 package gui.controller;
 
+import gui.rightPanelView.state.ContentState;
 import gui.rightPanelView.state.MoveState;
 
 import javax.swing.*;
@@ -22,6 +23,7 @@ public class ActionManager {
 	private MoveSlotAction moveSlotAction;
 	private RotateAction rotateAction;
 	private LassoAction lassoAction;
+	private ContentAction contentAction;
 
 	private ActionManager() {
 		init();
@@ -41,6 +43,7 @@ public class ActionManager {
 		moveSlotAction=new MoveSlotAction();
 		rotateAction=new RotateAction();
 		lassoAction=new LassoAction();
+		contentAction=new ContentAction();
 	}
 
 	public AddNodeAction getAddNodeAction() {
@@ -85,6 +88,10 @@ public class ActionManager {
 
 	public LassoAction getLassoAction() {
 		return lassoAction;
+	}
+
+	public ContentAction getContentAction() {
+		return contentAction;
 	}
 
 	public static ActionManager getInstance(){

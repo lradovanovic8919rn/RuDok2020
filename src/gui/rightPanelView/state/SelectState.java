@@ -12,7 +12,6 @@ import java.awt.event.MouseEvent;
 
 public class SelectState extends State{
     private PageView mediator;
-    private Slot s;
 
     public SelectState(PageView mediator) {
         this.mediator = mediator;
@@ -20,22 +19,13 @@ public class SelectState extends State{
     public void mousePressed(MouseEvent e) {
         Point position = e.getPoint();
         if (e.getButton()== MouseEvent.BUTTON1){
-            if(e.getClickCount() == 2) {
-                for (SlotPainter sp : mediator.getSlotPainters()) {
-                    if (sp.isElementAt(position)) {
-                        s=sp.getSlot();
-                    }
+            if (mediator.getElementAtPosition(position)==-1) {
+                for (SlotPainter nsp : mediator.getSelecetedSlotPainters()) {
+                    nsp.setPaint(Color.RED);
+                    mediator.getPage().removeSelectedSlot(nsp.getSlot());
                 }
-                if(s.getSlotContent()==null) {
-                    Main.getInstance().getEditor().choseContentType(s);
-
-                }else if(s.getSlotContent().getType()==EditorEnum.TEXT){
-                    Main.getInstance().getEditor().openTextContent(s);
-                }else if(s.getSlotContent().getType()==EditorEnum.IMAGE){
-                    Main.getInstance().getEditor().openImageContent(s);
-                }
+                mediator.getSelecetedSlotPainters().clear();
             }
-            else if(e.getClickCount()==1) {
                 for (SlotPainter sp : mediator.getSlotPainters()) {
                     if ((sp.isElementAt(position)) && (mediator.getSelecetedSlotPainters().contains(sp))) {
                         sp.setPaint(Color.RED);
@@ -48,7 +38,8 @@ public class SelectState extends State{
                         break;
                     }
                 }
-            }
+
+
         }
     }
 }

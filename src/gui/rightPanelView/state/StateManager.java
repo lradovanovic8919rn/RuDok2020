@@ -15,6 +15,7 @@ public class StateManager {
     MoveState moveState;
     RotateState rotateState;
     LassoState lassoState;
+    ContentState contentState;
 
     public StateManager(PageView mediator) {
         this.selectState=new SelectState(mediator);
@@ -26,6 +27,7 @@ public class StateManager {
         this.moveState=new MoveState(mediator);
         this.rotateState=new RotateState(mediator);
         this.lassoState=new LassoState(mediator);
+        this.contentState=new ContentState(mediator);
         this.currentState = circleState;
     }
     public void setSelectState(){currentState=selectState;}
@@ -37,6 +39,7 @@ public class StateManager {
     public void setMoveState(){currentState=moveState;}
     public void setRotateState(){currentState=rotateState;}
     public void setLassoState(){currentState=lassoState;}
+    public void setContentState(){currentState=contentState;}
     public State getCurrentState() {
         return currentState;
     }

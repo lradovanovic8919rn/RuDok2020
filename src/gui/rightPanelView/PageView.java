@@ -96,6 +96,7 @@ public class PageView extends  JPanel implements IListener {
         Graphics2D g2 = (Graphics2D) g;
 
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.8f));
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         for(SlotPainter sp:this.getSlotPainters()){
             sp.paint(g2,sp.getSlot());
@@ -110,8 +111,6 @@ public class PageView extends  JPanel implements IListener {
         g3.setColor(Color.BLACK);
         if(this.getPage().getLasso()!=null) {
             g3.draw(this.getPage().getLasso());
-        }else{
-            System.out.println("Nece");
         }
 
 
@@ -171,6 +170,7 @@ public class PageView extends  JPanel implements IListener {
     public void startMoveState(){stateManager.setMoveState();}
     public void startRotateState(){stateManager.setRotateState();}
     public void startLassoState(){stateManager.setLassoState();}
+    public void startContentState(){stateManager.setContentState();}
     //-------------------------------------------------------
     public StateManager getStateManager() {
         return stateManager;
