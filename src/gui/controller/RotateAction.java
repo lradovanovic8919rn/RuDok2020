@@ -10,7 +10,7 @@ import java.awt.event.KeyEvent;
 public class RotateAction extends AbstractActionClass{
     public RotateAction() {
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(
-                KeyEvent.VK_F7, ActionEvent.ALT_MASK));
+                KeyEvent.VK_F8, ActionEvent.ALT_MASK));
         putValue(SMALL_ICON, loadIcon("images/rotate.png"));
         putValue(NAME, "Rotate slot");
         putValue(SHORT_DESCRIPTION, "Rotate slot");

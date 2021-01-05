@@ -27,6 +27,7 @@ public class PageView extends  JPanel implements IListener {
     private StateManager stateManager;
     private ArrayList<SlotPainter> selecetedSlotPainters;
 
+
     public PageView(Page page) {
 
 
@@ -47,6 +48,7 @@ public class PageView extends  JPanel implements IListener {
         this.addMouseMotionListener(viewController);
         stateManager=new StateManager(this);
         selecetedSlotPainters=new ArrayList<SlotPainter>();
+
 
 
     }
@@ -91,7 +93,6 @@ public class PageView extends  JPanel implements IListener {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-
         Graphics2D g2 = (Graphics2D) g;
 
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.8f));
@@ -99,6 +100,18 @@ public class PageView extends  JPanel implements IListener {
         for(SlotPainter sp:this.getSlotPainters()){
             sp.paint(g2,sp.getSlot());
 
+        }
+        Graphics2D g3=g2;
+
+        float[] lassoPattern = {10f, 10f, 1f, 10f};
+        Stroke s=new BasicStroke(4f, BasicStroke.CAP_SQUARE,
+                BasicStroke.JOIN_MITER, 1.0f, lassoPattern, 0.0f);
+        g3.setStroke(s);
+        g3.setColor(Color.BLACK);
+        if(this.getPage().getLasso()!=null) {
+            g3.draw(this.getPage().getLasso());
+        }else{
+            System.out.println("Nece");
         }
 
 
@@ -157,6 +170,7 @@ public class PageView extends  JPanel implements IListener {
     public void startDeleteState(){stateManager.setDeleteState();}
     public void startMoveState(){stateManager.setMoveState();}
     public void startRotateState(){stateManager.setRotateState();}
+    public void startLassoState(){stateManager.setLassoState();}
     //-------------------------------------------------------
     public StateManager getStateManager() {
         return stateManager;

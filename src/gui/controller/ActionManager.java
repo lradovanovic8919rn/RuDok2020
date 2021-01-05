@@ -21,6 +21,7 @@ public class ActionManager {
 	private ResizeAction resizeAction;
 	private MoveSlotAction moveSlotAction;
 	private RotateAction rotateAction;
+	private LassoAction lassoAction;
 
 	private ActionManager() {
 		init();
@@ -39,6 +40,7 @@ public class ActionManager {
 		resizeAction=new ResizeAction();
 		moveSlotAction=new MoveSlotAction();
 		rotateAction=new RotateAction();
+		lassoAction=new LassoAction();
 	}
 
 	public AddNodeAction getAddNodeAction() {
@@ -80,6 +82,10 @@ public class ActionManager {
 	public MoveSlotAction getMoveSlotAction() { return moveSlotAction; }
 
 	public RotateAction getRotateAction() { return rotateAction; }
+
+	public LassoAction getLassoAction() {
+		return lassoAction;
+	}
 
 	public static ActionManager getInstance(){
 

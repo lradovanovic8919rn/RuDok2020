@@ -7,6 +7,7 @@ import repository.node.NodeComposite;
 import repository.slot.Slot;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -14,10 +15,12 @@ import java.util.ArrayList;
 public class Page extends NodeComposite implements Serializable {
 
     ArrayList<Slot> selectedSlots;
+    private Rectangle lasso;
 
 	public Page(String name, RafNode parent) {
 		super(name, parent);
         selectedSlots=new ArrayList<Slot>();
+        lasso=null;
 	}
 	
 	@Override
@@ -66,6 +69,15 @@ public class Page extends NodeComposite implements Serializable {
     }
     public void removeSelectedSlot(Slot slot){
         this.selectedSlots.remove(slot);
+        this.notifyListeners(ActionEnum.ACTION_SELECTED);
+    }
+
+    public Rectangle getLasso() {
+        return lasso;
+    }
+
+    public void setLasso(Rectangle lasso) {
+        this.lasso = lasso;
         this.notifyListeners(ActionEnum.ACTION_SELECTED);
     }
 }
