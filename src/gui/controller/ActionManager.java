@@ -21,8 +21,6 @@ public class ActionManager {
 	private ResizeAction resizeAction;
 	private MoveSlotAction moveSlotAction;
 	private RotateAction rotateAction;
-	private SaveAction saveAction;
-
 
 	private ActionManager() {
 		init();
@@ -41,7 +39,6 @@ public class ActionManager {
 		resizeAction=new ResizeAction();
 		moveSlotAction=new MoveSlotAction();
 		rotateAction=new RotateAction();
-		saveAction = new SaveAction();
 	}
 
 	public AddNodeAction getAddNodeAction() {
@@ -91,7 +88,5 @@ public class ActionManager {
 
 	}
 
-	public SaveAction getSaveAction() {
-		return saveAction;
-	}
+
 }

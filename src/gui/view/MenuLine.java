@@ -23,6 +23,7 @@ public class MenuLine extends JMenuBar {
 		JMenu edit=new JMenu("Edit");
 		edit.add(MainView.getInstance().getActionManager().getAddNodeAction());
 		edit.add(MainView.getInstance().getActionManager().getDeleteNodeAction());
+		edit.add(MainView.getInstance().getActionManager().getShareDocumentAction());
 
 		help.add(ActionManager.getInstance().getAboutAction());
 

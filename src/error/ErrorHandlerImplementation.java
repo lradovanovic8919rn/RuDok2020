@@ -28,6 +28,12 @@ public class ErrorHandlerImplementation implements ErrorHandler {
 			notifyListeners(new ErrorClass(7,"Error!","You must be in right document!"));
 		if(type==ErrorEnum.ERROR_NOSELECTEDNODE)
 			notifyListeners(new ErrorClass(8,"Error!","You must select shape first!"));
+		if(type==ErrorEnum.ERROR_NOACTIVEPAGE)
+			notifyListeners(new ErrorClass(9,"Error!","You have to create page first!"));
+		if(type==ErrorEnum.ERROR_NOTHINGTOSAVE)
+			notifyListeners(new ErrorClass(10,"Error!","There is nothing to save!"));
+		if(type==ErrorEnum.ERROR_NOSLOTCHOSEN)
+			notifyListeners(new ErrorClass(11,"Error!","You have to select slot!"));
 	}
 
 	@Override

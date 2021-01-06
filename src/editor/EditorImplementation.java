@@ -2,6 +2,7 @@ package editor;
 
 import app.Main;
 import core.Editor;
+import error.ErrorEnum;
 import gui.rightPanelView.slotContent.ImageContent;
 import gui.rightPanelView.slotContent.TextContent;
 import gui.view.MainView;
@@ -109,6 +110,9 @@ public class EditorImplementation implements Editor {
                     newimg.setImage(file);
                     slot.setSlotContent(newimg);
                     jDialog.setVisible(false);
+                }else{
+                    Main.getInstance().getErrorHandler().generateError(ErrorEnum.ERROR_NOTHINGTOSAVE);
+
                 }
             }
         });
@@ -167,11 +171,17 @@ public class EditorImplementation implements Editor {
         save.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(textArea.getText().length()>110) {
                     TextContent newt = new TextContent();
                     newt.setType(EditorEnum.TEXT);
                     newt.setText(textArea.getText());
                     slot.setSlotContent(newt);
                     jDialog.setVisible(false);
+                }else{
+                    Main.getInstance().getErrorHandler().generateError(ErrorEnum.ERROR_NOTHINGTOSAVE);
+
+
+                }
 
             }
         });
