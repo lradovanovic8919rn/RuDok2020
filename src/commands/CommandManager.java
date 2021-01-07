@@ -1,4 +1,4 @@
-package gui.commands;
+package commands;
 
 import gui.controller.ActionManager;
 import gui.view.MainView;

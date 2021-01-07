@@ -1,5 +1,6 @@
 package gui.rightPanelView;
 
+import commands.CommandManager;
 import gui.controller.ActionEnum;
 import gui.rightPanelView.graphics.painters.SlotPainter;
 import gui.rightPanelView.state.StateManager;
@@ -26,6 +27,7 @@ public class PageView extends  JPanel implements IListener {
     private ArrayList<SlotPainter> slotPainters;
     private StateManager stateManager;
     private ArrayList<SlotPainter> selecetedSlotPainters;
+    private CommandManager commandManager;
 
 
     public PageView(Page page) {
@@ -48,6 +50,7 @@ public class PageView extends  JPanel implements IListener {
         this.addMouseMotionListener(viewController);
         stateManager=new StateManager(this);
         selecetedSlotPainters=new ArrayList<SlotPainter>();
+        commandManager = new CommandManager();
 
 
 
@@ -70,6 +73,8 @@ public class PageView extends  JPanel implements IListener {
         }else if(event==ActionEnum.ACTION_SELECTED){
             repaint();
         }else if(event==ActionEnum.ACTION_SLOTCHANGED){
+            repaint();
+        }else{
             repaint();
         }
 
@@ -179,6 +184,10 @@ public class PageView extends  JPanel implements IListener {
     private void removeSlot(){
        repaint();
 
+    }
+
+    public CommandManager getCommandManager() {
+        return commandManager;
     }
 
     @Override

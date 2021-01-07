@@ -1,6 +1,7 @@
 package gui.rightPanelView.state;
 
 import app.Main;
+import commands.AddCommand;
 import gui.rightPanelView.DocumentView;
 import gui.rightPanelView.PageView;
 import gui.rightPanelView.ProjectView;
@@ -27,11 +28,11 @@ public class RectangleState extends State{
         Point position = e.getPoint();
         if (e.getButton()== MouseEvent.BUTTON1){
             if (mediator.getElementAtPosition(position)==-1){
-            SlotFactory slotFactory=new RectangleFactory();
-            Slot slot=slotFactory.createSlot("Rectangle"+mediator.getSlotPainters().size(), SlotTypeEnum.R, mediator.getPage(), position);
-            SlotPainter painter=new RectanglePainter(slot);
-            mediator.getPage().addChild(slot);
-            mediator.getSlotPainters().add(painter);
+//                SlotFactory slotFactory=new RectangleFactory();
+//            Slot slot=slotFactory.createSlot("Rectangle"+mediator.getSlotPainters().size(), SlotTypeEnum.R, mediator.getPage(), position);
+//          SlotPainter painter=new RectanglePainter(slot);\
+                mediator.getCommandManager().addCommand(new AddCommand(mediator ,position,SlotTypeEnum.R));
+                //mediator.getSlotPainters().add(painter);
 
 
           /*  for (DocumentView d:projectView.getDocumentViews()){

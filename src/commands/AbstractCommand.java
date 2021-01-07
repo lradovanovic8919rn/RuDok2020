@@ -1,4 +1,4 @@
-package gui.commands;
+package commands;
 
 public abstract class AbstractCommand {
 
