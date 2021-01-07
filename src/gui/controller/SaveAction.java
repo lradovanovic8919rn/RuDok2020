@@ -16,7 +16,7 @@ public class SaveAction extends AbstractActionClass{
     public SaveAction() {
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(
                 KeyEvent.VK_F1, ActionEvent.ALT_MASK));
-        putValue(SMALL_ICON, loadIcon("images/add.png"));
+        putValue(SMALL_ICON, loadIcon("images/save.png"));
         putValue(NAME, "Save");
         putValue(SHORT_DESCRIPTION, "Save");
     }

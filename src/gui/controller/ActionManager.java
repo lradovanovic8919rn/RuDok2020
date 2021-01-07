@@ -21,6 +21,13 @@ public class ActionManager {
 	private ResizeAction resizeAction;
 	private MoveSlotAction moveSlotAction;
 	private RotateAction rotateAction;
+	private SaveAction saveAction;
+	private LassoAction lassoAction;
+	private ContentAction contentAction;
+	private UndoAction undoAction;
+	private RedoAction redoAction;
+	private OpenAction openAction;
+
 
 	private ActionManager() {
 		init();
@@ -39,6 +46,19 @@ public class ActionManager {
 		resizeAction=new ResizeAction();
 		moveSlotAction=new MoveSlotAction();
 		rotateAction=new RotateAction();
+		saveAction = new SaveAction();
+		openAction = new OpenAction();
+		lassoAction = new LassoAction();
+		contentAction = new ContentAction();
+
+
+		undoAction = new UndoAction();
+		undoAction.setEnabled(false);
+
+		redoAction = new RedoAction();
+		redoAction.setEnabled(false);
+
+
 	}
 
 	public AddNodeAction getAddNodeAction() {
@@ -88,5 +108,28 @@ public class ActionManager {
 
 	}
 
+	public SaveAction getSaveAction() {
+		return saveAction;
+	}
 
+
+	public LassoAction getLassoAction() {
+		return lassoAction;
+	}
+
+	public ContentAction getContentAction() {
+		return contentAction;
+	}
+
+	public UndoAction getUndoAction() {
+		return undoAction;
+	}
+
+	public RedoAction getRedoAction() {
+		return redoAction;
+	}
+
+	public OpenAction getOpenAction() {
+		return openAction;
+	}
 }
